@@ -1,11 +1,12 @@
-# _______  _______  ______  _______  __        
-#|       ||   _   ||   __ \|     __||  |.-----.
-#|   -  _||       ||      <|__     ||  ||  _  |
-#|_______||___|___||___|__||_______||__||   __|
-#                                       |__|   
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
 # SpectrumOS - Embrace the Chromatic Symphony!
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
+# 
 #
 import json
 import os
@@ -39,8 +40,22 @@ file = open(home + '/.config/qtile/variables', 'r')
 variables=file.readlines()
 
 ## Get update if available
-file = open(home + '/QARSlp/dotfiles/.config/qtile/update', 'r')
+file = open(home + '/SpectrumOS/dotfiles/.config/qtile/update', 'r')
 update_available=file.readlines()
+
+## Read picom.conf for blur in the bar
+file = open(home + '/.config/picom/picom.conf', 'r')
+bar_blur=file.readlines()
+current_blur = bar_blur[267].strip()
+
+if current_blur == '"QTILE_INTERNAL:32c = 0"':
+  new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
+  bar_blur[267] = new_blur
+  blur_icon=''
+else:
+  new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
+  bar_blur[267] = new_blur
+  blur_icon=''
 
 # SpectrumOS version
 remote_version=float(update_available[0].strip())
@@ -264,6 +279,13 @@ def i3lock_colors(qtile):
     '--time-str="%H:%M:%S"',   
     '--date-str="%A, %Y-%m-%d"',
   ])
+
+# Toggle Bar Blur
+def toggle_bar_blur(qtile):
+  with open(home + '/.config/picom/picom.conf', 'w') as file:
+    file.writelines(bar_blur)
+  
+  qtile.reload_config()
 
 # Transparent for bars and widgets
 transparent=color[0] + "00"
@@ -573,9 +595,10 @@ def control_panel(qtile):
     '     Dark/Light Theme (❖ + D)',
     '     Bar Position (❖ +  + W)',
     '     Change Bar Theme (⎇ + W)',
+    '    %s Toggle Bar Blur' %blur_icon,
     '    %s Toggle Groups' %str(variables[9].strip()),
     '     Change Groups Icons',
-    ' Tools',#10
+    ' Tools',#11
     '     Notes (❖ + N)',
     '     Apps as Sudo (⎇ + )',
     '     Calculator (❖ + C)',
@@ -585,7 +608,7 @@ def control_panel(qtile):
     '     Monitor Layout (❖ +  + X)',
     '     Bluetooth Manager (❖ + T)',
     '     Screen Recorder ( +  + R)',
-    ' Miscelaneous',#19
+    ' Miscelaneous',#20
     '     Screen Draw (❖ +  + P)',
     '     Pick Color (❖ + P)',
     '     View Shortcuts (❖ + S)',
@@ -609,40 +632,42 @@ def control_panel(qtile):
     elif index == 6:
       qtile.function(bar_pos)
     elif index == 7:
-      qtile.function(change_theme) 
+      qtile.function(change_theme)
     elif index == 8:
-      qtile.function(show_groups)
+      qtile.function(toggle_bar_blur) 
     elif index == 9:
+      qtile.function(show_groups)
+    elif index == 10:
       qtile.function(group_icon)
-    elif index == 11:
-      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 12:
-      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
+      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 13:
-      subprocess.run(home + '/.local/bin/calculator')
+      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
     elif index == 14:
-      qtile.function(network_widget)
+      subprocess.run(home + '/.local/bin/calculator')
     elif index == 15:
-      qtile.function(screenshot)
+      qtile.function(network_widget)
     elif index == 16:
-      qtile.function(nightLight_widget)
+      qtile.function(screenshot)
     elif index == 17:
-      subprocess.run(home + '/.local/bin/change_display')
+      qtile.function(nightLight_widget)
     elif index == 18:
-      subprocess.run(home + '/.local/bin/bluet')
+      subprocess.run(home + '/.local/bin/change_display')
     elif index == 19:
+      subprocess.run(home + '/.local/bin/bluet')
+    elif index == 20:
       subprocess.run(home + '/.local/bin/recorder')
-    elif index == 21:
-      qtile.function(draw_widget)
     elif index == 22:
-      qtile.function(fargewidget)
+      qtile.function(draw_widget)
     elif index == 23:
-      qtile.function(shortcuts)
+      qtile.function(fargewidget)
     elif index == 24:
-      qtile.function(emojis)
+      qtile.function(shortcuts)
     elif index == 25:
-      qtile.function(session_widget)
+      qtile.function(emojis)
     elif index == 26:
+      qtile.function(session_widget)
+    elif index == 27:
       subprocess.run(home + '/.local/bin/updater')
     
 
