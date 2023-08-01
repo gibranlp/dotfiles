@@ -138,7 +138,7 @@ def init_widgets_list():
               background=transparent,
             ),
             widget.Prompt(
-              decorations=[RectDecoration(colour=secondary_color[0], radius=7, filled=True)],
+              decorations=[RectDecoration(colour=color[0], radius=7, filled=True)],
               prompt=prompt,
               foreground=color[4],
               cursor_color=color[4],

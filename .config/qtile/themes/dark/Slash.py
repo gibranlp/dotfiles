@@ -98,7 +98,7 @@ def init_widgets_list():
         ),
         widget.Spacer(
           length=bar.STRETCH,
-          background=color[0],
+          background=transparent,
           **powerline,
         ),
         widget.TextBox(
@@ -126,6 +126,11 @@ def init_widgets_list():
           foreground=color[0],
           mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
           **powerline,            
+        ),
+        widget.Spacer(
+          length=bar.STRETCH,
+          background=transparent,
+          **powerline,
         ),
         widget.Pomodoro(
           background=color[1],
