@@ -271,22 +271,13 @@ def init_widgets_list():
           background=color[7]+"22",
         ),
         widget.WidgetBox(
-              decorations=[RectDecoration(colour=color[0], radius=[9,0,0,9], filled=True)],
+              decorations=[RectDecoration(colour=color[0], radius=5, filled=True)],
               background=color[7]+"22",
               text_closed='',
               text_open='',
               foreground=color[7],
               widgets=[
-                  widget.Systray(
-                    decorations=[RectDecoration(colour=color[0], radius=0, filled=True)],
-                    background=color[0],
-                    padding=5,
-                  ),
-                  widget.TextBox(
-                    decorations=[RectDecoration(colour=color[0], radius=[0,9,9,0], filled=True)],
-                    background=color[7]+"22",
-                    text=" ",
-                  ),
+                  widget.Systray(),
                   ]
             ),
         widget.Spacer(
