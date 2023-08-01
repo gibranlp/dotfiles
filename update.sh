@@ -36,7 +36,7 @@ function update(){
   # cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/wifi2 ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
+  #cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calculator ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calendar ~/.local/bin/

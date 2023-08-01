@@ -25,9 +25,6 @@ from qtile_extras.widget.decorations import (BorderDecoration,PowerLineDecoratio
 from rofi import Rofi
 
 #### Variables ####
-
-
-
 # Modifiers
 mod = "mod4"
 alt = "mod1"
@@ -46,15 +43,15 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[267].strip()
+current_blur = bar_blur[270].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[267] = new_blur
+  bar_blur[270] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[267] = new_blur
+  bar_blur[270] = new_blur
   blur_icon=''
 
 # SpectrumOS version

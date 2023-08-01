@@ -12,7 +12,7 @@
 unclutter -idle 1 &
 rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
-picom & 
+picom -b & 
 cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
 cp ~/.cache/wal/config ~/.config/cava/config &
 cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/flameshot.ini &

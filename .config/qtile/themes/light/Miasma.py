@@ -107,11 +107,11 @@ def init_widgets_list():
               text="▓▒░",
             ),
             widget.Prompt(
-              background=color[0]+"33",
+              background=color[4],
               prompt=prompt,
-              foreground=color[4],
-              cursor_color=color[4],
-              visual_bell_color=[4],
+              foreground=color[0],
+              cursor_color=color[0],
+              visual_bell_color=[0],
               visual_bell_time=0.2,
             ),
             widget.Spacer(
