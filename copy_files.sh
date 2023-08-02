@@ -5,7 +5,7 @@ function copy_dotfiles(){
   mkdir -p ~/.config/wal/templates
   mkdir -p ~/.config/dunst
   cp ~/QARSlp/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
-  cp ~/QARSlp/dotfiles/.config/rofi/QARSlp.rasi ~/.config/wal/templates
+  cp ~/QARSlp/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   mkdir -p ~/.config/cava
   cp ~/QARSlp/dotfiles/.config/cava/config ~/.config/wal/templates
   mkdir -p  ~/.fonts

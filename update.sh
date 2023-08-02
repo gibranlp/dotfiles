@@ -48,8 +48,9 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
   chmod +x ~/.local/bin/*
   # cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-  
-  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+
+  cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
+  #cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates

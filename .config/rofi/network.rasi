@@ -1,8 +1,5 @@
 /*****----- Global Properties -----*****/
-@import "~/.cache/wal/QARSlp.rasi" 
-* {
-    font:                        "Fira Code Medium 13";
-}
+@import "~/.cache/wal/SpectrumOS.rasi" 
 
 /*****----- Main Window -----*****/
 window {

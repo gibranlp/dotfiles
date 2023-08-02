@@ -63,15 +63,14 @@ if version == remote_version:
 else:
   update_spectrumos= f' Update Available {version} -> {remote_version}',
 
-
 ## Fonts
-main_font = "Fira Code Medium" # Font in use for the entire system
+main_font = str(variables[11].strip()) # Font in use for the entire system
 awesome_font = "Font Awesome 6 Pro" # Font for the icons
-font_size=17 
+font_size=int(variables[12].strip()) # Font Size
 bar_size=30
 
 # Terminal 
-terminal = "alacritty" # Terminal in use
+terminal = "alacritty"
 
 
 # Format of the prompt
@@ -124,7 +123,6 @@ if xres >= "3840" and yres >= "2160": #4k
   single_layout_margin=10  
   layout_border_width=5
   single_border_width=5
-  font_size=20
   bar_size=30
   widget_width=400
   max_ratio=0.85
@@ -138,7 +136,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
-  font_size=15
+  font_size=font_size-5
   bar_size=25
   widget_width=150
   max_ratio=0.85
@@ -152,7 +150,7 @@ else: # 1366 x 768 Macbook air 11"
   single_layout_margin=2  
   layout_border_width=2
   single_border_width=2
-  font_size=13
+  font_size=font-size-7
   bar_size=20
   widget_width=100
   max_ratio=0.60
@@ -590,6 +588,7 @@ def control_panel(qtile):
     ' Theme Options',#3
     '     Set Color Scheme (⎇ +  + W)',
     '     Dark/Light Theme (❖ + D)',
+    ' Bar Options',#6
     '     Bar Position (❖ +  + W)',
     '     Change Bar Theme (⎇ + W)',
     '    %s Toggle Bar Blur' %blur_icon,
@@ -605,7 +604,7 @@ def control_panel(qtile):
     '     Monitor Layout (❖ +  + X)',
     '     Bluetooth Manager (❖ + T)',
     '     Screen Recorder ( +  + R)',
-    ' Miscelaneous',#20
+    ' Miscelaneous',#21
     '     Screen Draw (❖ +  + P)',
     '     Pick Color (❖ + P)',
     '     View Shortcuts (❖ + S)',
@@ -626,45 +625,45 @@ def control_panel(qtile):
       qtile.function(set_default_backend)
     elif index == 5:
       qtile.function(dark_white)
-    elif index == 6:
-      qtile.function(bar_pos)
     elif index == 7:
-      qtile.function(change_theme)
+      qtile.function(bar_pos)
     elif index == 8:
-      qtile.function(toggle_bar_blur) 
+      qtile.function(change_theme)
     elif index == 9:
-      qtile.function(show_groups)
+      qtile.function(toggle_bar_blur) 
     elif index == 10:
+      qtile.function(show_groups)
+    elif index == 11:
       qtile.function(group_icon)
-    elif index == 12:
-      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 13:
-      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
+      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 14:
-      subprocess.run(home + '/.local/bin/calculator')
+      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
     elif index == 15:
-      qtile.function(network_widget)
+      subprocess.run(home + '/.local/bin/calculator')
     elif index == 16:
-      qtile.function(screenshot)
+      qtile.function(network_widget)
     elif index == 17:
-      qtile.function(nightLight_widget)
+      qtile.function(screenshot)
     elif index == 18:
-      subprocess.run(home + '/.local/bin/change_display')
+      qtile.function(nightLight_widget)
     elif index == 19:
-      subprocess.run(home + '/.local/bin/bluet')
+      subprocess.run(home + '/.local/bin/change_display')
     elif index == 20:
-      subprocess.run(home + '/.local/bin/recorder')
+      subprocess.run(home + '/.local/bin/bluet')
     elif index == 22:
-      qtile.function(draw_widget)
+      subprocess.run(home + '/.local/bin/recorder')
     elif index == 23:
-      qtile.function(fargewidget)
+      qtile.function(draw_widget)
     elif index == 24:
-      qtile.function(shortcuts)
+      qtile.function(fargewidget)
     elif index == 25:
-      qtile.function(emojis)
+      qtile.function(shortcuts)
     elif index == 26:
-      qtile.function(session_widget)
+      qtile.function(emojis)
     elif index == 27:
+      qtile.function(session_widget)
+    elif index == 28:
       subprocess.run(home + '/.local/bin/updater')
     
 

@@ -16,7 +16,7 @@ picom -b &
 cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
 cp ~/.cache/wal/config ~/.config/cava/config &
 cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/flameshot.ini &
-sudo cp ~/.cache/wal/QARSlp.rasi /root/.cache/wal/
+sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/
 pkill -USR1 cava &
 dunst &
 wal-telegram &

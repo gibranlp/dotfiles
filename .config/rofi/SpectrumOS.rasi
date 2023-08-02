@@ -35,4 +35,8 @@
     background-alt: {background};
     foreground: {foreground};
     border-color: @background;
+
+    font:
+"Fira Code Medium 14"
+;
 }}
