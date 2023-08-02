@@ -43,15 +43,15 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[270].strip()
+current_blur = bar_blur[268].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[270] = new_blur
+  bar_blur[268] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[270] = new_blur
+  bar_blur[268] = new_blur
   blur_icon=''
 
 ## Get Terminal Fontsize
@@ -165,7 +165,7 @@ else: # 1366 x 768 Macbook air 11"
   bar_margin=[0,0,0,0]
 
 # Set the right Terminal Font size
-term_size[106] = "  size: " + str(terminal_font_size)
+term_size[106] = "  size: " + str(terminal_font_size) + "\n"
 with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 

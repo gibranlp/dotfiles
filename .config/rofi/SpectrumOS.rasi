@@ -1,40 +1,40 @@
-* {
-    color1: #C36661;
-    color2: #C7895E;
-    color3: #DA8658;
-    color4: #CB9458;
-    color5: #E69552;
-    color6: #F3A548;
-    color7: #a6aabb;
-    color8: #747682;
-    active: #C7895E;
+* {{
+    color1: {color1};
+    color2: {color2};
+    color3: {color3};
+    color4: {color4};
+    color5: {color5};
+    color6: {color6};
+    color7: {color7};
+    color8: {color8};
+    active: {color2};
     urgent: #ffcc00;
-    active-background: #C7895E;
-    active-foreground: #F3A548;
+    active-background: {color2};
+    active-foreground: {color6};
     normal-background: @background;
     normal-foreground: @foreground;
-    urgent-background: #C36661;
+    urgent-background: {color1};
     urgent-foreground: @foreground;
 
-    alternate-active-background: #CB9458;
-    alternate-active-foreground: #E69552;
+    alternate-active-background: {color4};
+    alternate-active-foreground: {color5};
     alternate-normal-background: @background;
     alternate-normal-foreground: @foreground;
     alternate-urgent-background: @background;
     alternate-urgent-foreground: @foreground;
 
-    selected-active-background: #C36661;
+    selected-active-background: {color1};
     selected-active-foreground: @foreground;
-    selected-normal-background: #C7895E;
+    selected-normal-background: {color2};
     selected-normal-foreground: @foreground;
-    selected-urgent-background: #DA8658;
+    selected-urgent-background: {color3};
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #20212a;
-    background-alt: #20212a;
-    foreground: #a6aabb;
+    background: {background};
+    background-alt: {background};
+    foreground: {foreground};
     border-color: @background;
-
-    font:
-"Fira Code Medium 14";}
+    
+    font:"Fira Code Medium 14";
+}}

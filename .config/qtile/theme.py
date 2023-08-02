@@ -106,14 +106,6 @@ def init_widgets_list():
               fontsize=font_size+7,
               text="▓▒░",
             ),
-            widget.Prompt(
-              background=color[4],
-              prompt=prompt,
-              foreground=color[0],
-              cursor_color=color[0],
-              visual_bell_color=[0],
-              visual_bell_time=0.2,
-            ),
             widget.Spacer(
               length=bar.STRETCH,
               background=transparent,
@@ -133,7 +125,7 @@ def init_widgets_list():
               hide_unused=hide_unused_groups,
               borderwidth=0,
               active=secondary_color[0], #Program opened in that group
-              inactive=color[6], # Empty Group
+              inactive=color[8], # Empty Group
               rounded=False,
               highlight_method="text",
               this_current_screen_border=color[0],
@@ -142,6 +134,14 @@ def init_widgets_list():
               block_highlight_text_color=color[0],    
               urgent_border="fc0000",
               #visible_groups=['Escape','1','2','3','4'],
+            ),
+            widget.Prompt(
+              background=secondary_color[2],
+              prompt=prompt,
+              foreground=color[0],
+              cursor_color=color[0],
+              visual_bell_color=[0],
+              visual_bell_time=0.2,
             ),
             widget.TextBox(
               foreground=secondary_color[2],

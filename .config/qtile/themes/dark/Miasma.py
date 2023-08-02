@@ -133,7 +133,7 @@ def init_widgets_list():
               hide_unused=hide_unused_groups,
               borderwidth=0,
               active=secondary_color[0], #Program opened in that group
-              inactive=color[6], # Empty Group
+              inactive=color[8], # Empty Group
               rounded=False,
               highlight_method="text",
               this_current_screen_border=color[0],
