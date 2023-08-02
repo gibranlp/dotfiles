@@ -16,4 +16,5 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Added a toggle in the control panel to get blur in the bar
 - Updated colors in Dunst
 - Improved the Nice theme
-- Imporved the Blur in Picom and the transparencies
+- Improved the Blur in Picom and the transparencies
+- 

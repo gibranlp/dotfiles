@@ -54,6 +54,11 @@ else:
   bar_blur[270] = new_blur
   blur_icon=''
 
+## Get Terminal Fontsize
+file = open(home + '/.config/alacritty/alacritty.yml', 'r')
+term_size=file.readlines()
+terminal_font_size = term_size[106].strip()
+
 # SpectrumOS version
 remote_version=float(update_available[0].strip())
 version=float(variables[0].strip())
@@ -71,7 +76,6 @@ bar_size=30
 
 # Terminal 
 terminal = "alacritty"
-
 
 # Format of the prompt
 prompt = " ".format(os.environ["USER"], socket.gethostname()) 
@@ -127,6 +131,7 @@ if xres >= "3840" and yres >= "2160": #4k
   widget_width=400
   max_ratio=0.85
   ratio=0.70
+  terminal_font_size=10
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
@@ -141,6 +146,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   widget_width=150
   max_ratio=0.85
   ratio=0.70
+  terminal_font_size=8
   if bar_position == "bottom":
     bar_margin=[0,10,5,10]
   else:
@@ -155,7 +161,14 @@ else: # 1366 x 768 Macbook air 11"
   widget_width=100
   max_ratio=0.60
   ratio=0.50
+  terminal_font_size=6
   bar_margin=[0,0,0,0]
+
+term_size[106] = "  size: " + str(terminal_font_size)
+
+# Set the right Terminal Font size
+with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
+    file.writelines(term_size)
 
 # Make font smaller for cetain groups icons
 if int(variables[10]) in [7, 8, 9,10,11,12]:
