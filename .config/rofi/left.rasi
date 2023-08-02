@@ -10,8 +10,8 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       500px;
-    height:                      99.5%;
-    x-offset:                    225px;
+    height:                      99.9%;
+    x-offset:                    250px;
     y-offset:                    0px;
     border-radius:               0px 10px 10px 0px;
 

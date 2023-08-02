@@ -141,7 +141,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
-  font_size=font_size-5
+  font_size=font_size-4
   bar_size=25
   widget_width=150
   max_ratio=0.85
@@ -164,9 +164,8 @@ else: # 1366 x 768 Macbook air 11"
   terminal_font_size=6
   bar_margin=[0,0,0,0]
 
-term_size[106] = "  size: " + str(terminal_font_size)
-
 # Set the right Terminal Font size
+term_size[106] = "  size: " + str(terminal_font_size)
 with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 
