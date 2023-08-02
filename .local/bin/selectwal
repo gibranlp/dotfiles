@@ -23,14 +23,14 @@ set_wall(){
 }
 
 get_wall(){
-  rofi -show file-browser-extended -theme ~/.config/rofi/sel_wal.rasi -file-browser-dir ~/Pictures/Wallpapers -file-browser-stdout
+  rofi -show file-browser-extended -theme ~/.config/rofi/sel_wal.rasi -file-browser-dir ~/Pictures/Wallpapers -file-browser-disable-status -file-browser-stdout
 }
 
 WALLPAPER=$(get_wall)
 
 if [ -z "$WALLPAPER" ]
 then
-      notify-send -a ' QARSlp' " Wallpaper Not Selected" 
+      notify-send -a ' QARSlp' " No Wall Selected!" 
 else
       set_wall
 fi

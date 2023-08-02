@@ -151,7 +151,7 @@ elif xres == "1920" and yres == "1080": #FullHD
     bar_margin=[0,10,5,10]
   else:
     bar_margin=[5,10,0,10]
-else: # 1366 x 768 Macbook air 11"
+elif xres == "1366" and yres == "768": # 1366 x 768 Macbook air 11"
   layout_margin=2
   single_layout_margin=2  
   layout_border_width=2
@@ -179,7 +179,6 @@ else:
 rofi_right = Rofi(rofi_args=['-theme', '~/.config/rofi/right.rasi'])
 rofi_network= Rofi(rofi_args=['-theme', '~/.config/rofi/network.rasi'])
 rofi_left= Rofi(rofi_args=['-theme', '~/.config/rofi/left.rasi'])
-rofi_wallpaper=Rofi(rofi_args=(['rofi', '-show file-browser-extended', '-theme', '~/.config/rofi/sel_wal.rasi', '-file-browser-dir', '~/Pictures/Wallpapers', '-file-browser-stdout']))
 
 ### Weather
 w_appkey = str(variables[3].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
@@ -590,6 +589,7 @@ def screenshot(qtile):
       subprocess.run("scrot -u 'window_screenshot.png' -e 'mv $f ~/Pictures/ #; feh -F ~/Pictures/$f' && notify-send -a 'flameshot' 'Window Picture Taken!'",shell=True)
     else:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 5000",shell=True)
+
 
 # Control Panel Widget
 def control_panel(qtile):
