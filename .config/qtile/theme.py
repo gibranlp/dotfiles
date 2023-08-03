@@ -159,6 +159,7 @@ def init_widgets_list():
               other_curren_screen_border=color[1],
               block_highlight_text_color=color[1],    
               urgent_border="fc0000",
+              decorations=[BorderDecoration(colour=color[1], border_width=2)],
               #visible_groups=['Escape','1','2','3','4'],
             ),
             widget.TextBox(
