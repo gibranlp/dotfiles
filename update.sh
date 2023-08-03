@@ -31,6 +31,7 @@ done
 
 function update(){
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
+  
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   # cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
@@ -41,6 +42,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calculator ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calendar ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/change_display ~/.local/bin/
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/todo ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/autostart ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/bluet ~/.local/bin/
@@ -52,6 +54,7 @@ function update(){
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   #cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
+  cp ~/SpectrumOS/dotfiles/.todo ~/notable/
   cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
   # cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates

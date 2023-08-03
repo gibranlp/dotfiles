@@ -606,7 +606,8 @@ def control_panel(qtile):
     '    %s Toggle Bar Blur' %blur_icon,
     '    %s Toggle Groups' %str(variables[9].strip()),
     '     Change Groups Icons',
-    ' Tools',#11
+    ' Tools',#12
+    '     Todo List (⎇ + L)',
     '     Notes (❖ + N)',
     '     Apps as Sudo (⎇ + )',
     '     Calculator (❖ + C)',
@@ -616,7 +617,7 @@ def control_panel(qtile):
     '     Monitor Layout (❖ +  + X)',
     '     Bluetooth Manager (❖ + T)',
     '     Screen Recorder ( +  + R)',
-    ' Miscelaneous',#21
+    ' Miscelaneous',#23
     '     Screen Draw (❖ +  + P)',
     '     Pick Color (❖ + P)',
     '     View Shortcuts (❖ + S)',
@@ -648,34 +649,36 @@ def control_panel(qtile):
     elif index == 11:
       qtile.function(group_icon)
     elif index == 13:
-      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
+      qtile.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')
     elif index == 14:
-      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
+      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 15:
-      subprocess.run(home + '/.local/bin/calculator')
+      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
     elif index == 16:
-      qtile.function(network_widget)
+      subprocess.run(home + '/.local/bin/calculator')
     elif index == 17:
-      qtile.function(screenshot)
+      qtile.function(network_widget)
     elif index == 18:
-      qtile.function(nightLight_widget)
+      qtile.function(screenshot)
     elif index == 19:
-      subprocess.run(home + '/.local/bin/change_display')
+      qtile.function(nightLight_widget)
     elif index == 20:
+      subprocess.run(home + '/.local/bin/change_display')
+    elif index == 21:
       subprocess.run(home + '/.local/bin/bluet')
-    elif index == 22:
-      subprocess.run(home + '/.local/bin/recorder')
     elif index == 23:
-      qtile.function(draw_widget)
+      subprocess.run(home + '/.local/bin/recorder')
     elif index == 24:
-      qtile.function(fargewidget)
+      qtile.function(draw_widget)
     elif index == 25:
-      qtile.function(shortcuts)
+      qtile.function(fargewidget)
     elif index == 26:
-      qtile.function(emojis)
+      qtile.function(shortcuts)
     elif index == 27:
-      qtile.function(session_widget)
+      qtile.function(emojis)
     elif index == 28:
+      qtile.function(session_widget)
+    elif index == 29:
       subprocess.run(home + '/.local/bin/updater')
     
 

@@ -28,6 +28,7 @@ keys = [
     Key([mod],"c",lazy.spawn(home + '/.local/bin/calculator')), # Calculator Widget
     Key([mod], "n", lazy.spawn(home + '/.local/bin/notesfi')), # Notes Widget
     Key([mod],"d",lazy.function(dark_white)), # Select Dark or Light Theme
+    Key([alt],"l",lazy.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')),# Todo Manager
     Key([mod, "shift"],"w",lazy.function(bar_pos)), # Set bar position
     Key([mod, "shift"],"o",lazy.function(nightLight_widget)), # Set night light
     Key([mod],"p",lazy.function(fargewidget)), # Color Picker Widget
