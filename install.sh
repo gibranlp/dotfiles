@@ -63,6 +63,7 @@ function base() {
     'ripgrep'
     'blueman'
     'htop'
+    'jp2a'
     'locate'
     'os-prober'
     'gnome-disk-utility'

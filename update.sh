@@ -53,7 +53,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
   chmod +x ~/.local/bin/*
   # cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-  cp ~/QARSlp/dotfiles/.config/cava/config ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
 
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   #cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf

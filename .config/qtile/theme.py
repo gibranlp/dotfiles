@@ -42,8 +42,22 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[4],
+              foreground=color[5],
               background=color[2],
+              padding=-1,
+              fontsize=font_size+3,
+              text="░",
+            ),
+            widget.Memory(
+              decorations=[BorderDecoration(colour=color[0], border_width=2)],
+              background=color[5],
+              foreground=color[0],
+              format='{MemUsed:.0f}{mm}',
+              measure_mem='M',
+            ),
+            widget.TextBox(
+              foreground=color[4],
+              background=color[5],
               padding=-1,
               fontsize=font_size+3,
               text="░",
