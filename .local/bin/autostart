@@ -9,7 +9,7 @@
 # MIT licence 
 # 
 #
-syncthing &
+xsettingsd &
 caffeine start  &
 transmission-daemon &
 kdeconnect-indicator &

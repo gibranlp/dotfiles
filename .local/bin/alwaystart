@@ -9,6 +9,7 @@
 # MIT licence 
 # 
 #
+xsettingsd &
 unclutter -idle 1 &
 rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  

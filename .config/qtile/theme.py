@@ -173,6 +173,18 @@ def init_widgets_list():
               length=bar.STRETCH,
               background=transparent,
             ),
+            widget.WidgetBox(
+              background=transparent,
+              text_closed='',
+              text_open='',
+              foreground=color[1],
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
+            ),
             widget.TextBox(
               foreground=secondary_color[5],
               background=transparent,

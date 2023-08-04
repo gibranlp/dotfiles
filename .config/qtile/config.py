@@ -1,4 +1,3 @@
-from keys import *
 # _____             _                 _____ _____ 
 #|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
 #|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
@@ -9,6 +8,7 @@ from keys import *
 # MIT licence 
 #
 ## 
+from keys import *
 
 ## Groups
 
@@ -41,7 +41,7 @@ elif int(variables[10]) == 11:
 elif int(variables[10]) == 12:
    group_labels=["","","","","","","","","","",] # Square Ring 
 
-group_layouts=["spiral", "spiral", "spiral", "spiral","spiral", "spiral", "spiral","monadwide", "spiral", "spiral"]
+group_layouts=["monadtall", "monadtall", "monadtall", "spiral","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
 for i in range(len(group_names)):
   groups.append(
     Group(

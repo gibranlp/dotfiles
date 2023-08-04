@@ -31,7 +31,10 @@ done
 
 function update(){
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
-  
+  mkdir -p ~/.config/neofetch/
+  cp -r ~/SpectrumOS/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
+  mkdir -p ~/.config/xsettingsd/
+  cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   # cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
@@ -50,6 +53,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
   chmod +x ~/.local/bin/*
   # cp ~/SpectrumOS/dotfiles/.shortcuts ~/
+  cp ~/QARSlp/dotfiles/.config/cava/config ~/.config/wal/templates
 
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   #cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf

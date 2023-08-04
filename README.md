@@ -18,3 +18,4 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Improved the Nice theme
 - Improved the Blur in Picom and the transparencies
 - Added Rofi TODO in Control Panel
+- Added Xsettingsd for all GTk configuration

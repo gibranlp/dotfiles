@@ -159,6 +159,7 @@ def init_widgets_list():
               other_curren_screen_border=color[1],
               block_highlight_text_color=color[1],    
               urgent_border="fc0000",
+              decorations=[BorderDecoration(colour=color[1], border_width=2)],
               #visible_groups=['Escape','1','2','3','4'],
             ),
             widget.TextBox(
@@ -171,6 +172,18 @@ def init_widgets_list():
             widget.Spacer(
               length=bar.STRETCH,
               background=transparent,
+            ),
+            widget.WidgetBox(
+              background=transparent,
+              text_closed='',
+              text_open='',
+              foreground=color[1],
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
             ),
             widget.TextBox(
               foreground=secondary_color[5],
