@@ -1,5 +1,5 @@
 #!/bin/bash
-TODO_FILE=~/notable/.todos
+TODO_FILE=~/notable/to-do
 
 if [[ ! -a "${TODO_FILE}" ]]; then
     touch "${TODO_FILE}"

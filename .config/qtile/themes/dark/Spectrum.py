@@ -123,8 +123,8 @@ def init_widgets_list():
             ),
             widget.WidgetBox(
               decorations=[RectDecoration(colour=color[5], radius=4, filled=True)],
-              text_closed='',
-              text_open='',
+              text_closed='',
+              text_open='',
               foreground=color[0],
               widgets=[
                   widget.Spacer(

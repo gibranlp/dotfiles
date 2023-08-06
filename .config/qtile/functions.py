@@ -498,7 +498,6 @@ def group_icon(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.reload_config()
-    subprocess.run(["notify-send","-a", " SpectrumOS", "Color Theme: ", " %s" %backend[index]])
 
 ## Select Dark or Light Theming
 def dark_white(qtile):

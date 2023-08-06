@@ -87,6 +87,19 @@ def init_widgets_list():
           scroll_step=1,  
           **powerline,  
         ),
+        widget.WidgetBox(
+              background=color[1],
+              text_closed='',
+              text_open='',
+              foreground=secondary_color[0],
+              **powerline,
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
+            ),
         widget.Prompt(
           background=color[3],
           prompt=prompt,

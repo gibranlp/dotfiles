@@ -42,7 +42,7 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[5],
+              foreground=color[3],
               background=color[2],
               padding=-1,
               fontsize=font_size+3,
@@ -50,14 +50,14 @@ def init_widgets_list():
             ),
             widget.Memory(
               decorations=[BorderDecoration(colour=color[0], border_width=2)],
-              background=color[5],
+              background=color[3],
               foreground=color[0],
               format='{MemUsed:.0f}{mm}',
               measure_mem='M',
             ),
             widget.TextBox(
               foreground=color[4],
-              background=color[5],
+              background=color[3],
               padding=-1,
               fontsize=font_size+3,
               text="░",
@@ -75,14 +75,14 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[6],
+              foreground=color[5],
               background=color[4],
               padding=-1,
               fontsize=font_size+3,
               text="░",
             ),
             widget.Mpris2(
-              background=color[6],
+              background=color[5],
               mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
               objname=None,
               foreground=color[0],
@@ -97,14 +97,14 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[3],
-              background=color[6],
+              foreground=color[6],
+              background=color[5],
               padding=-1,
               fontsize=font_size+3,
               text="░",
             ),
             widget.Pomodoro(
-              background=color[3],
+              background=color[6],
               foreground=color[0],
               color_active=color[0],
               color_break=color[0],
@@ -123,14 +123,14 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[4],
-              background=color[3],
+              foreground=secondary_color[1],
+              background=color[6],
               padding=-1,
               fontsize=font_size+3,
               text="░",
             ),
             widget.Prompt(
-              background=color[4],
+              background=secondary_color[1],
               prompt=prompt,
               foreground=color[0],
               cursor_color=color[0],
@@ -140,11 +140,23 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[4],
+              foreground=secondary_color[1],
               background=transparent,
               padding=-1,
               fontsize=font_size+0,
               text="▓▒░",
+            ),
+            widget.WidgetBox(
+              decorations=[RectDecoration(colour=secondary_color[0], radius=8, filled=True, padding_x=4, padding_y=8)],
+              text_closed='',
+              text_open='',
+              foreground=secondary_color[2],
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
             ),
             widget.Spacer(
               length=bar.STRETCH,
@@ -187,27 +199,15 @@ def init_widgets_list():
               length=bar.STRETCH,
               background=transparent,
             ),
-            widget.WidgetBox(
-              background=transparent,
-              text_closed='',
-              text_open='',
-              foreground=color[1],
-              widgets=[
-                  widget.Spacer(
-                  length=5,
-                  background=transparent,
-            ),
-                  widget.Systray(),]
-            ),
             widget.TextBox(
-              foreground=secondary_color[5],
+              foreground=secondary_color[4],
               background=transparent,
               padding=-1,
               fontsize=font_size+0,
               text="░▒▓",
             ),
             widget.OpenWeather(
-              background=secondary_color[5],
+              background=secondary_color[4],
               foreground=color[0],
               app_key=w_appkey,
               cityid=w_cityid,
@@ -242,7 +242,7 @@ def init_widgets_list():
             ),
             widget.TextBox(
               foreground=secondary_color[3],
-              background=secondary_color[5],
+              background=secondary_color[4],
               padding=-1,
               fontsize=font_size+3,
               text="░",
@@ -283,22 +283,22 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=secondary_color[4],
+              foreground=secondary_color[2],
               background=secondary_color[3],
               padding=-1,
               fontsize=font_size+3,
               text="░",
             ),
             widget.KeyboardLayout(
-              background=secondary_color[4],
+              background=secondary_color[2],
               configured_keyboards=['us intl', 'latam'],
               foreground=color[0],
               decorations=[BorderDecoration(colour=color[0], border_width=2)],
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[2],
-              background=secondary_color[4],
+              foreground=secondary_color[1],
+              background=secondary_color[2],
               padding=-1,
               fontsize=font_size+3,
               text="░",
@@ -307,7 +307,7 @@ def init_widgets_list():
               foreground=color[0],
               format="%a %d %H:%M",
               update_interval=1,
-              background=color[2],
+              background=secondary_color[1],
               mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},
               decorations=[BorderDecoration(colour=color[0], border_width=2)],
               padding=5,
@@ -325,7 +325,7 @@ def init_widgets_list():
             #   unknown_char='',
             #   ),
             widget.TextBox(
-              foreground=color[2],
+              foreground=secondary_color[1],
               background=transparent,
               padding=-1,
               fontsize=font_size,

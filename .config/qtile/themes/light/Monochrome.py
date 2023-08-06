@@ -8,14 +8,14 @@
 # MIT licence 
 #
 from functions import *
-
 # Fix for widget Width
 widget_width=widget_width+100
 
 # Theme
 ## Screens
 
-color_in_use=color[3]
+color_in_use=color[1]
+secondary_in_use=secondary_color[1]
 
 def init_widgets_list():
     widgets_list = [
@@ -37,13 +37,13 @@ def init_widgets_list():
         hide_unused=hide_unused_groups,
         fontsize=font_size,
         borderwidth=0,
-        active=color[7], #Program opened in that group
-        inactive=color[8], # Empty Group
+        active=secondary_in_use, #Program opened in that group
+        inactive=secondary_color[0], # Empty Group
         rounded=False,
         highlight_method="text",
-        this_current_screen_border=secondary_color[0],
+        this_current_screen_border=color_in_use,
         center_aligned = True,
-        other_curren_screen_border=secondary_color[0],
+        other_curren_screen_border=color_in_use,
         block_highlight_text_color=color_in_use,    
         urgent_border="fc0000",
         padding_y=10,
@@ -64,6 +64,18 @@ def init_widgets_list():
         scroll=True,
         scroll_repeat=True,
         scroll_delay=0.1,
+      ),
+      widget.Spacer(
+        length=5,
+        background=transparent,
+      ),
+      widget.WidgetBox(
+        decorations=[RectDecoration(colour=color[0], radius=5, filled=True)],
+        text_closed='',
+        text_open='',
+        foreground=color_in_use,
+        widgets=[
+            widget.Systray(),]
       ),
       widget.Spacer(
         length=5,
@@ -143,7 +155,7 @@ def init_widgets_list():
         interface=wifi,
         format='{percent:2.0%} ',
         disconnected_message='',
-        foreground=color[3],
+        foreground=color_in_use,
         mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
       ),
       widget.KeyboardLayout(
@@ -185,12 +197,12 @@ def init_widgets_list():
         background=transparent,
       ),
       widget.UPowerWidget(
-          border_charge_colour=color[6],
+          border_charge_colour=color_in_use,
           border_colour=secondary_color[0],
           border_critical_colour='#cc0000',
           fill_critical='#cc0000',
           fill_low='#FF5511',
-          fill_normal=color[6],
+          fill_normal=color_in_use,
           foreground=color_in_use,
           decorations=[RectDecoration(colour=color[0], radius=7, filled=True)],
           percentage_critical=0.2,

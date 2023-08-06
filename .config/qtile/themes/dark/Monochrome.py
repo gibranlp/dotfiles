@@ -71,8 +71,8 @@ def init_widgets_list():
       ),
       widget.WidgetBox(
         decorations=[RectDecoration(colour=color[0], radius=5, filled=True)],
-        text_closed='',
-        text_open='',
+        text_closed='',
+        text_open='',
         foreground=color_in_use,
         widgets=[
             widget.Systray(),]
