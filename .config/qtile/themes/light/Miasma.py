@@ -17,7 +17,7 @@ def init_widgets_list():
               foreground=color[1],
               background=transparent,
               padding=-1,
-              fontsize=font_size+0,
+              fontsize=font_size+5,
               text="░▒▓",
             ),
             widget.CurrentLayout(
@@ -31,7 +31,7 @@ def init_widgets_list():
               foreground=color[2],
               background=color[1],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.CPU(
@@ -45,7 +45,7 @@ def init_widgets_list():
               foreground=color[3],
               background=color[2],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.Memory(
@@ -59,7 +59,7 @@ def init_widgets_list():
               foreground=color[4],
               background=color[3],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.WindowName(
@@ -78,7 +78,7 @@ def init_widgets_list():
               foreground=color[5],
               background=color[4],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.Mpris2(
@@ -100,7 +100,7 @@ def init_widgets_list():
               foreground=color[6],
               background=color[5],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.Pomodoro(
@@ -126,7 +126,7 @@ def init_widgets_list():
               foreground=secondary_color[1],
               background=color[6],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.Prompt(
@@ -143,7 +143,7 @@ def init_widgets_list():
               foreground=secondary_color[1],
               background=transparent,
               padding=-1,
-              fontsize=font_size+0,
+              fontsize=font_size+5,
               text="▓▒░",
             ),
             widget.WidgetBox(
@@ -166,7 +166,7 @@ def init_widgets_list():
               foreground=color[0],
               background=transparent,
               padding=-1,
-              fontsize=font_size+0,
+              fontsize=font_size+5,
               text="░▒▓",
             ),
             widget.GroupBox(
@@ -192,7 +192,7 @@ def init_widgets_list():
               foreground=color[0],
               background=transparent,
               padding=-1,
-              fontsize=font_size+0,
+              fontsize=font_size+5,
               text="▓▒░",
             ),
             widget.Spacer(
@@ -203,7 +203,7 @@ def init_widgets_list():
               foreground=secondary_color[4],
               background=transparent,
               padding=-1,
-              fontsize=font_size+0,
+              fontsize=font_size+5,
               text="░▒▓",
             ),
             widget.OpenWeather(
@@ -244,7 +244,7 @@ def init_widgets_list():
               foreground=secondary_color[3],
               background=secondary_color[4],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             ## Network
@@ -286,7 +286,7 @@ def init_widgets_list():
               foreground=secondary_color[2],
               background=secondary_color[3],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.KeyboardLayout(
@@ -300,7 +300,7 @@ def init_widgets_list():
               foreground=secondary_color[1],
               background=secondary_color[2],
               padding=-1,
-              fontsize=font_size+3,
+              fontsize=font_size+5,
               text="░",
             ),
             widget.Clock(
@@ -328,8 +328,8 @@ def init_widgets_list():
               foreground=secondary_color[1],
               background=transparent,
               padding=-1,
-              fontsize=font_size,
               text="▓▒░",
+              fontsize=font_size+5,
             ),
             ]
     return widgets_list

@@ -44,6 +44,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calculator ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/calendar ~/.local/bin/
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/keys ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/change_display ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/todo ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/autostart ~/.local/bin/
@@ -54,6 +55,9 @@ function update(){
   chmod +x ~/.local/bin/*
   # cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
+
+
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/sys ~/.local/bin/
 
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   #cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf

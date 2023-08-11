@@ -48,6 +48,23 @@ def init_widgets_list():
           length=5,
           background=color[7]+"22",
         ),
+        widget.WidgetBox(
+              decorations=[RectDecoration(colour=color[0], radius=9, filled=True, padding_y=8, padding_x=4)],
+              background=color[7]+"22",
+              text_closed='',
+              text_open='',
+              foreground=color[3],
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
+            ),
+        widget.Spacer(
+          length=5,
+          background=color[7]+"22",
+        ),
         widget.Prompt(
           prompt=prompt,
           fontsize=font_size ,
@@ -270,16 +287,6 @@ def init_widgets_list():
           length=5,
           background=color[7]+"22",
         ),
-        widget.WidgetBox(
-              decorations=[RectDecoration(colour=color[0], radius=5, filled=True)],
-              background=color[7]+"22",
-              text_closed='',
-              text_open='',
-              foreground=color[7],
-              widgets=[
-                  widget.Systray(),
-                  ]
-            ),
         widget.Spacer(
           length=5,
           background=color[7]+"22",

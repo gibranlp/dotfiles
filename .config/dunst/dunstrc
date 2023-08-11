@@ -307,16 +307,16 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "{color7}66"
+    background = "{color5}66"
     foreground = "{color0}"
-    frame_color = "{color7}22"
+    frame_color = "{color5}22"
     timeout = 6
     format = " <b>%s</b>\n%b\n%p\n%n"
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = 
 
 [urgency_normal]
-    background = "{color2}DD"
+    background = "{color2}66"
     foreground = "{color0}"
     frame_color = "{color2}22"
     timeout = 6
