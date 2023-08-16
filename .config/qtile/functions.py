@@ -43,15 +43,15 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[268].strip()
+current_blur = bar_blur[270].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[268] = new_blur
+  bar_blur[270] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[268] = new_blur
+  bar_blur[270] = new_blur
   blur_icon=''
 
 ## Get Terminal Fontsize
@@ -97,7 +97,7 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum', 'Slash', 'Miasma', 'Nice',  'Minimal', 'Monochrome', 'no_bar']
+theme=['Spectrum', 'Slash', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
 
 # Pywal backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
@@ -589,6 +589,19 @@ def screenshot(qtile):
     else:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 5000",shell=True)
 
+## Support SpectrumOS
+def support_spectrumos(qtile):
+  options = [' Become a Patreon', ' Buy me a Coffee']
+  index, key = rofi_left.select(' Support SpectrumOS', options)
+  if key == -1 or index == 2:
+    rofi_left.close()
+  else:
+    if index == 0:
+      subprocess.run(["xdg-open", "https://www.patreon.com/user?u=48005915"])
+    else:
+      subprocess.run(["xdg-open", "https://www.buymeacoffee.com/gibranlp"])
+
+
 
 # Control Panel Widget
 def control_panel(qtile):
@@ -608,7 +621,7 @@ def control_panel(qtile):
     ' Tools',#12
     '     Todo List (⎇ + L)',
     '     Notes (❖ + N)',
-    '     Apps as Sudo (⎇ + )',
+    '     Apps as Sudo (⎇ +  + )',
     '     Calculator (❖ + C)',
     '     Network Manager (❖ + B)',
     '     Screenshot (prtnsc)',
@@ -621,8 +634,11 @@ def control_panel(qtile):
     '     Pick Color (❖ + P)',
     '     View Shortcuts (❖ + S)',
     '     Emojis ( +  + )',
+    '     System Cleaner',
     ' Session Menu (❖ + X)',
-    '%s' %update_spectrumos,
+    ' Support SpectrumOS',
+    '%s' %update_spectrumos
+    
     ]
     
   index, key = rofi_left.select('  Control Panel', options)
@@ -676,9 +692,14 @@ def control_panel(qtile):
     elif index == 27:
       qtile.function(emojis)
     elif index == 28:
-      qtile.function(session_widget)
+      qtile.spawn(home + '/.local/bin/cleansys')
     elif index == 29:
+      qtile.function(session_widget)
+    elif index == 30:
+      qtile.function(support_spectrumos)
+    elif index == 31:
       subprocess.run(home + '/.local/bin/updater')
+    
     
 
 widget_defaults = dict(

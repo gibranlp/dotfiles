@@ -13,9 +13,12 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Changed to Picom-ftlabs-git
 - Updated picom.conf to have animations and blur and shadows
 - Updated all the Headers for the files with SpectrumOS legend
-- Added a toggle in the control panel to get blur in the bar
+- Added a toggle bar blur in the control panel
 - Updated colors in Dunst
 - Improved the Nice theme
 - Improved the Blur in Picom and the transparencies
 - Added Rofi TODO in Control Panel
 - Added Xsettingsd for all GTk configuration
+- Added Global menu Bar Theme
+- Added System Cleaner option in Control Panel
+

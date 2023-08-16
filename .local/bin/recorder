@@ -27,7 +27,7 @@ killrecording() {
 	kill -15 "$recpid"
 	rm -f /tmp/recordingpid
 	pkill -RTMIN+9 "${STATUSBAR:-dwmblocks}"
-	notify-send -a ' QARSlp' "Recording Stopped"
+	notify-send -a ' SpectrumOS' "Recording Stopped"
 }
 
 #### Laptop Audio Devices
@@ -52,7 +52,7 @@ screencast() { \
 	-pix_fmt yuv420p \
 	"$DIR/Full-$(date '+%y%m%d-%H%M-%S').mp4" &
 	echo $! > /tmp/recordingpid &
-	notify-send -a ' QARSlp' "Video & Audio Recording Started" &
+	notify-send -a ' SpectrumOS' "Video & Audio Recording Started" &
 }
 
 video() { ffmpeg \
@@ -64,7 +64,7 @@ video() { ffmpeg \
 	-pix_fmt yuv420p \
 	"$DIR/video-$(date '+%y%m%d-%h%m-%s').mp4" &
 	echo $! > /tmp/recordingpid &
-	notify-send -a ' QARSlp' "Video Recording Started" &
+	notify-send -a ' SpectrumOS' "Video Recording Started" &
 }
 
 audio() { \
@@ -75,7 +75,7 @@ audio() { \
 	-acodec libmp3lame -ar 44100 -q:a 1 \
 	"$DIR/audio-$(date '+%y%m%d-%H%M-%S').mp3" &
 	echo $! > /tmp/recordingpid &
-	notify-send -a ' QARSlp' "Audio Recording Started" &
+	notify-send -a ' SpectrumOS' "Audio Recording Started" &
 }
 
 option1="  Audio & Video"
