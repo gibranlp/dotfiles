@@ -19,14 +19,16 @@ keys = [
     
     # SpectrumOS
     Key([alt], "r",lazy.function(change_wallpaper)), # Set random wallpaper
-    Key([mod, "shift"], "e",lazy.spawn(home + '/.local/bin/selectwal')), # Select Wallpaper
-    Key([mod, "shift"], "Return", lazy.spawn('rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')), # Open Rofi launcher
-    Key([alt, "shift"], "Return", lazy.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')), # Open Rofi launcher as Sudo
     Key(["control", "shift"], "Return", lazy.function(emojis)), # Open Rofi Emojis
     Key([mod], "r", lazy.spawncmd()), # Launch Prompt
     Key([mod], "q",lazy.window.kill()), # Close Window 
-    
-    
+    Key([alt, "shift"], "r",lazy.function(random_colors)), # Set randwom wallpaper / colors to entire system
+    Key([alt],"l",lazy.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')),# Todo Manager
+
+    # Rofi Widgets
+    Key([mod, "shift"], "e",lazy.spawn(home + '/.local/bin/selectwal')), # Select Wallpaper
+    Key([mod, "shift"], "Return", lazy.spawn('rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')), # Open Rofi launcher
+    Key([alt, "shift"], "Return", lazy.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')), # Open Rofi launcher as Sudo
     Key([mod],"s",lazy.function(shortcuts)), # Shortcuts widget
     Key([mod],"c",lazy.spawn(home + '/.local/bin/calculator')), # Calculator Widget
     Key([mod], "n", lazy.spawn(home + '/.local/bin/notesfi')), # Notes Widget
@@ -43,8 +45,11 @@ keys = [
     Key([alt, "shift"],"w",lazy.function(set_default_backend)), # Set Default Color Scheme
     Key([alt],"w",lazy.function(change_theme)), # Change Theme
     Key([mod, "shift"],"x",lazy.spawn(home + '/.local/bin/change_display')),# Monitor modes Widget
-    Key([alt, "shift"], "r",lazy.function(random_colors)), # Set randwom wallpaper / colors to entire system
-    Key([alt],"l",lazy.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')),# Todo Manager
+
+    # Apps
+
+    Key([mod],"e",lazy.spawn('thunar')),# Thunar
+    Key([mod],"f",lazy.spawn('brave')),# Brave
 
     # Layouts
     Key([mod], "Tab",lazy.layout.down() ), # Change focus of windows down

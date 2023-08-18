@@ -16,7 +16,7 @@ ZSH_THEME="avit"
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME_RANDOM_CANDIDATES=( "avit" "passion" )
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -29,7 +29,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=30
@@ -85,7 +85,7 @@ alias lzd="lazydocker"
 alias tsm="transmission-remote"
 alias sshelgen="ssh -i ~/.ssh/rsa_deploy itadmin@199.85.208.94"
 export PATH=~/.local/bin:$PATH
-#setxkbmap -layout us -variant intl
+setxkbmap -layout us -variant intl
 wal -R -q && clear 
 echo "TF "$(( (`date +%s` - `date +%s -d '2003/08/1'`) / 86400 )) "CP "$(( (`date +%s` - `date +%s -d '2022/02/19'`) / 86400 )) "LT "$(( (`date +%s` - `date +%s -d '2022/08/15'`) / 86400 )) "M "$(( (`date +%s` - `date +%s -d '2023/08/14'`) / 86400 )) 
 #neofetch

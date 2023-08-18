@@ -15,7 +15,7 @@ widget_width=widget_width+100
 ## Screens
 
 color_in_use=color[1]
-secondary_in_use=secondary_color[1]
+secondary_in_use=secondary_color[7]
 
 def init_widgets_list():
     widgets_list = [
@@ -38,7 +38,7 @@ def init_widgets_list():
         fontsize=font_size,
         borderwidth=0,
         active=secondary_in_use, #Program opened in that group
-        inactive=secondary_color[0], # Empty Group
+        inactive=secondary_color[2], # Empty Group
         rounded=False,
         highlight_method="text",
         this_current_screen_border=color_in_use,
@@ -174,17 +174,17 @@ def init_widgets_list():
         mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
       ),
       widget.ALSAWidget(
-        decorations=[RectDecoration(colour=color_in_use, radius=0, filled=True)],
         device='Master',
         bar_colour_high=color[0],
         bar_colour_loud=color[0],
         bar_colour_normal=color[0],
-        bar_colour_mute=color_in_use,
+        bar_colour_mute=color[0],
         hide_interval=5,
         update_interval=0.1,
         bar_width=80,
         mode='bar',
         text_format=' ',
+        background=color_in_use,
       ),
       widget.TextBox(
         decorations=[RectDecoration(colour=color[0], radius=[0,7,7,0], filled=True)],

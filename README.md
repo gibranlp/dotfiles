@@ -21,4 +21,4 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Added Xsettingsd for all GTk configuration
 - Added Global menu Bar Theme
 - Added System Cleaner option in Control Panel
-
+- Added Complementary pallete

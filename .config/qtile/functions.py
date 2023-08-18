@@ -48,11 +48,11 @@ current_blur = bar_blur[270].strip()
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
   bar_blur[270] = new_blur
-  blur_icon=''
+  blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
   bar_blur[270] = new_blur
-  blur_icon=''
+  blur_icon=''
 
 ## Get Terminal Fontsize
 file = open(home + '/.config/alacritty/alacritty.yml', 'r')
@@ -258,6 +258,24 @@ def secondary_pallete(colors, differentiator):
     return updated_colors
 
 secondary_color = secondary_pallete(color, differentiator)
+
+## Generate complementary colors
+def complementary_pallete(colors):
+    complementary = []
+    for color in colors:
+        # Remove the '#' symbol
+        color = color.lstrip('#')
+        # Convert hexadecimal colors to integers
+        color_int = int(color, 16)
+        comp_color = 0xFFFFFF ^ color_int
+        result = "#%06X" % comp_color
+
+        complementary.append(result)
+
+    return complementary
+
+comp_color = complementary_pallete(color)
+
 
 # Run i3-lock with Colors
 
@@ -556,6 +574,7 @@ def change_theme(qtile):
   index, key = rofi_left.select('  Theme -> ' + current_theme , options)
   if key == -1:
     rofi_left.close()
+    subprocess.run(["notify-send","-a", " SpectrumOS", "No Theme Selected!"])
   else:
     subprocess.run('rm -rf ~/.config/qtile/theme.py', shell=True)
     variables[1]=theme[index] + "\n"
@@ -600,6 +619,8 @@ def support_spectrumos(qtile):
       subprocess.run(["xdg-open", "https://www.patreon.com/user?u=48005915"])
     else:
       subprocess.run(["xdg-open", "https://www.buymeacoffee.com/gibranlp"])
+    
+    subprocess.run(["notify-send","-a", " SpectrumOS", "Thanks for supporting SpectrumOS"])
 
 
 
