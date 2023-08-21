@@ -1,7 +1,7 @@
 from functions import *
 
 
-## Generate Secondary Palette
+## Generate Complementary pallete
 def complementary_pallete(colors):
     complementary = []
     for color in colors:

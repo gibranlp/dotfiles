@@ -78,7 +78,7 @@ bar_size=30
 terminal = "alacritty"
 
 # Format of the prompt
-prompt = " ".format(os.environ["USER"], socket.gethostname()) 
+prompt = "".format(os.environ["USER"], socket.gethostname()) 
 
 # Wallpapers / Theming
 wallpaper_dir= home + '/Pictures/Wallpapers/' # Wallpapers folders
@@ -258,24 +258,6 @@ def secondary_pallete(colors, differentiator):
     return updated_colors
 
 secondary_color = secondary_pallete(color, differentiator)
-
-## Generate complementary colors
-def complementary_pallete(colors):
-    complementary = []
-    for color in colors:
-        # Remove the '#' symbol
-        color = color.lstrip('#')
-        # Convert hexadecimal colors to integers
-        color_int = int(color, 16)
-        comp_color = 0xFFFFFF ^ color_int
-        result = "#%06X" % comp_color
-
-        complementary.append(result)
-
-    return complementary
-
-comp_color = complementary_pallete(color)
-
 
 # Run i3-lock with Colors
 
