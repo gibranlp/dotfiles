@@ -165,7 +165,7 @@ elif xres == "1366" and yres == "768": # 1366 x 768 Macbook air 11"
   bar_margin=[0,0,0,0]
 
 # Set the right Terminal Font size
-term_size[106] = "  size: " + str(terminal_font_size) + "\n"
+term_size[107] = "  size: " + str(terminal_font_size) + "\n"
 with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 

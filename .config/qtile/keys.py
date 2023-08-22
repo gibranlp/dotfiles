@@ -125,7 +125,8 @@ keys = [
     Key([alt], "Escape", lazy.spawn('xkill')), # Click window to close
 
     # Scratchpads
+    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("music")),
+    Key(["shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("lyrics")),
 
-    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("term")),
 
 ]

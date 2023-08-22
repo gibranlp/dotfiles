@@ -56,8 +56,12 @@ for i in groups:
 # Scratchpads
 
 groups.append(ScratchPad("scratchpad", [
-                DropDown("term", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
-                         x=0.8, y=0.1, width=0.15, height=0.8, opacity=0.9,
+                DropDown("lyrics", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
+                         x=0.75, y=0.1, width=0.20, height=0.9, opacity=0.9,
+                         on_focus_lost_hide=True),
+
+                DropDown("music", "alacritty -e bash -c '. ~/.zshrc; ncspot'",
+                         x=0.1, y=0.0, width=0.8, height=0.8, opacity=0.9,
                          on_focus_lost_hide=True),
                       ]),
           )
