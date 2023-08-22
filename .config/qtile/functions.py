@@ -17,7 +17,7 @@ from os.path import expanduser
 from pathlib import Path
 import requests
 from libqtile import bar, hook, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import ScratchPad, DropDown, Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.popup.toolkit import (PopupImage, PopupRelativeLayout,PopupText, PopupWidget)
@@ -351,15 +351,15 @@ public_ip = get_public_ip()
 # Call Calendar Notification
 
 def calendar_notification(qtile):{
-    subprocess.call(home + '/.local/bin/calendar')
+  subprocess.call(home + '/.local/bin/calendar')
 }
 
 def calendar_notification_prev(qtile):{
-    subprocess.call([home + '/.local/bin/calendar', 'prev'])
+  subprocess.call([home + '/.local/bin/calendar', 'prev'])
 }
 
 def calendar_notification_next(qtile):{
-    subprocess.call([home + '/.local/bin/calendar', 'next'])
+  subprocess.call([home + '/.local/bin/calendar', 'next'])
 }
 
 ## Rofi Widgets
@@ -456,9 +456,9 @@ def network_widget(qtile):
     if index == 0:
       qtile.spawn(home + '/.local/bin/wifi2')
     elif index==1:
-      qtile.spawn(terminal + ' -e bmon')
+      qtile.spawn("alacritty -e bash -c '. ~/.zshrc; bmon'")
     else:
-      qtile.spawn(terminal + ' -e nmtui')
+      qtile.spawn("alacritty -e bash -c '. ~/.zshrc; nmtui'")
 
 ## Show / Hide all Groups
 def show_groups(qtile):

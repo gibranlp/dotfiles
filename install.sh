@@ -161,6 +161,7 @@ function aur_packages() {
     'zathura-ps'
     'libby-git'
     'python-rofi-git' 
+    'lyrics-in-terminal'
 
 )
 for packet in "${packets[@]}"; do

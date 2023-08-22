@@ -15,6 +15,7 @@ rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
 picom -b & 
 cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
+cp ~/.cache/wal/conky ~/.conkyrc &
 cp ~/.cache/wal/config ~/.config/cava/config &
 cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/flameshot.ini &
 sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/

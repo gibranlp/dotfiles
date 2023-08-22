@@ -124,4 +124,8 @@ keys = [
     # Kill window            
     Key([alt], "Escape", lazy.spawn('xkill')), # Click window to close
 
+    # Scratchpads
+
+    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("term")),
+
 ]

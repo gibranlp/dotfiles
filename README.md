@@ -21,4 +21,8 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Added Xsettingsd for all GTk configuration
 - Added Global menu Bar Theme
 - Added System Cleaner option in Control Panel
-- Added Complementary pallete
+- Added Scratchpad with Lyrics from Spotify
+- Added Conky with Day of te week and time in the background
+- Added font Leixo for conky
+- Fixed issue in Alacritty not openingapps with colors
+- Added Support SpectrumOS on Control Panel

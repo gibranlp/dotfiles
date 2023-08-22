@@ -53,6 +53,18 @@ for i in groups:
     keys.append(Key([mod], i.name, lazy.group[i.name].toscreen()))
     keys.append(Key([mod, 'shift'], i.name, lazy.window.togroup(i.name)))
 
+# Scratchpads
+
+groups.append(ScratchPad("scratchpad", [
+                DropDown("term", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
+                         x=0.8, y=0.1, width=0.15, height=0.8, opacity=0.9,
+                         on_focus_lost_hide=True),
+                      ]),
+          )
+
+
+
+
 ## Layouts
 def init_layout_theme():
   return {"font":main_font,

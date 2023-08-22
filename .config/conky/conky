@@ -10,7 +10,20 @@
 #
 ]]
 
-conky.config = {
+conky.config = {{
+	
+	-- colors
+
+	color0 = '{color0}',
+	color1 = '{color1}',
+	color2 = '{color2}',
+	color3 = '{color3}',
+	color4 = '{color4}',
+	color5 = '{color5}',
+	color6 = '{color6}',
+	color7 = '{color7}',
+	color8 = '{color8}',
+
 
 	--Various settings
 	background = true, 							-- forked to background
@@ -32,7 +45,7 @@ conky.config = {
 
     -- Placement (For SINGLE monitor users!)
 	alignment = 'top_middle',		            -- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
-	gap_x = 0,								-- pixels between right or left border
+	gap_x = 100,								-- pixels between right or left border
 	gap_y = 0,								-- pixels between bottom or left border
 
     -- Size
@@ -89,20 +102,21 @@ conky.config = {
 
 	 -- shadows
 	 draw_shades = true,
-	 default_shade_color = '#000000',
+	 default_shade_color = '{color0}',
 	 stippled_borders = 0,
-    draw_borders = true,
-    draw_outline = true,
-    extra_newline = true,
-    border_outer_margin = 0,
-    border_inner_margin = 0,
-    draw_graph_borders = true,
+     draw_borders = true,
+     draw_outline = true,
+     extra_newline = true,
+     border_outer_margin = 0,
+     border_inner_margin = 0,
+     draw_graph_borders = true,
 	
-};
+	
+}};
 
 conky.text = [[
 
-${alignc}${color #D6D6D6}${font}${time %A %d}${font}${color}
-${voffset -160}${alignr}${color #D6D6D6}${font2}${time %H:%M}${font}
+${{alignc}}${{color2}}${{font}}${{time %A %d}}${{font}}${{color}}
+${{voffset -140}}${{alignc}}${{color4}}${{font2}}${{time %H:%M}}${{font}}
 
 ]];
