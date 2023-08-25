@@ -1,8 +1,6 @@
-# Distribution defaults. Changes to this file will get overwritten during
-# upgrades.
 [Daemon]
 Theme=spectrumos
-ShowDelay=0
+ShowDelay=20
 DeviceTimeout=8
-#DeviceScale=an-integer-scaling-factor
+DeviceScale=an-integer-scaling-factor
 UseFirmwareBackground=true

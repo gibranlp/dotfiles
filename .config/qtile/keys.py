@@ -127,6 +127,7 @@ keys = [
     # Scratchpads
     Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("music")),
     Key(["shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("lyrics")),
+    Key([alt], 'F12', lazy.group['scratchpad'].dropdown_toggle("htop")),
 
 
 ]

@@ -45,7 +45,7 @@ conky.config = {{
 
     -- Placement (For SINGLE monitor users!)
 	alignment = 'top_middle',		            -- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
-	gap_x = 100,								-- pixels between right or left border
+	gap_x = 0,								-- pixels between right or left border
 	gap_y = 0,								-- pixels between bottom or left border
 
     -- Size
@@ -54,28 +54,29 @@ conky.config = {{
 	--maximum_width = 700,						-- maximum width of window
 
 	--Graphical
-	border_inner_margin = 5, 					-- margin between border and text
-	border_outer_margin = 5, 					-- margin between border and edge of window
-	border_width = 0, 							-- border width in pixels
+	border_inner_margin = 10, 					-- margin between border and text
+	border_outer_margin = 10, 					-- margin between border and edge of window
+	border_width = 10, 							-- border width in pixels
 	default_bar_width = 260,					-- default is 0 - full width
 	default_bar_height = 10,					-- default is 6
 	default_gauge_height = 25,					-- default is 25
-	default_gauge_width =40,					-- default is 40
+	default_gauge_width =100,					-- default is 40
 	default_graph_height = 40,					-- default is 25
 	default_graph_width = 153,					-- default is 0 - full width
-	default_shade_color = '#000000',			-- default shading colour
-	default_outline_color = '#000000',			-- default outline colour
+	default_shade_color = '{color0}',			-- default shading colour
+	default_outline_color = '{color0}',			-- default outline colour
 	draw_borders = false,						-- draw borders around text
 	draw_graph_borders = true,					-- draw borders around graphs
-	draw_shades = false,						-- draw shades
+	draw_shades = true,						-- draw shades
 	draw_outline = false,						-- draw outline
-	stippled_borders = 0,						-- dashing the border
+	stippled_borders = 10,						-- dashing the border
+
 
 	--Textual
 	format_human_readable = true,				-- KiB, MiB rather then number of bytes
-	font  = 'LEIXO:regular:size=120',  	-- the default font used
-	font2 = 'Fira Code:bold:size=45',         	-- font for the time
-	font3 = 'Ubuntu:size=14',               	-- font for the date
+	font  = 'LEIXO:regular:size=100',  	-- the default font used
+	font2 = 'Fira Code:bold:size=35',         	-- font for the time
+	font3 = 'LEIXO:regular:size=20',             	-- font for the date
 	font4 = 'Raleway:bold:size=9',              -- font for the keybindings heading
 	max_text_width = 0,							-- 0 will make sure line does not get broken if width too smal
 	max_user_text = 16384,						-- max text in conky default 16384
@@ -99,24 +100,13 @@ conky.config = {{
 	own_window_title = 'xmonad_conky',			-- set the name manually
 	own_window_type = 'override',				-- if own_window true options are: normal/override/dock/desktop/panel
 	own_window_hints = 'undecorated,below,above,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
-
-	 -- shadows
-	 draw_shades = true,
-	 default_shade_color = '{color0}',
-	 stippled_borders = 0,
-     draw_borders = true,
-     draw_outline = true,
-     extra_newline = true,
-     border_outer_margin = 0,
-     border_inner_margin = 0,
-     draw_graph_borders = true,
 	
 	
 }};
 
 conky.text = [[
 
-${{alignc}}${{color2}}${{font}}${{time %A %d}}${{font}}${{color}}
-${{voffset -140}}${{alignc}}${{color4}}${{font2}}${{time %H:%M}}${{font}}
+${{alignc}}${{color5}}${{font}}${{time %A %d}}${{font}}${{color}}
+${{goto 0}}${{voffset -120}}${{color2}}${{font2}}${{alignc}}${{time -%H:%M-}}${{font}}
 
 ]];

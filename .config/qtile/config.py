@@ -29,7 +29,7 @@ elif int(variables[10]) == 5:
 elif int(variables[10]) == 6:
    group_labels=[":","(",")","{",":","|",":","&","}",";"] # Fork Bomb
 elif int(variables[10]) == 7:
-   group_labels=["","","","","","","","","","",] # Circles
+   group_labels=["","","","","","","","","",""] # Circles
 elif int(variables[10]) == 8:
    group_labels=["","","","","","","","","",""] # Squares
 elif int(variables[10]) == 9:
@@ -39,7 +39,9 @@ elif int(variables[10]) == 10:
 elif int(variables[10]) == 11:
    group_labels=["","","","","","","","","",""] # Rectangles 
 elif int(variables[10]) == 12:
-   group_labels=["","","","","","","","","","",] # Square Ring 
+   group_labels=["","","","","","","","","",""] # Square Ring
+elif int(variables[10]) == 13:
+   group_labels=["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"]
 
 group_layouts=["monadtall", "monadtall", "monadtall", "spiral","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
 for i in range(len(group_names)):
@@ -56,13 +58,17 @@ for i in groups:
 # Scratchpads
 
 groups.append(ScratchPad("scratchpad", [
-                DropDown("lyrics", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
-                         x=0.75, y=0.1, width=0.20, height=0.9, opacity=0.9,
-                         on_focus_lost_hide=True),
+   DropDown("lyrics", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
+      x=0.75, y=0.05, width=0.20, height=0.9, opacity=0.9,
+      on_focus_lost_hide=True),
 
-                DropDown("music", "alacritty -e bash -c '. ~/.zshrc; ncspot'",
-                         x=0.1, y=0.0, width=0.8, height=0.8, opacity=0.9,
-                         on_focus_lost_hide=True),
+   DropDown("music", "alacritty -e bash -c '. ~/.zshrc; ncspot'",
+      x=0.05, y=0.0, width=0.9, height=0.7, opacity=0.9,
+      on_focus_lost_hide=True),
+               
+   DropDown("htop", "alacritty -e bash -c '. ~/.zshrc; htop'",
+      x=0.05, y=0.0, width=0.9, height=0.7, opacity=0.9,
+      on_focus_lost_hide=True),            
                       ]),
           )
 

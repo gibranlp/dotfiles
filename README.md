@@ -8,6 +8,10 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 
 ## Dotfiles
 
+### Version 2.13
+
+
+
 ### Version 2.12
 
 - Changed to Picom-ftlabs-git
@@ -26,3 +30,4 @@ Welcome to SpectrumOS, a cutting-edge Linux distribution based on Arch Linux and
 - Added font Leixo for conky
 - Fixed issue in Alacritty not openingapps with colors
 - Added Support SpectrumOS on Control Panel
+- added Automatic update of SpectrumOS in the control panel

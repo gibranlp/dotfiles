@@ -60,13 +60,15 @@ term_size=file.readlines()
 terminal_font_size = term_size[106].strip()
 
 # SpectrumOS version
-remote_version=float(update_available[0].strip())
-version=float(variables[0].strip())
+remote_version=update_available[0].strip()
+version=variables[0].strip()
 
 if version == remote_version:
   update_spectrumos= ' SpectrumOS is up to date!'
+  update_available=0
 else:
   update_spectrumos= f' Update Available {version} -> {remote_version}',
+  update_available=1
 
 ## Fonts
 main_font = str(variables[11].strip()) # Font in use for the entire system
@@ -170,7 +172,7 @@ with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 
 # Make font smaller for cetain groups icons
-if int(variables[10]) in [7, 8, 9,10,11,12]:
+if int(variables[10]) in [7, 8, 9,10,11,12,13]:
    groups_font = font_size - 6
 else:
    groups_font = font_size 
@@ -263,18 +265,18 @@ secondary_color = secondary_pallete(color, differentiator)
 
 def i3lock_colors(qtile):
   subprocess.run(['i3lock', 
-    '--ring-color={}'.format(secondary_color[0])+"DD",
-    '--inside-color={}'.format(secondary_color[0])+"DD",
+    '--ring-color={}'.format(color[0]),
+    '--inside-color={}'.format(color[0]),
     '--line-color={}'.format(color[2]),
     '--separator-color={}'.format(color[4]),
     '--time-color={}'.format(color[2]),           
     '--date-color={}'.format(color[4]),
-    '--insidever-color={}'.format(secondary_color[0])+"DD",
-    '--ringver-color={}'.format(secondary_color[0])+"DD",
+    '--insidever-color={}'.format(color[0]),
+    '--ringver-color={}'.format(color[0]),
     '--verif-color={}'.format(color[5]),          
-    '--verif-text=Checking',
-    '--insidewrong-color={}'.format(secondary_color[0])+"DD",
-    '--ringwrong-color={}'.format(secondary_color[0])+"DD",
+    '--verif-text=Validating',
+    '--insidewrong-color={}'.format(color[0]),
+    '--ringwrong-color={}'.format(color[0]),
     '--wrong-color={}'.format(color[1]),
     '--wrong-text=Wrong!',
     '--keyhl-color={}'.format(color[1]),         
@@ -282,8 +284,7 @@ def i3lock_colors(qtile):
     '--clock',
     '--blur', '20',                 
     '--indicator',       
-    '--time-str="%H:%M:%S"',   
-    '--date-str="%A, %Y-%m-%d"',
+    '--time-str=%H:%M:%S',
   ])
 
 # Toggle Bar Blur
@@ -489,6 +490,7 @@ def group_icon(qtile):
     '->          ',
     '->          ',
     '->          ',
+    '-> TERM DEV WWW SYS DOC VIRT´ MSG MUS VID GFX'
     ]
   index, key = rofi_left.select(' Group Icons ', options)
   if key == -1:
@@ -604,6 +606,35 @@ def support_spectrumos(qtile):
     
     subprocess.run(["notify-send","-a", " SpectrumOS", "Thanks for supporting SpectrumOS"])
 
+## Update SpectrumOS
+### Pacman
+def pacman_packages(qtile):
+    packets = [
+        'cmatrix'
+    ]
+    for packet in packets:
+        subprocess.run(["notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
+        subprocess.run(["sudo", "pacman", "-Syu", packet, "--noconfirm", "--needed"])
+
+## Update SpectrumOS
+### AUR
+def aur_packages(qtile):
+    packets = [
+      'lyrics-in-terminal'
+    ]
+    
+    for packet in packets:
+        subprocess.run([f"notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
+        subprocess.run(["paru", "-Syu", packet, "--noconfirm", "--needed"])
+
+## Update SpectrumOS verssion
+## Update SpectrumOS verssion
+def update_ver(qtile):
+  variables[0] = remote_version + "\n"
+  with open(home + '/.config/qtile/variables', 'w') as file:
+      file.writelines(variables)
+  qtile.reload_config()
+  subprocess.run(["notify-send","-a", " SpectrumOS", "Updated to the version", "%s" % remote_version])
 
 
 # Control Panel Widget
@@ -701,8 +732,14 @@ def control_panel(qtile):
     elif index == 30:
       qtile.function(support_spectrumos)
     elif index == 31:
-      subprocess.run(home + '/.local/bin/updater')
-    
+      if update_available == 1:
+        subprocess.run(home + '/.local/bin/updater') 
+        qtile.function(pacman_packages)
+        qtile.function(aur_packages)
+        qtile.function(update_ver)
+      else:
+        subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
+        
     
 
 widget_defaults = dict(

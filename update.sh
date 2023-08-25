@@ -51,6 +51,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/bluet ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/genwal ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/updater ~/.local/bin/
   #cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
   #cp ~/SpectrumOS/dotfiles/.fonts/* /usr/share/fonts
   #fc-cache -f -v
