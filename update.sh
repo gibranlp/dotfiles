@@ -37,7 +37,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-  # cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
+   cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/wifi2 ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
@@ -52,11 +52,11 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/genwal ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/updater ~/.local/bin/
-  #cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
-  #cp ~/SpectrumOS/dotfiles/.fonts/* /usr/share/fonts
-  #fc-cache -f -v
+  cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
+  cp ~/SpectrumOS/dotfiles/.fonts/* /usr/share/fonts
+  fc-cache -f -v
   chmod +x ~/.local/bin/*
-  # cp ~/SpectrumOS/dotfiles/.shortcuts ~/
+  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
 
@@ -66,10 +66,10 @@ function update(){
   cp ~/SpectrumOS/dotfiles/.conkyrc ~/
   cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
-  # cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
-  # cp ~/SpectrumOS/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  # cp ~/SpectrumOS/dotfiles/.config/gromit-mpx.ini ~/.config
+  cp ~/SpectrumOS/dotfiles/.config/gromit-mpx.ini ~/.config
   cp ~/SpectrumOS/dotfiles/.oh-my-zsh/themes/avit.zsh-theme ~/.oh-my-zsh/themes
 }
 
