@@ -158,7 +158,7 @@ else: # 1366 x 768 Macbook air 11"
   single_layout_margin=2  
   layout_border_width=2
   single_border_width=2
-  font_size=font-size-7
+  font_size=font_size-7
   bar_size=20
   widget_width=100
   max_ratio=0.60
