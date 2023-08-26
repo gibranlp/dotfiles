@@ -153,7 +153,7 @@ elif xres == "1920" and yres == "1080": #FullHD
     bar_margin=[0,10,5,10]
   else:
     bar_margin=[5,10,0,10]
-elif xres == "1366" and yres == "768": # 1366 x 768 Macbook air 11"
+else: # 1366 x 768 Macbook air 11"
   layout_margin=2
   single_layout_margin=2  
   layout_border_width=2
