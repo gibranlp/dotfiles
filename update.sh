@@ -30,47 +30,12 @@ done
 }
 
 function update(){
-  cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
-  mkdir -p ~/.config/neofetch/
-  cp -r ~/SpectrumOS/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
-  mkdir -p ~/.config/xsettingsd/
-  cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
+  sudo mkdir -p /usr/local/spectrumos
+  sudo chown -R $USER:$USER /usr/local/spectrumos
+  sudo chmod 775 /usr/local/spectrumos
+  cp ~/SpectrumOS/dotfiles/.config/qtile/variables /usr/local/spectrumos
+  cp ~/SpectrumOS/dotfiles/.config/qtile/update /usr/local/spectrumos
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
-  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-   cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/wifi2 ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/recorder ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/calculator ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/calendar ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/change_display ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/todo ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/autostart ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/bluet ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/genwal ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/cleansys ~/.local/bin/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/updater ~/.local/bin/
-  cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
-  cp ~/SpectrumOS/dotfiles/.fonts/* /usr/share/fonts
-  fc-cache -f -v
-  chmod +x ~/.local/bin/*
-  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
-
-  cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
-  cp ~/SpectrumOS/dotfiles/.zshrc ~/
-  cp ~/SpectrumOS/dotfiles/.conkyrc ~/
-  cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
-  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  cp ~/SpectrumOS/dotfiles/.config/gromit-mpx.ini ~/.config
-  cp ~/SpectrumOS/dotfiles/.oh-my-zsh/themes/avit.zsh-theme ~/.oh-my-zsh/themes
 }
 
 #install_new_packages

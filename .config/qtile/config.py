@@ -106,6 +106,14 @@ def init_layouts():
      max_ratio=0.85,
      ratio=0.85,
      **layout_theme),
+   layout.Stack(
+     max_ratio=0.85,
+     ratio=0.85,
+     **layout_theme),
+   layout.Columns(
+     max_ratio=0.85,
+     ratio=0.85,
+     **layout_theme),
     ]
 layouts = init_layouts()
 

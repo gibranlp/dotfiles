@@ -33,11 +33,11 @@ alt = "mod1"
 home = os.path.expanduser('~') # Path for use in folders
 
 ## Import config
-file = open(home + '/.config/qtile/variables', 'r')
+file = open('/usr/local/spectrumos/variables', 'r')
 variables=file.readlines()
 
 ## Get update if available
-file = open(home + '/SpectrumOS/dotfiles/.config/qtile/update', 'r')
+file = open('/usr/local/spectrumos/update', 'r')
 update_available=file.readlines()
 
 ## Read picom.conf for blur in the bar

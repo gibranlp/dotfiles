@@ -15,7 +15,8 @@ keys = [
 
     # Qtile System Actions
     Key([mod, "shift"], "r",lazy.reload_config()),
-    Key([mod, "shift"], "q",lazy.shutdown()),  
+    Key([mod, "shift"], "q",lazy.shutdown()),
+    
     
     # SpectrumOS
     Key([alt], "r",lazy.function(change_wallpaper)), # Set random wallpaper
@@ -85,6 +86,8 @@ keys = [
     Key([mod], "o", lazy.layout.maximize()),
     Key([mod, "shift"], "n", lazy.layout.normalize()),
     Key([mod, "shift"], "space", lazy.layout.flip()),
+
+    Key(["control", alt], "Return", lazy.layout.toggle_split()), # Toggle Split
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("sudo xbacklight -inc 5")), # Aument Brightness
