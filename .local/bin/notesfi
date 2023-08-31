@@ -10,7 +10,7 @@
 # 
 #
 
-EDITOR=code
+EDITOR=nvim
 VIEW=/usr/bin/zathura-pywal
 TERMINAL=alacritty
 

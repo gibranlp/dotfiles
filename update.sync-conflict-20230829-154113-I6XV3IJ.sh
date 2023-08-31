@@ -39,7 +39,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
   mkdir -p ~/.icons
   cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
+  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 }
 
 #install_new_packages

@@ -72,9 +72,6 @@ groups.append(ScratchPad("scratchpad", [
                       ]),
           )
 
-
-
-
 ## Layouts
 def init_layout_theme():
   return {"font":main_font,
@@ -106,15 +103,7 @@ def init_layouts():
      max_ratio=0.85,
      ratio=0.85,
      **layout_theme),
-   layout.Stack(
-     max_ratio=0.85,
-     ratio=0.85,
-     **layout_theme),
-   layout.Columns(
-     max_ratio=0.85,
-     ratio=0.85,
-     **layout_theme),
-    ]
+ ]
 layouts = init_layouts()
 
 floating_layout = layout.Floating(

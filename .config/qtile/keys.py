@@ -53,7 +53,7 @@ keys = [
     Key([mod],"f",lazy.spawn('brave')),# Brave
 
     # Layouts
-    Key([mod], "Tab",lazy.layout.down() ), # Change focus of windows down
+    Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down
     Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
     Key([alt], "Tab",
         lazy.layout.shuffle_down(),
