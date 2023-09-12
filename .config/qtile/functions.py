@@ -173,7 +173,10 @@ with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 
 # Make font smaller for cetain groups icons
-groups_font = font_size - 5
+if int(variables[10]) in [7, 8, 9,10,11,12,13]:
+   groups_font = font_size - 6
+else:
+   groups_font = font_size 
 
 # Rofi Configuration files
 rofi_right = Rofi(rofi_args=['-theme', '~/.config/rofi/right.rasi'])
