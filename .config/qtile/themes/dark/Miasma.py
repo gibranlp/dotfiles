@@ -147,10 +147,10 @@ def init_widgets_list():
               text="▓▒░",
             ),
             widget.WidgetBox(
-              decorations=[RectDecoration(colour=secondary_color[0], radius=8, filled=True, padding_x=4, padding_y=8)],
+              decorations=[RectDecoration(colour=color[0], radius=8, filled=True, padding_x=4, padding_y=8)],
               text_closed='',
               text_open='',
-              foreground=secondary_color[2],
+              foreground=color[2],
               widgets=[
                   widget.Spacer(
                   length=5,

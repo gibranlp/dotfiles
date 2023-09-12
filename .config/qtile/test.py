@@ -1,10 +1,40 @@
 from functions import *
+# Popup Widgets
+def show_keyboard_layout(qtile):
+    controls = [
+        PopupWidget(
+            widget=widget.CPUGraph(),
+            width=0.45,
+            height=0.45,
+            pos_x=0.05,
+            pos_y=0.05
+        ),
+        PopupWidget(
+            widget=widget.NetGraph(),
+            width=0.45,
+            height=0.45,
+            pos_x=0.5,
+            pos_y=0.05
+        ),
+        PopupWidget(
+            widget=widget.MemoryGraph(),
+            width=0.9,
+            height=0.45,
+            pos_x=0.05,
+            pos_y=0.5
+        )
+    ]
 
-## Update SpectrumOS verssion
-def update_ver(qtile):
-  variables[0] = remote_version + "\n"
-  with open(home + '/.config/qtile/variables', 'w') as file:
-      file.writelines(variables)
-  subprocess.run(["notify-send","-a", " SpectrumOS", "Updated to the version", "%s" % remote_version])
+    layout = PopupRelativeLayout(
+        qtile,
+        width=1000,
+        height=200,
+        controls=controls,
+        background="00000060",
+        initial_focus=None,
+        close_on_click=False
+    )
+    layout.show(centered=True)
 
-update_ver(qtile)
+
+show_keyboard_layout(qtile)

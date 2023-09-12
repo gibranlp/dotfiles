@@ -87,5 +87,5 @@ alias sshelgen="ssh -i ~/.ssh/rsa_deploy itadmin@199.85.208.94"
 export PATH=~/.local/bin:$PATH
 setxkbmap -layout us -variant intl
 wal -R -q && clear 
-echo "TF "$(( (`date +%s` - `date +%s -d '2003/08/1'`) / 86400 )) "CP "$(( (`date +%s` - `date +%s -d '2022/02/19'`) / 86400 )) "LT "$(( (`date +%s` - `date +%s -d '2022/08/15'`) / 86400 )) "M "$(( (`date +%s` - `date +%s -d '2023/08/14'`) / 86400 )) 
+#echo " "$(( (`date +%s` - `date +%s -d '2003/08/1'`) / 86400)) " "$(( (`date +%s` - `date +%s -d '2022/02/19'`) / 86400)) " "$(( (`date +%s` - `date +%s -d '2022/08/15'`) / 86400 )) " "$(( (`date +%s` - `date +%s -d '2023/08/14'`) / 86400 )) 
 #neofetch

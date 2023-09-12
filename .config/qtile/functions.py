@@ -20,7 +20,7 @@ from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import ScratchPad, DropDown, Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
-from qtile_extras.popup.toolkit import (PopupImage, PopupRelativeLayout,PopupText, PopupWidget)
+from qtile_extras.popup.toolkit import (PopupRelativeLayout, PopupWidget)
 from qtile_extras.widget.decorations import (BorderDecoration,PowerLineDecoration,RectDecoration)
 from rofi import Rofi
 
@@ -33,11 +33,11 @@ alt = "mod1"
 home = os.path.expanduser('~') # Path for use in folders
 
 ## Import config
-file = open('/usr/local/spectrumos/variables', 'r')
+file = open(home + '/.config/qtile/variables', 'r')
 variables=file.readlines()
 
 ## Get update if available
-file = open('/usr/local/spectrumos/update', 'r')
+file = open(home + '/.config/qtile/update', 'r')
 update_available=file.readlines()
 
 ## Read picom.conf for blur in the bar
@@ -65,6 +65,7 @@ version=variables[0].strip()
 
 if version == remote_version:
   update_spectrumos= ' SpectrumOS is up to date!'
+  
   update_available=0
 else:
   update_spectrumos= f' Update Available {version} -> {remote_version}',
@@ -80,7 +81,7 @@ bar_size=30
 terminal = "alacritty"
 
 # Format of the prompt
-prompt = "".format(os.environ["USER"], socket.gethostname()) 
+prompt = " ".format(os.environ["USER"], socket.gethostname()) 
 
 # Wallpapers / Theming
 wallpaper_dir= home + '/Pictures/Wallpapers/' # Wallpapers folders
@@ -172,10 +173,7 @@ with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
     file.writelines(term_size)
 
 # Make font smaller for cetain groups icons
-if int(variables[10]) in [7, 8, 9,10,11,12,13]:
-   groups_font = font_size - 6
-else:
-   groups_font = font_size 
+groups_font = font_size - 5
 
 # Rofi Configuration files
 rofi_right = Rofi(rofi_args=['-theme', '~/.config/rofi/right.rasi'])
@@ -490,7 +488,7 @@ def group_icon(qtile):
     '->          ',
     '->          ',
     '->          ',
-    '-> TERM DEV WWW SYS DOC VIRT´ MSG MUS VID GFX'
+    '-> TERM DEV WWW SYS DOC VIRT MSG MUS VID GFX'
     ]
   index, key = rofi_left.select(' Group Icons ', options)
   if key == -1:
@@ -592,6 +590,35 @@ def screenshot(qtile):
     else:
       subprocess.run("flameshot full --path ~/Pictures/Screenshot.png --delay 5000",shell=True)
 
+# Popup Widgets
+def show_keyboard_layout(qtile):
+    controls = [
+        PopupWidget(
+            widget=widget.KeyboardLayout(
+              configured_keyboards=['us intl', 'latam'],
+              foreground=color[1],
+            ),
+            width=1,
+            height=1,
+            pos_x=0,
+            pos_y=0
+        )
+    ]
+
+    layout = PopupRelativeLayout(
+        qtile,
+        width=100,
+        height=50,
+        controls=controls,
+        background=color[0],
+        initial_focus=None,
+        close_on_click=False,
+        hide_on_mouse_leave=True,
+        keyboard_navigation=True,
+        keymap={'close':['Escape']}
+    )
+    layout.show(centered=True)
+
 ## Support SpectrumOS
 def support_spectrumos(qtile):
   options = [' Become a Patreon', ' Buy me a Coffee']
@@ -610,24 +637,24 @@ def support_spectrumos(qtile):
 ### Pacman
 def pacman_packages(qtile):
     packets = [
-        'cmatrix'
+        ''
     ]
     for packet in packets:
         subprocess.run(["notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
         subprocess.run(["sudo", "pacman", "-Syu", packet, "--noconfirm", "--needed"])
 
 ## Update SpectrumOS
+
 ### AUR
 def aur_packages(qtile):
     packets = [
-      'lyrics-in-terminal'
+      'sndio'
     ]
     
     for packet in packets:
         subprocess.run([f"notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
         subprocess.run(["paru", "-Syu", packet, "--noconfirm", "--needed"])
 
-## Update SpectrumOS verssion
 ## Update SpectrumOS verssion
 def update_ver(qtile):
   variables[0] = remote_version + "\n"
@@ -740,12 +767,9 @@ def control_panel(qtile):
       else:
         subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
         
-    
-
 widget_defaults = dict(
     font=main_font,
     fontsize=font_size,
     padding=3,
 )
-
 

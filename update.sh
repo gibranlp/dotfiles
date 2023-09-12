@@ -40,6 +40,7 @@ function update(){
   mkdir -p ~/.icons
   cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
+  cp ~/SpectrumOS/dotfiles/.zshrc ~/
 }
 
 #install_new_packages

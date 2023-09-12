@@ -11,6 +11,7 @@
 #
 
 EDITOR=nvim
+
 VIEW=/usr/bin/zathura-pywal
 TERMINAL=alacritty
 
@@ -22,7 +23,7 @@ article_library="$HOME/Articles/"
 # <<------ Main ------>> #
 create_document() {
   # Use rofi to prompt the user to select the type of document to create
-  document_type=$(echo -e "Markdown\nLaTeX\nBeamer\nRmark" | rofi -dmenu -i -p "Type of Note?" -theme "~/.config/rofi/left.rasi")
+  document_type=$(echo -e "Markdown\nLaTeX" | rofi -dmenu -i -p "Type of Note?" -theme "~/.config/rofi/left.rasi")
 
   # Check if the user cancelled the prompt
   if [ -z "$document_type" ]; then
@@ -31,24 +32,14 @@ create_document() {
 
   case "$document_type" in
     Markdown)
-      template="SimpleNote.md"
+      template="TemplateMarkdown.md"
       EXTENSION="md"
-      message="New Markdwn Note!"
+      message="New Markdown Note!"
       ;;
     LaTeX)
-      template="LaTeX.tex"
+      template="TemplateLaTeX.tex"
       EXTENSION="tex"
       message="New LaTeX Note!"
-      ;;
-    Beamer)
-      template="Presentation.tex"
-      EXTENSION="tex"
-      message="New Beamer Presentation!"
-      ;;
-    Rmark)
-      template="RMarkdown.rmd"
-      EXTENSION="rmd"
-      message="New R Markdown Note!"
       ;;
     *)
       echo "Invalid option"
@@ -67,12 +58,12 @@ create_document() {
   # Check if the file already exists
   if [ -f "$directory/$cn_name.$EXTENSION" ]; then
     # Prompt the user to confirm if they want to overwrite the file
-    if ! (echo -e "Yes\nNo" | rofi -dmenu -p "Note already exists. Overwrite?" | grep -q "Yes"); then
+    if ! (echo -e "Yes\nNo" | rofi -dmenu -p "Note exists. Overwrite?" -theme "~/.config/rofi/left.rasi" | grep -q "Yes"); then
       return
     fi
   fi
 
-  notify-send -a " QARSlp" "$message"
+  notify-send -a " SpectrumOS" "$message"
   cp "$directory/Templates/$template" "$directory/$cn_name.$EXTENSION"
   "$TERMINAL" -e "$EDITOR" "$directory/$cn_name.$EXTENSION"
 }
@@ -102,7 +93,7 @@ download_books() {
       exit 1
   fi
 
-  $TERMINAL -T "dropbooks" -e libby $bookname
+  $TERMINAL -T "dropbooks" -e bash -c ". ~/.zshrc; libby $bookname"
 }
 
 main() {

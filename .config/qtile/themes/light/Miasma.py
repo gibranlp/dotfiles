@@ -147,10 +147,10 @@ def init_widgets_list():
               text="▓▒░",
             ),
             widget.WidgetBox(
-              decorations=[RectDecoration(colour=secondary_color[0], radius=8, filled=True, padding_x=4, padding_y=8)],
+              decorations=[RectDecoration(colour=color[0], radius=8, filled=True, padding_x=4, padding_y=8)],
               text_closed='',
               text_open='',
-              foreground=secondary_color[2],
+              foreground=color[2],
               widgets=[
                   widget.Spacer(
                   length=5,
@@ -338,6 +338,27 @@ def init_widgets_list():
               mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},
               decorations=[BorderDecoration(colour=color[0], border_width=2)],
               padding=5,
+            ),
+            widget.TextBox(
+              foreground=color[3],
+              background=secondary_color[2],
+              padding=-1,
+              fontsize=font_size+5,
+              text="░",
+            ),
+            widget.UPowerWidget(
+               border_charge_colour=color[3],
+               border_colour=secondary_color[0],
+               border_critical_colour='#cc0000',
+               fill_critical='#cc0000',
+               fill_low='#FF5511',
+               fill_normal=color[3],
+               foreground=color[3],
+               decorations=[RectDecoration(colour=color[0],radius=7,filled=True)],
+               percentage_critical=0.2,
+               percentage_low=0.4,
+               text_charging=' ({percentage:.0f}%) {ttf} to ',
+               text_discharging=' ({percentage:.0f}%) {tte} Left',
             ),
             widget.TextBox(
               foreground=color[3],
