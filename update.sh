@@ -41,6 +41,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
+  cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
 }
 
 #install_new_packages

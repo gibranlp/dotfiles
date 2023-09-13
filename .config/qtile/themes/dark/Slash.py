@@ -91,7 +91,7 @@ def init_widgets_list():
               background=color[1],
               text_closed='',
               text_open='',
-              foreground=secondary_color[0],
+              foreground=color[0],
               **powerline,
               widgets=[
                   widget.Spacer(
