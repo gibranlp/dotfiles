@@ -42,6 +42,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
 #install_new_packages
