@@ -147,7 +147,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   font_size=font_size-4
   bar_size=25
   widget_width=150
-  max_ratio=0.85
+  max_ratio=0.65
   ratio=0.70
   terminal_font_size=8
   if bar_position == "bottom":
@@ -162,7 +162,7 @@ else: # 1366 x 768 Macbook air 11"
   font_size=font_size-7
   bar_size=20
   widget_width=100
-  max_ratio=0.60
+  max_ratio=0.50
   ratio=0.50
   terminal_font_size=6
   bar_margin=[0,0,0,0]
