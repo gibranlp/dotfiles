@@ -46,11 +46,12 @@ keys = [
     Key([alt, "shift"],"w",lazy.function(set_default_backend)), # Set Default Color Scheme
     Key([alt],"w",lazy.function(change_theme)), # Change Theme
     Key([mod, "shift"],"x",lazy.spawn(home + '/.local/bin/change_display')),# Monitor modes Widget
+    Key([mod],"f",lazy.spawn(home + '/.local/bin/opener')),# Find Files
 
     # Apps
 
     Key([mod],"e",lazy.spawn('thunar')),# Thunar
-    Key([mod],"f",lazy.spawn('brave')),# Brave
+    
 
     # Layouts
     Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down

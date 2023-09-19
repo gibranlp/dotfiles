@@ -11,6 +11,7 @@
 
 function install_new_packages() {
   packets=(
+    'fd'
 )
 
 for packet in "${packets[@]}"; do
@@ -31,19 +32,20 @@ done
 
 function update(){
   sudo mkdir -p /usr/local/spectrumos
-  sudo chown -R $USER:$USER /usr/local/spectrumos
-  sudo chmod 775 /usr/local/spectrumos
-  cp ~/SpectrumOS/dotfiles/.config/qtile/variables /usr/local/spectrumos
-  cp ~/SpectrumOS/dotfiles/.config/qtile/update /usr/local/spectrumos
+  sudo chown -R $USER:$USER /usr/local/spectrumos/*
+  sudo chmod 775 /usr/local/spectrumos/*
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
   cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
   mkdir -p ~/.icons
   cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/opener ~/.local/bin
+  chmod +x ~/.local/bin/*
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
+  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 }
 
 #install_new_packages

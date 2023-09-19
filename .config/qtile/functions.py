@@ -100,7 +100,7 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum', 'Slash', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
+theme=['Spectrum', 'Slash', 'Slash2', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
 
 # Pywal backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
@@ -684,6 +684,7 @@ def control_panel(qtile):
     '    %s Toggle Groups' %str(variables[9].strip()),
     '     Change Groups Icons',
     ' Tools',#12
+    '     Find / Open Files (❖ + F)',
     '     Todo List (⎇ + L)',
     '     Notes (❖ + N)',
     '     Apps as Sudo (⎇ +  + )',
@@ -694,7 +695,7 @@ def control_panel(qtile):
     '     Monitor Layout (❖ +  + X)',
     '     Bluetooth Manager (❖ + T)',
     '     Screen Recorder ( +  + R)',
-    ' Miscelaneous',#23
+    ' Miscelaneous',#24
     '     Screen Draw (❖ +  + P)',
     '     Pick Color (❖ + P)',
     '     View Shortcuts (❖ + S)',
@@ -729,40 +730,42 @@ def control_panel(qtile):
     elif index == 11:
       qtile.function(group_icon)
     elif index == 13:
-      qtile.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')
+      subprocess.run(home + '/.local/bin/opener')
     elif index == 14:
-      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
+      qtile.spawn('rofi -modi TODO:~/.local/bin/todo -show TODO -theme ~/.config/rofi/left.rasi')
     elif index == 15:
-      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
+      subprocess.Popen(home + '/.local/bin/notesfi', shell=True)
     elif index == 16:
-      subprocess.run(home + '/.local/bin/calculator')
+      qtile.spawn('sudo rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')
     elif index == 17:
-      qtile.function(network_widget)
+      subprocess.run(home + '/.local/bin/calculator')
     elif index == 18:
-      qtile.function(screenshot)
+      qtile.function(network_widget)
     elif index == 19:
-      qtile.function(nightLight_widget)
+      qtile.function(screenshot)
     elif index == 20:
-      subprocess.run(home + '/.local/bin/change_display')
+      qtile.function(nightLight_widget)
     elif index == 21:
+      subprocess.run(home + '/.local/bin/change_display')
+    elif index == 22:
       subprocess.run(home + '/.local/bin/bluet')
-    elif index == 23:
-      subprocess.run(home + '/.local/bin/recorder')
     elif index == 24:
-      qtile.function(draw_widget)
+      subprocess.run(home + '/.local/bin/recorder')
     elif index == 25:
-      qtile.function(fargewidget)
+      qtile.function(draw_widget)
     elif index == 26:
-      qtile.function(shortcuts)
+      qtile.function(fargewidget)
     elif index == 27:
-      qtile.function(emojis)
+      qtile.function(shortcuts)
     elif index == 28:
-      qtile.spawn(home + '/.local/bin/cleansys')
+      qtile.function(emojis)
     elif index == 29:
-      qtile.function(session_widget)
+      qtile.spawn(home + '/.local/bin/cleansys')
     elif index == 30:
-      qtile.function(support_spectrumos)
+      qtile.function(session_widget)
     elif index == 31:
+      qtile.function(support_spectrumos)
+    elif index == 32:
       if update_available == 1:
         subprocess.run(home + '/.local/bin/updater') 
         qtile.function(pacman_packages)

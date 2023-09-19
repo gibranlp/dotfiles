@@ -340,8 +340,8 @@ def init_widgets_list():
               padding=5,
             ),
             widget.TextBox(
-              foreground=color[3],
-              background=secondary_color[2],
+              background=color[3],
+              foreground=secondary_color[2],
               padding=-1,
               fontsize=font_size+5,
               text="░",
@@ -355,7 +355,7 @@ def init_widgets_list():
                decorations=[BorderDecoration(colour=color[0], border_width=2)],
                fill_normal=color[0],
                foreground=color[0],
-               background=color[3],
+               background=secondary_color[2],
                percentage_critical=0.2,
                percentage_low=0.4,
                text_charging=' ({percentage:.0f}%) {ttf} to ',
@@ -363,7 +363,7 @@ def init_widgets_list():
                margin=5,
             ),
             widget.TextBox(
-              foreground=color[3],
+              foreground=secondary_color[2],
               background=transparent,
               padding=-1,
               text="▓▒░",
