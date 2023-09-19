@@ -4,7 +4,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser";
+	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
     display-run:                "";
@@ -20,7 +20,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       650px;
+    width:                       600px;
     height:                      590px;
     x-offset:                    0px;
     y-offset:                    0px;
