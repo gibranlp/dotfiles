@@ -148,7 +148,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   bar_size=25
   widget_width=150
   max_ratio=0.85
-  ratio=0.70
+  ratio=0.65
   terminal_font_size=8
   if bar_position == "bottom":
     bar_margin=[0,10,5,10]
@@ -182,6 +182,7 @@ else:
 rofi_right = Rofi(rofi_args=['-theme', '~/.config/rofi/right.rasi'])
 rofi_network= Rofi(rofi_args=['-theme', '~/.config/rofi/network.rasi'])
 rofi_left= Rofi(rofi_args=['-theme', '~/.config/rofi/left.rasi'])
+rofi_session= Rofi(rofi_args=['-theme', '~/.config/rofi/session.rasi'])
 
 ### Weather
 w_appkey = str(variables[3].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
@@ -434,8 +435,8 @@ def draw_widget(qtile):
 
 # Logout widget
 def session_widget(qtile):
-  options = [' Lock',' Log Out', ' Reboot',' Poweroff']
-  index, key = rofi_left.select('  Session', options)
+  options = ['','', '','']
+  index, key = rofi_session.select('  Session', options)
   if key == -1:
     rofi_left.close()
   else:
