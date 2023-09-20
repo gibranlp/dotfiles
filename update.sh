@@ -45,6 +45,7 @@ function update(){
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
+  cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
 }
 

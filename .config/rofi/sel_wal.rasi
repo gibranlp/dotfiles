@@ -11,12 +11,12 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
+    location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
-    height:                      99.5%;
-    x-offset:                    350px;
+    width:                       80%;
+    height:                      60%;
+    x-offset:                    0px;
     y-offset:                    0px;
     border-radius:               0px 10px 10px 0px;
 
@@ -79,8 +79,8 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
-    lines:                       0;
+    columns:                     8;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -133,7 +133,7 @@ element selected.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        250px;
+    size:                        200px;
     cursor:                      inherit;
 }
 element-text {

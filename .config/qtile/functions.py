@@ -370,7 +370,7 @@ def calendar_notification_next(qtile):{
 ## Set default backend
 def set_default_backend(qtile):
   options = backend
-  index, key = rofi_left.select(' Backend -> ' + def_backend.capitalize() , options)
+  index, key = rofi_session.select(' Backend -> ' + def_backend.capitalize() , options)
   if key == -1 or index == 4:
     rofi_left.close()
   else:
@@ -394,7 +394,7 @@ def emojis(qtile):
 # NightLight widget
 def nightLight_widget(qtile):
   options = [' Night Time(3500k)', ' Neutral (6500k)', ' Cool (7500k)']
-  index, key = rofi_left.select('  Night Light', options)
+  index, key = rofi_session.select('  Night Light', options)
   if key == -1:
     rofi_left.close()
   else:
@@ -411,7 +411,7 @@ def nightLight_widget(qtile):
 # Farge Widget
 def fargewidget(qtile):
   options = [' Hex',' RGB']
-  index, key = rofi_left.select('  Color Picker', options)
+  index, key = rofi_session.select('  Color Picker', options)
   if key == -1:
     rofi_left.close()
   else:
@@ -423,7 +423,7 @@ def fargewidget(qtile):
 # Draw Widget
 def draw_widget(qtile):
   options = [' Draw', ' Exit']
-  index, key = rofi_left.select('  Screen Draw', options)
+  index, key = rofi_session.select('  Screen Draw', options)
   if key == -1:
     rofi_left.close()
   else:
@@ -479,22 +479,22 @@ def show_groups(qtile):
 ## groups_icon_select
 def group_icon(qtile):
   options = [
-    '->          ', 
-    '-> 零 一 二 三 四 五 六 七 八 九', 
-    '->          ',
-    '->          ',
-    '->          ',
-    '-> 0 1 2 3 4 5 6 7 8 9',
-    '-> : ( ) { : | : & } ;',
-    '->          ',
-    '->          ',
-    '->          ',
-    '->          ',
-    '->          ',
-    '->          ',
-    '-> TERM DEV WWW SYS DOC VIRT MSG MUS VID GFX'
+    '         ', 
+    '零 一 二 三 四 五 六 七 八 九', 
+    '         ',
+    '         ',
+    '         ',
+    '0 1 2 3 4 5 6 7 8 9',
+    ': ( ) { : | : & } ;',
+    '         ',
+    '         ',
+    '         ',
+    '         ',
+    '         ',
+    '         ',
+    'TERM DEV WWW SYS DOC VIRT MSG MUS VID GFX'
     ]
-  index, key = rofi_left.select(' Group Icons ', options)
+  index, key = rofi_session.select(' Group Icons ', options)
   if key == -1:
     rofi_left.close()
   else:
@@ -506,7 +506,7 @@ def group_icon(qtile):
 ## Select Dark or Light Theming
 def dark_white(qtile):
   options = [' Dark', ' Light']
-  index, key = rofi_left.select(' Theme -> ' + str(variables[7].strip()), options)
+  index, key = rofi_session.select(' Theme -> ' + str(variables[7].strip()), options)
   if key == -1 or index == 2:
     rofi_left.close()
   else:
@@ -535,7 +535,7 @@ def dark_white(qtile):
 ## Select Bar Position Top or Bottom
 def bar_pos(qtile):
   options = ['Top', 'Bottom', 'Toggle Bar']
-  index, key = rofi_left.select(' Bar -> ' + bar_position , options)
+  index, key = rofi_session.select(' Bar -> ' + bar_position , options)
   if key == -1:
     rofi_left.close()
   else:
@@ -557,7 +557,7 @@ def bar_pos(qtile):
 # Change Theme widget
 def change_theme(qtile):
   options = theme
-  index, key = rofi_left.select('  Theme -> ' + current_theme , options)
+  index, key = rofi_session.select('  Theme -> ' + current_theme , options)
   if key == -1:
     rofi_left.close()
     subprocess.run(["notify-send","-a", " SpectrumOS", "No Theme Selected!"])
@@ -581,7 +581,7 @@ def random_colors(qtile):
 # Screenshot widget
 def screenshot(qtile):
   options = [' Area', ' Screen', ' Window',  ' 5s Screen']
-  index, key = rofi_left.select('  Screenshot', options)
+  index, key = rofi_session.select('  Screenshot', options)
   if key == -1:
     rofi_left.close()
   else:
@@ -626,7 +626,7 @@ def show_keyboard_layout(qtile):
 ## Support SpectrumOS
 def support_spectrumos(qtile):
   options = [' Become a Patreon', ' Buy me a Coffee']
-  index, key = rofi_left.select(' Support SpectrumOS', options)
+  index, key = rofi_session.select(' Support SpectrumOS', options)
   if key == -1 or index == 2:
     rofi_left.close()
   else:

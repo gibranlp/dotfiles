@@ -36,5 +36,5 @@
     foreground: {foreground};
     border-color: @background;
     
-    font:"Fira Code Medium 14";
+    font:"Courier Prime Medium 13";
 }}
