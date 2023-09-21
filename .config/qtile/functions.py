@@ -134,7 +134,7 @@ if xres >= "3840" and yres >= "2160": #4k
   widget_width=400
   max_ratio=0.85
   ratio=0.70
-  terminal_font_size=10
+  terminal_font_size=12
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
@@ -149,7 +149,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   widget_width=150
   max_ratio=0.85
   ratio=0.65
-  terminal_font_size=8
+  terminal_font_size=9
   if bar_position == "bottom":
     bar_margin=[0,10,5,10]
   else:
@@ -164,7 +164,7 @@ else: # 1366 x 768 Macbook air 11"
   widget_width=100
   max_ratio=0.50
   ratio=0.50
-  terminal_font_size=6
+  terminal_font_size=8
   bar_margin=[0,0,0,0]
 
 # Set the right Terminal Font size
