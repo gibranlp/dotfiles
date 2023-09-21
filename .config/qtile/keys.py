@@ -48,8 +48,10 @@ keys = [
     Key([mod, "shift"],"x",lazy.spawn(home + '/.local/bin/change_display')),# Monitor modes Widget
     Key([mod],"f",lazy.spawn(home + '/.local/bin/opener')),# Find Files
 
-    # Apps
+    # Toggle Sticky Windows
+    Key([mod], "y", toggle_sticky_windows()),
 
+    # Apps
     Key([mod],"e",lazy.spawn('thunar')),# Thunar
     
 

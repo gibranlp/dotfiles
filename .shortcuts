@@ -45,6 +45,7 @@ prtnsc ::  Screenshot
 ❖ +  + Up ::  Grow
 ❖ +  + Down ::  Shrink
 ❖ +  + Space ::  Flip
+❖ + Y :: Toggle Sticky Window
 <<----------<< Layouts >>---------->>
 ❖ + Space ::  Cycle Layout
 ❖ + H ::  Layout Left

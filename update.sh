@@ -47,6 +47,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
 }
 
 #install_new_packages

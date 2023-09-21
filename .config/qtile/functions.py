@@ -134,7 +134,7 @@ if xres >= "3840" and yres >= "2160": #4k
   widget_width=400
   max_ratio=0.85
   ratio=0.70
-  terminal_font_size=12
+  terminal_font_size=10
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
@@ -164,7 +164,7 @@ else: # 1366 x 768 Macbook air 11"
   widget_width=100
   max_ratio=0.50
   ratio=0.50
-  terminal_font_size=8
+  terminal_font_size=7
   bar_margin=[0,0,0,0]
 
 # Set the right Terminal Font size
@@ -188,7 +188,34 @@ rofi_session= Rofi(rofi_args=['-theme', '~/.config/rofi/session.rasi'])
 w_appkey = str(variables[3].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
 w_cityid ="3995402" # "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
 
-## Hooks
+## Sticky Windows
+
+sticky_windows=[]
+
+## Move Window to current Group
+@lazy.function
+def toggle_sticky_windows(qtile, window=None):
+    if window is None:
+        window = qtile.current_screen.group.current_window
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+    else:
+        sticky_windows.append(window)
+    return window
+
+#Hooks
+
+@hook.subscribe.setgroup
+def move_sticky_windows():
+    for window in sticky_windows:
+        window.togroup()
+    return
+
+@hook.subscribe.client_killed
+def remove_sticky_windows(window):
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+
 @hook.subscribe.startup # This file gets executed everytime qtile restarts
 def start():
   subprocess.call(home + '/.local/bin/alwaystart')
@@ -267,6 +294,8 @@ secondary_color = secondary_pallete(color, differentiator)
 
 def i3lock_colors(qtile):
   subprocess.run(['i3lock', 
+    '--image=%s' % wallpaper,
+    '--fill',          
     '--ring-color={}'.format(color[0]),
     '--inside-color={}'.format(color[0]),
     '--line-color={}'.format(color[2]),
@@ -284,7 +313,6 @@ def i3lock_colors(qtile):
     '--keyhl-color={}'.format(color[1]),         
     '--bshl-color={}'.format(color[6]),            
     '--clock',
-    '--blur', '20',                 
     '--indicator',       
     '--time-str=%H:%M:%S',
   ])
@@ -297,7 +325,7 @@ def toggle_bar_blur(qtile):
   qtile.reload_config()
 
 # Transparent for bars and widgets
-transparent=color[0] + "00"
+transparent="00000000"
 
 # Set Random Wallpaper
 def change_wallpaper(qtile):
@@ -604,13 +632,13 @@ def show_keyboard_layout(qtile):
             ),
             width=1,
             height=1,
-            pos_x=0,
-            pos_y=0
         )
     ]
 
     layout = PopupRelativeLayout(
         qtile,
+        pos_x=0.8,
+        pos_y=0.8,
         width=100,
         height=50,
         controls=controls,
@@ -619,7 +647,6 @@ def show_keyboard_layout(qtile):
         close_on_click=False,
         hide_on_mouse_leave=True,
         keyboard_navigation=True,
-        keymap={'close':['Escape']}
     )
     layout.show(centered=True)
 
@@ -780,3 +807,4 @@ widget_defaults = dict(
     padding=3,
 )
 
+ 
