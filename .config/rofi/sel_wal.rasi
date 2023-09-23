@@ -4,7 +4,6 @@
 /*****----- Configuration -----*****/
 configuration {
     show-icons:                 true;
-    display-file-browser-extended:        "Select ";
     }
     
 /*****----- Main Window -----*****/
@@ -14,8 +13,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       80%;
-    height:                      60%;
+    width:                       50%;
+    height:                      90%;
     x-offset:                    0px;
     y-offset:                    0px;
     border-radius:               0px 10px 10px 0px;
@@ -79,8 +78,8 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     8;
-    lines:                       8;
+    columns:                     4;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;

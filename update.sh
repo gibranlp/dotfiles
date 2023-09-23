@@ -48,6 +48,8 @@ function update(){
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
+  sudo cp ~/SpectrumOS/dotfiles/logid.cfg /etc/
+  cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
 }
 
 #install_new_packages
