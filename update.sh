@@ -50,6 +50,7 @@ function update(){
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   sudo cp ~/SpectrumOS/dotfiles/logid.cfg /etc/
   cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
 }
 
 #install_new_packages
