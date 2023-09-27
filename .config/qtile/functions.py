@@ -174,7 +174,7 @@ with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
 
 # Make font smaller for cetain groups icons
 if int(variables[10]) in [7, 8, 9,10,11,12,13]:
-   groups_font = font_size - 6
+   groups_font = font_size - 8
 else:
    groups_font = font_size 
 
