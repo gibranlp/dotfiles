@@ -87,8 +87,8 @@ prompt = " ".format(os.environ["USER"], socket.gethostname())
 wallpaper_dir= home + '/Pictures/Wallpapers/' # Wallpapers folders
 light=str(variables[4].strip()) # Option for light themes
 
-# Diferenciator, this will get added to generate a slightly different pallete
-differentiator = '222222'
+# Diferenciator, this wiqll get added to generate a slightly different pallete
+differentiator = '0b0b0b'
 
 #Initialize Groups
 groups = []

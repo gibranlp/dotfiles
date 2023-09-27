@@ -14,7 +14,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal)),
 
     # Qtile System Actions
-    Key([mod, "shift"], "r",lazy.reload_config()),
+    Key([mod, "shift"], "r",lazy.restart()),
     Key([mod, "shift"], "q",lazy.shutdown()),
     
     
