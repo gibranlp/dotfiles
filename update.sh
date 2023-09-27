@@ -39,7 +39,7 @@ function update(){
   mkdir -p ~/.icons
   cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/opener ~/.local/bin
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin
   chmod +x ~/.local/bin/*
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates

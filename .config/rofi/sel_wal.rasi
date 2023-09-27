@@ -52,18 +52,20 @@ inputbar {
     background-image:            url("/usr/local/backgrounds/background.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
-    children:                    ["prompt", "entry"];
+    children:                    ["textbox-prompt-colon", "entry"];
     border-radius:               0px 10px 0px 0px;
     horizontal-align:            0.5;
 
 }
 
-prompt {
-    padding:                     12px 16px;    
+textbox-prompt-colon{
+    enabled:                     true;
+    expand:                      false;
+    str:                         " Select Wallpaper";
+    padding:                     13px 15px;
     border-radius:               0px 5px 5px 0px;
     background-color:            @background;
-    text-color:                  @color1;
-    horizontal-align:            0.5;
+    text-color:                  @color3;
 }
 
 entry {
@@ -87,7 +89,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    spacing:                     -15px;
+    spacing:                     0px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -132,7 +134,7 @@ element selected.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        200px;
+    size:                        250px;
     cursor:                      inherit;
 }
 element-text {
