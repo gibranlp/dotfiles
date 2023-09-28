@@ -27,7 +27,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -46,7 +46,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -65,7 +65,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -84,7 +84,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -103,7 +103,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -122,7 +122,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -141,7 +141,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -160,7 +160,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -179,7 +179,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -198,7 +198,7 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=secondary_color[6], #Program opened in that group
+          active=color[8], #Program opened in that group
           inactive=secondary_color[0], # Empty Group
           rounded=False,
           highlight_method="text",
@@ -426,7 +426,7 @@ def init_widgets_list():
               format='{essid}',
               disconnected_message='',
               foreground=color[3],
-              width=widget_width,
+              width=widget_width-100,
               scroll=True,
               scroll_repeat=True,
               scroll_interval=0.1,
@@ -444,18 +444,16 @@ def init_widgets_list():
                 mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
                 **powerline,
         ),
-        # widget.TextBox(
-        #   background=color[2],
-        #   text="",
-        #   foreground=color[0],
-        #   **powerline,
-        # ),
-        # widget.KeyboardLayout(
-        #   background=color[2],
-        #   configured_keyboards=['us intl', 'latam'],
-        #   foreground=color[0],
-        #   **powerline,
-        # ),
+        widget.Net(
+              background=color[0],
+              prefix='M',
+              interface=wifi,
+              format='{down:1.1f}M',
+              foreground=color[3],
+              use_bits=True,
+              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              **powerline,
+            ),
         widget.TextBox(
           background=color[5],
           text="",

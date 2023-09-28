@@ -12,7 +12,6 @@ from keys import *
 
 ## Groups
 
-#group_labels=["","","","","","","","","",""] # SpectrumOS
 #### Groups Labels
 if int(variables[10]) == 0:
    group_labels=["","","","","","","","","",""] # SpectrumOS
@@ -60,15 +59,15 @@ for i in groups:
 groups.append(ScratchPad("scratchpad", [
    DropDown("lyrics", "alacritty -e bash -c '. ~/.zshrc; lyrics'",
       x=0.75, y=0.05, width=0.20, height=0.9, opacity=0.9,
-      on_focus_lost_hide=True),
+      on_focus_lost_hide=False),
 
    DropDown("music", "alacritty -e bash -c '. ~/.zshrc; ncspot'",
       x=0.05, y=0.0, width=0.9, height=0.7, opacity=0.9,
-      on_focus_lost_hide=True),
+      on_focus_lost_hide=False),
                
    DropDown("htop", "alacritty -e bash -c '. ~/.zshrc; htop'",
       x=0.05, y=0.0, width=0.9, height=0.7, opacity=0.9,
-      on_focus_lost_hide=True),            
+      on_focus_lost_hide=False),            
                       ]),
           )
 
@@ -123,7 +122,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = 'floating_only'
-cursor_warp = True
+cursor_warp = False
 
 auto_fullscreen = True
 focus_on_window_activation = 'smart'

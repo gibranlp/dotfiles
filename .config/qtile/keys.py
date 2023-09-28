@@ -139,3 +139,5 @@ keys = [
     Key([mod],"g",lazy.function(show_keyboard_layout)), # Run i3lock 
 
 ]
+
+#https://www.patreon.com/rss/creepyenespanol?auth=w79EFzfpTCwuvNbZ0LSsSlRuh4M1IEwJ
