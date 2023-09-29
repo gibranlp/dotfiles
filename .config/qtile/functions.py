@@ -142,7 +142,7 @@ if xres >= "3840" and yres >= "2160": #4k
   weather_x=0.80
   weather_y=0.86
   weather_width=0.085
-  weather_height=0.86
+  weather_height=0.12
 elif xres == "1920" and yres == "1080": #FullHD
   layout_margin=10
   single_layout_margin=5  

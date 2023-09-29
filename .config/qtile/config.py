@@ -70,7 +70,7 @@ groups.append(ScratchPad("scratchpad", [
       on_focus_lost_hide=False),            
    
    DropDown("weather", "alacritty -e bash -c '. ~/.zshrc; weather'",
-      x=0.80, y=0.86, width=0.085, height=0.12, opacity=0.9,
+      x=weather_x, y=weather_y, width=weather_width, height=weather_height, opacity=0.9,
       on_focus_lost_hide=True),            
                       ]),
           )
