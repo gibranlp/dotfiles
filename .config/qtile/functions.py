@@ -139,6 +139,10 @@ if xres >= "3840" and yres >= "2160": #4k
     bar_margin=[0,15,10,15]
   else:
     bar_margin=[10,15,0,15]
+  weather_x=0.80
+  weather_y=0.86
+  weather_width=0.085
+  weather_height=0.86
 elif xres == "1920" and yres == "1080": #FullHD
   layout_margin=10
   single_layout_margin=5  
@@ -154,6 +158,10 @@ elif xres == "1920" and yres == "1080": #FullHD
     bar_margin=[0,10,5,10]
   else:
     bar_margin=[5,10,0,10]
+  weather_x=0.60
+  weather_y=0.76
+  weather_width=0.14
+  weather_height=0.23
 else: # 1366 x 768 Macbook air 11"
   layout_margin=2
   single_layout_margin=2  
