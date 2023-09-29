@@ -94,7 +94,8 @@ def init_widgets_list():
             format='{icon}',
             foreground=color[5],
             metric=True,
-            update_interval=600, 
+            update_interval=600,
+            mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ),
         ## Network
         widget.TextBox(

@@ -225,6 +225,7 @@ def init_widgets_list():
                 update_interval=600,
                 decorations=[BorderDecoration(colour=color[0], border_width=2)],
                 padding=5,
+                mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
             ),
             widget.TextBox(
               foreground=secondary_color[3],

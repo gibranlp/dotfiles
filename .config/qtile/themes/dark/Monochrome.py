@@ -137,7 +137,8 @@ def init_widgets_list():
           foreground=color_in_use,
           metric=True,
           update_interval=600,
-          padding=10,  
+          padding=10,
+          mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
       ),
       widget.Spacer(
         length=5,

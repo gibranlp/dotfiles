@@ -134,6 +134,7 @@ keys = [
     Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("music")),
     Key(["shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("lyrics")),
     Key([alt], 'F12', lazy.group['scratchpad'].dropdown_toggle("htop")),
+    Key([alt], 'F11', lazy.group['scratchpad'].dropdown_toggle("weather")),
 
     # Show Keyboard Layouts
     Key([mod],"g",lazy.function(show_keyboard_layout)), # Run i3lock 

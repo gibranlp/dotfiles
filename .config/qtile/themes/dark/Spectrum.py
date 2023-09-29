@@ -367,7 +367,8 @@ def init_widgets_list():
                 format='{icon}',
                 foreground=color[5],
                 metric=True,
-                update_interval=600, 
+                update_interval=600,
+                mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
             ),
             widget.OpenWeather(
               decorations=[RectDecoration(colour=color[5], radius=[0,7,7,0], filled=True)],
@@ -379,6 +380,7 @@ def init_widgets_list():
               format='{temp}°{units_temperature} {weather_details}',
               metric=True,
               update_interval=600,
+              mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
             ),
             widget.Spacer(
               length=5,

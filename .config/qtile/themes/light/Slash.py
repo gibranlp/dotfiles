@@ -365,6 +365,7 @@ def init_widgets_list():
             metric=True,
             update_interval=600,
             **powerline,
+            mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ),
         widget.OpenWeather(
           background=color[4],
@@ -375,6 +376,7 @@ def init_widgets_list():
           metric=True,
           update_interval=600,
           **powerline,
+          mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ), 
         ## Network
         widget.WidgetBox(

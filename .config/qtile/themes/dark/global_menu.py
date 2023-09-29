@@ -117,6 +117,7 @@ def init_widgets_list():
                 metric=True,
                 update_interval=600,
                 padding=5,
+                mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
             ),
             widget.TextBox(
               text="|",
