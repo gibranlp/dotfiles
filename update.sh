@@ -41,6 +41,7 @@ function update(){
   cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
   cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin
   cp -r ~/SpectrumOS/dotfiles/.local/bin/weather ~/.local/bin
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin
   chmod +x ~/.local/bin/*
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   cp ~/SpectrumOS/dotfiles/.config/conky/conky ~/.config/wal/templates

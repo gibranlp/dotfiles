@@ -8,8 +8,6 @@
 # MIT licence 
 # 
 #
-import json
-import os
 import random
 import socket
 import subprocess
@@ -23,14 +21,12 @@ from qtile_extras import widget
 from qtile_extras.popup.toolkit import (PopupRelativeLayout, PopupWidget)
 from qtile_extras.widget.decorations import (BorderDecoration,PowerLineDecoration,RectDecoration)
 from rofi import Rofi
+from colors import  *
 
 #### Variables ####
 # Modifiers
 mod = "mod4"
 alt = "mod1"
-
-#Home Path
-home = os.path.expanduser('~') # Path for use in folders
 
 ## Import config
 file = open(home + '/.config/qtile/variables', 'r')
@@ -86,9 +82,6 @@ prompt = " ".format(os.environ["USER"], socket.gethostname())
 # Wallpapers / Theming
 wallpaper_dir= home + '/Pictures/Wallpapers/' # Wallpapers folders
 light=str(variables[4].strip()) # Option for light themes
-
-# Diferenciator, this wiqll get added to generate a slightly different pallete
-differentiator = '0b0b0b'
 
 #Initialize Groups
 groups = []
@@ -260,43 +253,6 @@ def app_or_group(group, app):
       qtile.groups_map[group].cdtoscreen(toggle=False)
       qtile.spawn(app)
     return f
-
-## Import Colors from Pywal
-with open(home + '/.cache/wal/colors.json') as wal_import:
-  data = json.load(wal_import)
-  wallpaper = data['wallpaper']
-  colors = data['colors']
-  val_colors = list(colors.values())
-  def getList(val_colors):
-    return [*val_colors]
-    
-  def init_colors():
-    return [*val_colors]
-
-color = init_colors()
-
-## Generate Secondary Palette
-def secondary_pallete(colors, differentiator):
-    updated_colors = []
-    for color in colors:
-        # Remove the '#' symbol
-        color = color.lstrip('#')
-        # Convert hexadecimal colors to integers
-        color_int = int(color, 16)
-        differentiator_int = int(differentiator, 16)
-        # Perform addition
-        result_int = color_int + differentiator_int
-        # Ensure the result is within the valid range of 0-FFFFFF
-        result_int = min(result_int, 0xFFFFFF)
-        result_int = max(result_int, 0)
-        # Convert the result back to hexadecimal
-        result_hex = '#' + hex(result_int)[2:].zfill(6).upper()
-
-        updated_colors.append(result_hex)
-
-    return updated_colors
-
-secondary_color = secondary_pallete(color, differentiator)
 
 # Run i3-lock with Colors
 

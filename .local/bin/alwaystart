@@ -14,11 +14,11 @@ unclutter -idle 1 &
 rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
 picom -b & 
-cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc &
+cp ~/.cache/wal/dunstrc ~/.config/dunst/ &
 cp ~/.cache/wal/conky ~/.conkyrc &
-cp ~/.cache/wal/config ~/.config/cava/config &
-cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/flameshot.ini &
-sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/
+cp ~/.cache/wal/config ~/.config/cava/ &
+cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/ &
+sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/ &
 pkill -USR1 cava &
 dunst &
 wal-telegram &

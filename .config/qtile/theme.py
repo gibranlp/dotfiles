@@ -156,7 +156,7 @@ def init_widgets_list():
               background=transparent,
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[1], radius=[8,0,0,8], filled=True)],
+              decorations=[RectDecoration(colour=color[1], radius=[8,0,0,8], filled=True),BorderDecoration(colour=third_color[1], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -174,7 +174,7 @@ def init_widgets_list():
               visible_groups=['Escape'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[2], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[2], radius=0, filled=True),BorderDecoration(colour=third_color[2], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -192,7 +192,7 @@ def init_widgets_list():
               visible_groups=['1'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[3], radius=0, filled=True),BorderDecoration(colour=third_color[3], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -210,7 +210,7 @@ def init_widgets_list():
               visible_groups=['2'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[4], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[4], radius=0, filled=True),BorderDecoration(colour=third_color[4], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -228,7 +228,7 @@ def init_widgets_list():
               visible_groups=['3'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[5], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[5], radius=0, filled=True),BorderDecoration(colour=third_color[5], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -246,7 +246,7 @@ def init_widgets_list():
               visible_groups=['4'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[1], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=secondary_color[1], radius=0, filled=True),BorderDecoration(colour=third_color[1], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -264,7 +264,7 @@ def init_widgets_list():
               visible_groups=['5'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[2], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=secondary_color[2], radius=0, filled=True),BorderDecoration(colour=third_color[2], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -282,7 +282,7 @@ def init_widgets_list():
               visible_groups=['6'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True),BorderDecoration(colour=third_color[3], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -300,7 +300,7 @@ def init_widgets_list():
               visible_groups=['7'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[4], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=secondary_color[4], radius=0, filled=True),BorderDecoration(colour=third_color[4], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -318,7 +318,7 @@ def init_widgets_list():
               visible_groups=['8'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[5], radius=[0,8,8,0], filled=True)],
+              decorations=[RectDecoration(colour=secondary_color[5], radius=[0,8,8,0], filled=True),BorderDecoration(colour=third_color[5], border_width=2)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
