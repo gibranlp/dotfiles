@@ -31,7 +31,7 @@ with open(home + '/.cache/wal/colors.json') as wal_import:
 color = init_colors()
 
 # Diferenciator, this will get added to generate a slightly different pallete
-differentiator = '0b0b0b'
+differentiator = '111111'
 
 ## Generate Secondary Palette
 def secondary_pallete(colors, differentiator):
