@@ -97,7 +97,7 @@ theme=['Spectrum', 'Slash', 'Slash2', 'Miasma', 'Nice', 'global_menu', 'Minimal'
 
 # Pywal backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
-backend=['wal', 'colorz', 'colorthief','haishoku']
+backend=['wal', 'colorz', 'colorthief','haishoku']  
 
 ## Margins
 layout_margin=10 # Layout margins

@@ -17,8 +17,9 @@ def init_widgets_list():
     widgets_list = [
             widget.CurrentLayoutIcon(
               use_mask=True,
-              decorations=[RectDecoration(colour=color[3], radius=7, filled=True)],
-              foreground=color[0],
+              decorations=[RectDecoration(colour=secondary_color[1], radius=7, filled=True)],
+              foreground=color[1],
+              fontshadow=third_color[1],
               scale=0.8,
             ),
             widget.Spacer(
