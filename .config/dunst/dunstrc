@@ -498,4 +498,9 @@
     appname = pomodoro
     format = "<b> Pomodoro</b>\n%s %b"
     timeout = 10
+
+[Whatsdesk]
+    appname = whatsdesk
+    format = "<b> Whatsdesk</b>\n%s %b"
+    timeout = 10
     
