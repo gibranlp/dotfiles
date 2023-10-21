@@ -27,8 +27,8 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[1], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -46,8 +46,8 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[2], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -65,8 +65,8 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[3], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -84,8 +84,8 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[4], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -103,8 +103,8 @@ def init_widgets_list():
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[5], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -115,15 +115,15 @@ def init_widgets_list():
           visible_groups=['4'],
         ),
         widget.GroupBox(
-          background=secondary_color[1],
+          background=color[1],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[1], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -134,15 +134,15 @@ def init_widgets_list():
           visible_groups=['5'],
         ),
         widget.GroupBox(
-          background=secondary_color[2],
+          background=color[2],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[2], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -153,15 +153,15 @@ def init_widgets_list():
           visible_groups=['6'],
         ),
         widget.GroupBox(
-          background=secondary_color[3],
+          background=color[3],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[3], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -172,15 +172,15 @@ def init_widgets_list():
           visible_groups=['7'],
         ),
         widget.GroupBox(
-          background=secondary_color[4],
+          background=color[4],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[4], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],
@@ -191,15 +191,15 @@ def init_widgets_list():
           visible_groups=['8'],
         ),
         widget.GroupBox(
-          background=secondary_color[5],
+          background=color[5],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[8], #Program opened in that group
-          inactive=secondary_color[0], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[5], # Empty Group
           rounded=False,
           highlight_method="text",
           this_current_screen_border=color[0],

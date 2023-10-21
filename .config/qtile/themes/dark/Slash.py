@@ -115,7 +115,7 @@ def init_widgets_list():
           visible_groups=['4'],
         ),
         widget.GroupBox(
-          background=secondary_color[1],
+          background=color[1],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
@@ -134,7 +134,7 @@ def init_widgets_list():
           visible_groups=['5'],
         ),
         widget.GroupBox(
-          background=secondary_color[2],
+          background=color[2],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
@@ -153,7 +153,7 @@ def init_widgets_list():
           visible_groups=['6'],
         ),
         widget.GroupBox(
-          background=secondary_color[3],
+          background=color[3],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
@@ -172,7 +172,7 @@ def init_widgets_list():
           visible_groups=['7'],
         ),
         widget.GroupBox(
-          background=secondary_color[4],
+          background=color[4],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,
@@ -191,7 +191,7 @@ def init_widgets_list():
           visible_groups=['8'],
         ),
         widget.GroupBox(
-          background=secondary_color[5],
+          background=color[5],
           fontsize=groups_font,
           font=awesome_font,
           disable_drag=True,

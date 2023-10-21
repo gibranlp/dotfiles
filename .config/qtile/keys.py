@@ -47,6 +47,7 @@ keys = [
     Key([alt],"w",lazy.function(change_theme)), # Change Theme
     Key([mod, "shift"],"x",lazy.spawn(home + '/.local/bin/change_display')),# Monitor modes Widget
     Key([mod],"f",lazy.spawn(home + '/.local/bin/opener')),# Find Files
+    Key([mod, "shift"],"t",lazy.function(turntable)),# Monitor modes Widget
 
     # Toggle Sticky Windows
     Key([mod], "y", toggle_sticky_windows()),

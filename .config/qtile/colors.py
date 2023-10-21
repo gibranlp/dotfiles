@@ -30,51 +30,58 @@ with open(home + '/.cache/wal/colors.json') as wal_import:
 
 color = init_colors()
 
-# Diferenciator, this will get added to generate a slightly different pallete
-differentiator = '0a0a0a'
+def hex_to_rgb(hex_color):
+    # Remove the '#' if it exists in the input
+    hex_color = hex_color.lstrip('#')
+    # Convert the hex color to RGB
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+    return r, g, b
 
-## Generate Secondary Palette
-def secondary_pallete(colors, differentiator):
-    updated_colors = []
-    for color in colors:
-        # Remove the '#' symbol
-        color = color.lstrip('#')
-        # Convert hexadecimal colors to integers
-        color_int = int(color, 16)
-        differentiator_int = int(differentiator, 16)
-        # Perform addition
-        result_int = color_int + differentiator_int
-        # Ensure the result is within the valid range of 0-FFFFFF
-        result_int = min(result_int, 0xFFFFFF)
-        result_int = max(result_int, 0)
-        # Convert the result back to hexadecimal
-        result_hex = '#' + hex(result_int)[2:].zfill(6).upper()
+def rgb_to_hex(rgb_color):
+    # Convert RGB values to a hex color code
+    hex_color = "#{:02X}{:02X}{:02X}".format(*rgb_color)
+    return hex_color
 
-        updated_colors.append(result_hex)
+def darken_color(hex_color, factor=0.5):
+    # Convert hex color to RGB
+    r, g, b = hex_to_rgb(hex_color)
+    
+    # Darken the color by reducing each RGB component
+    r = int(r * factor)
+    g = int(g * factor)
+    b = int(b * factor)
+    
+    # Ensure values are within the valid RGB range (0-255)
+    r = max(0, r)
+    g = max(0, g)
+    b = max(0, b)
+    
+    # Convert the darkened RGB color back to hex
+    darkened_hex_color = rgb_to_hex((r, g, b))
+    
+    return darkened_hex_color
 
-    return updated_colors
+def lighten_color(hex_color, factor=1.3):
+    # Convert hex color to RGB
+    r, g, b = hex_to_rgb(hex_color)
+    
+    # Lighten the color by increasing each RGB component
+    r = min(255, int(r * factor))
+    g = min(255, int(g * factor))
+    b = min(255, int(b * factor))
+    
+    # Convert the lightened RGB color back to hex
+    lightened_hex_color = rgb_to_hex((r, g, b))
+    
+    return lightened_hex_color
 
-## Generate Third Palette
-def third_pallete(colors, differentiator):
-    updated_colors = []
-    for color in colors:
-        # Remove the '#' symbol
-        color = color.lstrip('#')
-        # Convert hexadecimal colors to integers
-        color_int = int(color, 16)
-        differentiator_int = int(differentiator, 16)
-        # Perform addition
-        result_int = color_int - differentiator_int
-        # Ensure the result is within the valid range of 0-FFFFFF
-        result_int = min(result_int, 0xFFFFFF)
-        result_int = max(result_int, 0)
-        # Convert the result back to hexadecimal
-        result_hex = '#' + hex(result_int)[2:].zfill(6).upper()
+def generate_palettes(hex_color_list):
+    # Darken and lighten the colors in the input list
+    darkened_colors = [darken_color(color) for color in hex_color_list]
+    brighter_colors = [lighten_color(color) for color in hex_color_list]
+    
+    return darkened_colors, brighter_colors
 
-        updated_colors.append(result_hex)
-
-    return updated_colors
-
-secondary_color = secondary_pallete(color, differentiator)
-
-third_color = third_pallete(color, differentiator)
+third_color, secondary_color = generate_palettes(color)

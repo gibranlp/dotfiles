@@ -246,7 +246,7 @@ def init_widgets_list():
               visible_groups=['4'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[1], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[1], radius=0, filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -264,7 +264,7 @@ def init_widgets_list():
               visible_groups=['5'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[2], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[2], radius=0, filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -282,7 +282,7 @@ def init_widgets_list():
               visible_groups=['6'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -300,7 +300,7 @@ def init_widgets_list():
               visible_groups=['7'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[4], radius=0, filled=True)],
+              decorations=[RectDecoration(colour=color[4], radius=0, filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
@@ -318,7 +318,7 @@ def init_widgets_list():
               visible_groups=['8'],
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=secondary_color[5], radius=[0,8,8,0], filled=True)],
+              decorations=[RectDecoration(colour=color[5], radius=[0,8,8,0], filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,

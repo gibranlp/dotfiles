@@ -640,6 +640,19 @@ def pacman_packages(qtile):
 
 ## Update SpectrumOS
 
+
+# Logout widget
+def turntable(qtile):
+  options = [' On', ' Off']
+  index, key = rofi_session.select(' Listen Turntable', options)
+  if key == -1:
+    rofi_left.close()
+  else:
+    if index == 0:
+      os.system('pactl load-module module-loopback source=3')
+    else:
+      os.system('pactl unload-module module-loopback')
+
 ### AUR
 def aur_packages(qtile):
     packets = [

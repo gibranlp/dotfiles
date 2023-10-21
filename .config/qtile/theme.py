@@ -18,8 +18,7 @@ def init_widgets_list():
             widget.CurrentLayoutIcon(
               use_mask=True,
               decorations=[RectDecoration(colour=secondary_color[1], radius=7, filled=True)],
-              foreground=color[1],
-              fontshadow=third_color[1],
+              foreground=third_color[1],
               scale=0.8,
             ),
             widget.Spacer(
@@ -157,7 +156,7 @@ def init_widgets_list():
               background=transparent,
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[1], radius=[8,0,0,8], filled=True),BorderDecoration(colour=third_color[1], border_width=2)],
+              background=color[1],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
