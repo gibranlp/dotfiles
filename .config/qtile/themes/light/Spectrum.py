@@ -377,7 +377,7 @@ def init_widgets_list():
               width=widget_width -60,
               cityid=w_cityid,
               foreground=color[0],
-              format='{temp}°{units_temperature} {weather_details}',
+              format='{temp}°{units_temperature}',
               metric=True,
               update_interval=600,
               mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}

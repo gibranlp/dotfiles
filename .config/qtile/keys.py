@@ -60,11 +60,11 @@ keys = [
     Key([mod], "Tab",lazy.layout.down()), # Change focus of windows down
     Key([mod, "shift"], "Tab",lazy.layout.up()), # Change focus of windows up
     Key([alt], "Tab",
-        lazy.layout.shuffle_down(),
+        lazy.layout.shuffle_up(),
         lazy.layout.swap_left()), # Swap Left Down
     
     Key([alt, "shift"], "Tab", 
-        lazy.layout.shuffle_up(),
+        lazy.layout.shuffle_down(),
         lazy.layout.swap_right()
         ), # Swap Right Up
     
@@ -132,8 +132,8 @@ keys = [
     Key([alt], "Escape", lazy.spawn('xkill')), # Click window to close
 
     # Scratchpads
-    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle("music")),
-    Key(["shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("lyrics")),
+    Key(["shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("music")),
+    Key(["control","shift"], 'F12', lazy.group['scratchpad'].dropdown_toggle("lyrics")),
     Key([alt], 'F12', lazy.group['scratchpad'].dropdown_toggle("htop")),
     Key([alt], 'F11', lazy.group['scratchpad'].dropdown_toggle("weather")),
 

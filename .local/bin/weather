@@ -57,8 +57,6 @@ weather_desc = weather_data.json()['weather'][0]['description']
 
 temp = str(round(weather_data.json()['main']['temp'])) + '°'
 feels = str(round(weather_data.json()['main']['feels_like'])) + '°'
-tmin = str(round(weather_data.json()['main']['temp_min'])) + '°'
-tmax = str(round(weather_data.json()['main']['temp_max'])) + '°'
 hum = str(round(weather_data.json()['main']['humidity'])) + '%'
 sea = str(round(weather_data.json()['main']['sea_level'])) + ' M'
 
@@ -76,8 +74,6 @@ if weather == "Clear":
     print(city + "  " + " Clear",
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -87,8 +83,6 @@ elif weather == "Clouds":
     print(city + "  " + " Cloudy",
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -98,8 +92,6 @@ elif weather == "Rain":
     print(city + "  " + " Rainy",
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -109,8 +101,6 @@ elif weather == "Snow":
     print(city + "  " + " Snowy",
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -120,8 +110,6 @@ elif weather == "Thunderstorm":
     print(city + " " + " Thunderstorm",
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -131,8 +119,6 @@ else:
     print(city + "  " + weather,
           "Temperature: " + temp,
           "Feels Like: " + feels,
-          "Max: " + tmax,
-          "Min: " + tmin,
           "Humidity: " + hum,
           "Wind speed: " + wind_speed,
           "Sunrise: " + sunrisestring,
@@ -140,3 +126,6 @@ else:
           "Sea Level: " + sea, sep = '\n')
 
 input()
+
+
+#https://api.openweathermap.org/data/2.5/weather?q=Morelia, MX&units=metric&APPID=e45a0f07f0c675b273ef8636663941db

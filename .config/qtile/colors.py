@@ -44,7 +44,7 @@ def rgb_to_hex(rgb_color):
     hex_color = "#{:02X}{:02X}{:02X}".format(*rgb_color)
     return hex_color
 
-def darken_color(hex_color, factor=0.5):
+def darken_color(hex_color, factor=0.3):
     # Convert hex color to RGB
     r, g, b = hex_to_rgb(hex_color)
     
@@ -63,7 +63,7 @@ def darken_color(hex_color, factor=0.5):
     
     return darkened_hex_color
 
-def lighten_color(hex_color, factor=1.3):
+def lighten_color(hex_color, factor=1.2):
     # Convert hex color to RGB
     r, g, b = hex_to_rgb(hex_color)
     
@@ -82,6 +82,6 @@ def generate_palettes(hex_color_list):
     darkened_colors = [darken_color(color) for color in hex_color_list]
     brighter_colors = [lighten_color(color) for color in hex_color_list]
     
-    return darkened_colors, brighter_colors
+    return brighter_colors, darkened_colors
 
-third_color, secondary_color = generate_palettes(color)
+secondary_color, third_color = generate_palettes(color)

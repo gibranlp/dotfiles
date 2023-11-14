@@ -101,10 +101,22 @@ def init_layouts():
    layout.Spiral(
      ratio=0.5,
      ratio_increment=0.02,
+     main_pane="left",
+     clockwise=True,
+     **layout_theme),
+   layout.Spiral(
+     ratio=0.5,
+     ratio_increment=0.02,
+     main_pane="top",
+     clockwise=False,
+     **layout_theme),
+   layout.MonadWide(
+     max_ratio=0.90,
+     ratio=0.90,
      **layout_theme),
    layout.MonadWide(
      max_ratio=0.85,
-     ratio=0.85,
+     ratio=0.50,
      **layout_theme),
  ]
 layouts = init_layouts()
@@ -123,14 +135,14 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = 'floating_only'
 cursor_warp = False
-
 auto_fullscreen = True
 focus_on_window_activation = 'focus'
 reconfigure_screens = True
+floats_kept_above = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
@@ -139,12 +151,4 @@ auto_minimize = False
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written inhttps://docs.qtile.org/en/stable/manual/ref/layouts.html#floating
-# java that happens to be on java's whitelist.
 wmname = "LG3D"

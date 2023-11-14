@@ -10,10 +10,10 @@
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
- mode = 'scientific'
+; mode = normal
 
 # Accepts only non-negative values.
-; framerate = 90
+; framerate = 60
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
@@ -65,8 +65,8 @@
 # For alsa 'source' will be the capture device.
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
-; method = pulse
-; source = auto
+method = pulse
+source = auto
 
 ; method = alsa
 ; source = hw:Loopback,1
@@ -97,7 +97,7 @@
 #  in graphic mode. It only support the 3000 series graphical VFDs for now.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-; method = ncurses
+method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.

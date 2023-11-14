@@ -124,24 +124,24 @@ if xres >= "3840" and yres >= "2160": #4k
   layout_border_width=5
   single_border_width=5
   bar_size=30
-  widget_width=400
+  widget_width=450
   max_ratio=0.85
-  ratio=0.70
+  ratio=0.65
   terminal_font_size=10
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
     bar_margin=[10,15,0,15]
-  weather_x=0.80
-  weather_y=0.86
-  weather_width=0.085
-  weather_height=0.12
+  weather_x=0.78
+  weather_y=0.90
+  weather_width=0.075
+  weather_height=0.09
 elif xres == "1920" and yres == "1080": #FullHD
   layout_margin=10
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
-  font_size=font_size-4
+  font_size=font_size-5
   bar_size=25
   widget_width=150
   max_ratio=0.85
@@ -649,7 +649,7 @@ def turntable(qtile):
     rofi_left.close()
   else:
     if index == 0:
-      os.system('pactl load-module module-loopback source=3')
+      os.system('pactl load-module module-loopback source=48')
     else:
       os.system('pactl unload-module module-loopback')
 
