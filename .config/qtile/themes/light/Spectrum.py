@@ -73,18 +73,31 @@ def init_widgets_list():
               length=5,
               background=transparent,
             ),
-            widget.TextBox(
+            widget.WidgetBox(
               decorations=[RectDecoration(colour=color[0], radius=[7,0,0,7], filled=True)],
-              text="",
+              text_closed='  ',
+              text_open='  ',
               foreground=color[6],
+              widgets=[
+                  widget.Visualiser(
+                    background=color[6],
+                    bar_colour=color[0],
+                    width=200,
+                    bars=32,
+                    channels='stereo',
+                    framerate=60,
+                    hide=True,
+                    mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+                  ),
+                  ]
             ),
             widget.Mpris2(
               decorations=[RectDecoration(colour=color[6], radius=[0,0,0,0], filled=True)],
-              mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
+              mouse_callbacks={'Button1': lazy.group['scratchpad'].dropdown_toggle("music")},
               objname=None,
               foreground=color[0],
               width=widget_width,
-              format='{xesam:artist}  {xesam:title}',
+              format='{xesam:artist} - {xesam:title}',
               stopped_text="Stop",
               paused_text='  ',
               scroll=True,
@@ -93,9 +106,8 @@ def init_widgets_list():
             ),
             widget.TextBox(
               decorations=[RectDecoration(colour=color[0], radius=[0,7,7,0], filled=True)],
-              text="",
+              text=" ",
               foreground=color[6],
-              mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
             ),
             widget.Spacer(
               length=5,

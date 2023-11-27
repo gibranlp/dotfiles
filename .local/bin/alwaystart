@@ -15,11 +15,16 @@ rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
 picom -b & 
 cp ~/.cache/wal/dunstrc ~/.config/dunst/ &
-cp ~/.cache/wal/conky ~/.conkyrc &
+cp ~/.cache/wal/nvidia ~/.conkyrc1 &
+cp ~/.cache/wal/date ~/.conkyrc &
 cp ~/.cache/wal/config ~/.config/cava/ &
 cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/ &
 sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/ &
 pkill -USR1 cava &
 dunst &
+conky -q -c ~/.conkyrc &
+conky -q -c ~/.conkyrc1 &
 wal-telegram &
+pywal-discord &
+
 wal -R

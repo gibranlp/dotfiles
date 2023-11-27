@@ -12,8 +12,8 @@
 
 sudo pacman -Scc --noconfirm
 
-notify-send -a ' SpectrumOS' "System Cache Clean!"
+notify-send -a ' SpectrumOS' "System Cache Clean!"
 
 sudo pacman -Rns $(pacman -Qtdq) --noconfirm
 
-notify-send -a ' SpectrumOS' "Removed Unused Packages!"
+notify-send -a ' SpectrumOS' "Removed Unused Packages!"

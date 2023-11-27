@@ -5,8 +5,8 @@
 #      |_|   
 # SpectrumOS - Embrace the Chromatic Symphony!
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
-# MIT licence 
-# 
+# MIT licence
+#
 #
 import random
 import socket
@@ -119,8 +119,8 @@ yres = resolution[22:26]
 
 # Set Bar and font sizes for different resolutions
 if xres >= "3840" and yres >= "2160": #4k
-  layout_margin=15
-  single_layout_margin=10  
+  layout_margin=20
+  single_layout_margin=15  
   layout_border_width=5
   single_border_width=5
   bar_size=30
@@ -307,7 +307,7 @@ def change_wallpaper(qtile):
       selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
   qtile.reload_config()
-  #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
+  #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
 def get_net_dev():
@@ -373,7 +373,7 @@ def set_default_backend(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.reload_config()
-    subprocess.run(["notify-send","-a", " SpectrumOS", "Color Theme: ", " %s" %backend[index]])
+    subprocess.run(["notify-send","-a", " SpectrumOS", "Color Theme: ", " %s" %backend[index]])
 
 # Display Shortcuts widget
 def shortcuts(qtile):
@@ -392,13 +392,13 @@ def nightLight_widget(qtile):
   else:
     if index == 0:
       os.system('redshift -O 3500k -r -P')
-      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Night Time"])
+      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Night Time"])
     elif index == 1:
       os.system('redshift -x')
-      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Neutral"])
+      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Neutral"])
     else:
       os.system('redshift -O 7500k -r -P')
-      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Cool"])
+      subprocess.run(["notify-send","-a", " SpectrumOS", "Temperature Set to Cool"])
 
 # Farge Widget
 def fargewidget(qtile):
@@ -421,7 +421,7 @@ def draw_widget(qtile):
   else:
     if index ==0:
       subprocess.run("gromit-mpx -a &",shell=True)
-      subprocess.run(["notify-send", "-a", " SpectrumOS", "You can Draw Now"])
+      subprocess.run(["notify-send", "-a", " SpectrumOS", "You can Draw Now"])
     else:
       subprocess.run("gromit-mpx -q",shell=True)
 
@@ -521,7 +521,7 @@ def dark_white(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.reload_config()
-    subprocess.run(["notify-send","-a", " SpectrumOS", "Theme changed to: ", "%s" %options[index]])
+    subprocess.run(["notify-send","-a", " SpectrumOS", "Theme changed to: ", "%s" %options[index]])
 
 
 ## Select Bar Position Top or Bottom
@@ -552,7 +552,7 @@ def change_theme(qtile):
   index, key = rofi_session.select('  Theme -> ' + current_theme , options)
   if key == -1:
     rofi_left.close()
-    subprocess.run(["notify-send","-a", " SpectrumOS", "No Theme Selected!"])
+    subprocess.run(["notify-send","-a", " SpectrumOS", "No Theme Selected!"])
   else:
     subprocess.run('rm -rf ~/.config/qtile/theme.py', shell=True)
     variables[1]=theme[index] + "\n"
@@ -561,7 +561,7 @@ def change_theme(qtile):
     with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
     qtile.reload_config()
-    subprocess.run(["notify-send","-a", " SpectrumOS", " Theme: ", "%s" %theme[index]])
+    subprocess.run(["notify-send","-a", " SpectrumOS", " Theme: ", "%s" %theme[index]])
     
 # Set random colors to theme
 def random_colors(qtile):
@@ -626,7 +626,7 @@ def support_spectrumos(qtile):
     else:
       subprocess.run(["xdg-open", "https://www.buymeacoffee.com/gibranlp"])
     
-    subprocess.run(["notify-send","-a", " SpectrumOS", "Thanks for supporting SpectrumOS"])
+    subprocess.run(["notify-send","-a", " SpectrumOS", "Thanks for supporting SpectrumOS"])
 
 ## Update SpectrumOS
 ### Pacman
@@ -635,7 +635,7 @@ def pacman_packages(qtile):
         ''
     ]
     for packet in packets:
-        subprocess.run(["notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
+        subprocess.run(["notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
         subprocess.run(["sudo", "pacman", "-Syu", packet, "--noconfirm", "--needed"])
 
 ## Update SpectrumOS
@@ -660,7 +660,7 @@ def aur_packages(qtile):
     ]
     
     for packet in packets:
-        subprocess.run([f"notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
+        subprocess.run([f"notify-send","-a", " SpectrumOS", "Installing -> %s" % packet])
         subprocess.run(["paru", "-Syu", packet, "--noconfirm", "--needed"])
 
 ## Update SpectrumOS verssion
@@ -669,7 +669,7 @@ def update_ver(qtile):
   with open(home + '/.config/qtile/variables', 'w') as file:
       file.writelines(variables)
   qtile.reload_config()
-  subprocess.run(["notify-send","-a", " SpectrumOS", "Updated to the version", "%s" % remote_version])
+  subprocess.run(["notify-send","-a", " SpectrumOS", "Updated to the version", "%s" % remote_version])
 
 
 # Control Panel Widget
@@ -776,7 +776,7 @@ def control_panel(qtile):
         qtile.function(aur_packages)
         qtile.function(update_ver)
       else:
-        subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
+        subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
         
 widget_defaults = dict(
     font=main_font,

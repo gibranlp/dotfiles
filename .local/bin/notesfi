@@ -63,7 +63,7 @@ create_document() {
     fi
   fi
 
-  notify-send -a " SpectrumOS" "$message"
+  notify-send -a " SpectrumOS" "$message"
   cp "$directory/Templates/$template" "$directory/$cn_name.$EXTENSION"
   "$TERMINAL" -e "$EDITOR" "$directory/$cn_name.$EXTENSION"
 }

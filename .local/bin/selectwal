@@ -30,7 +30,7 @@ WALLPAPER=$(get_wall)
 
 if [ -z "$WALLPAPER" ]
 then
-      notify-send -a ' SpectrumOS' " No Wall Selected!" 
+      notify-send -a ' SpectrumOS' " No Wall Selected!" 
 else
       set_wall
 fi
