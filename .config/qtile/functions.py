@@ -39,21 +39,21 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[273].strip()
+current_blur = bar_blur[275].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[273] = new_blur
+  bar_blur[275] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[273] = new_blur
+  bar_blur[275] = new_blur
   blur_icon=''
 
 ## Get Terminal Fontsize
-file = open(home + '/.config/alacritty/alacritty.yml', 'r')
+file = open(home + '/.config/alacritty/alacritty.toml', 'r')
 term_size=file.readlines()
-terminal_font_size = term_size[106].strip()
+terminal_font_size = term_size[21].strip()
 
 # SpectrumOS version
 remote_version=update_available[0].strip()
@@ -127,7 +127,7 @@ if xres >= "3840" and yres >= "2160": #4k
   widget_width=450
   max_ratio=0.85
   ratio=0.65
-  terminal_font_size=10
+  terminal_font_size=11
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
@@ -169,8 +169,8 @@ else: # 1366 x 768 Macbook air 11"
   bar_margin=[0,0,0,0]
 
 # Set the right Terminal Font size
-term_size[107] = "  size: " + str(terminal_font_size) + "\n"
-with open(home + '/.config/alacritty/alacritty.yml', 'w') as file:
+term_size[21] = "  size= " + str(terminal_font_size) + "\n"
+with open(home + '/.config/alacritty/alacritty.toml', 'w') as file:
     file.writelines(term_size)
 
 # Make font smaller for cetain groups icons

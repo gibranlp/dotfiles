@@ -49,7 +49,7 @@ function update(){
   mkdir -p  ~/.config/flameshot
   cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/conky/* ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates

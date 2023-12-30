@@ -90,10 +90,10 @@ function base() {
     #'linux-headers'
     #'linux-docs'
     #'linux-lts'
-    'linux-lts-headers'
-    'linux-lts-docs'
-    'linux-zen-headers'
-    'linux-zen-docs'
+    #'linux-lts-headers'
+    #'linux-lts-docs'
+    #'linux-zen-headers'
+    #'linux-zen-docs'
     'neovim'
     'xorg-xdpyinfo'
     #'taskwarrior-tui'
@@ -108,7 +108,7 @@ function base() {
     'exa'
     'xclip'
     'xdotool'
-    'nvidia-dkms'
+    #'nvidia-dkms'
     'cups'
     'cups-pdf'
     'man'
@@ -137,8 +137,8 @@ function aur_packages() {
     'qtile-extras-git'
     'caffeine-ng-git'
     'visual-studio-code-bin'
-    'slack-desktop'
-    'brave' 
+    #'slack-desktop'
+    #'brave' 
     #'teams-for-linux'
     'pulseaudio-bluethooth'
     'telegram-desktop'
@@ -302,12 +302,12 @@ function neovim(){
 # sudo pacman -Syyu --noconfirm
 # sudo pacman -Rcns qtile --noconfirm
 #paru_install
-# base
-#pip install -r pip.txt --break-system-packages
+base
+# pip install -r pip.txt --break-system-packages
 # aur_packages
 # zsh
-#copy_dotfiles
-post
+# copy_dotfiles
+#post
 #web_apps
 #update
 #install_docker
