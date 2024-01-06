@@ -19,7 +19,7 @@ TERM = "alacritty"
 decorations = "full"
 
 [font]
-size = 15
+size = 13
 
 [font.bold]
 family = "Courier Prime"

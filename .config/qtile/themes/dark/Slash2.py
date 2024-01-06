@@ -36,7 +36,6 @@ def init_widgets_list():
               font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=color[3], #Program opened in that group
           inactive=color[6], # Empty Group

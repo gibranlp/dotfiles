@@ -127,7 +127,7 @@ if xres >= "3840" and yres >= "2160": #4k
   widget_width=450
   max_ratio=0.85
   ratio=0.65
-  terminal_font_size=11
+  terminal_font_size=12
   if bar_position == "bottom":
     bar_margin=[0,15,10,15]
   else:
@@ -141,7 +141,7 @@ elif xres == "1920" and yres == "1080": #FullHD
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
-  font_size=font_size-5
+  font_size=font_size-3
   bar_size=25
   widget_width=150
   max_ratio=0.85
@@ -221,7 +221,7 @@ def remove_sticky_windows(window):
 def start():
   subprocess.call(home + '/.local/bin/alwaystart')
       
-@hook.subscribe.startup_once # Ths file gets executed at first start only
+@hook.subscribe.startup_once # Ths file gets executed once
 def start_once():
   subprocess.call(home + '/.local/bin/autostart')
 

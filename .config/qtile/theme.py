@@ -157,7 +157,6 @@ def init_widgets_list():
               cursor_color=color[4],
               visual_bell_color=[4],
               visual_bell_time=0.2,
-              padding=5,
             ),
             widget.Spacer(
               length=5,
@@ -549,7 +548,6 @@ def init_widgets_list():
               foreground=color[0],
               text="",
               mouse_callbacks={'Button1': lambda: qtile.function(session_widget)},
-              padding_x=5,
             )]
     return widgets_list
 

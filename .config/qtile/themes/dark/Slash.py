@@ -25,7 +25,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[1], # Empty Group
@@ -44,7 +43,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[2], # Empty Group
@@ -63,7 +61,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[3], # Empty Group
@@ -82,7 +79,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[4], # Empty Group
@@ -101,7 +97,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[5], # Empty Group
@@ -120,7 +115,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[1], # Empty Group
@@ -139,7 +133,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[2], # Empty Group
@@ -158,7 +151,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[3], # Empty Group
@@ -177,7 +169,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[4], # Empty Group
@@ -196,7 +187,6 @@ def init_widgets_list():
           font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
-          padding_x=3,
           borderwidth=0,
           active=secondary_color[0], #Program opened in that group
           inactive=third_color[5], # Empty Group
