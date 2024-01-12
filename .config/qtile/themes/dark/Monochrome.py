@@ -11,6 +11,12 @@ from functions import *
 # Fix for widget Width
 widget_width=widget_width+100
 
+widget_defaults = dict(
+    font=main_font,
+    fontsize=font_size,
+    padding=4,
+)
+
 # Theme
 ## Screens
 

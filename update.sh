@@ -32,8 +32,8 @@ done
 
 function update(){
   sudo mkdir -p /usr/local/spectrumos
-  sudo chown -R $USER:$USER /usr/local/spectrumos/*
-  sudo chmod 775 /usr/local/spectrumos/*
+  sudo chown -R $USER:$USER /usr/local/spectrumos
+  sudo chmod 775 /usr/local/spectrumos
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
   cp -r ~/SpectrumOS/dotfiles/.config/gromit-mpx.cfg ~/.config/
   cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/

@@ -77,7 +77,7 @@ bar_size=30
 terminal = "alacritty"
 
 # Format of the prompt
-prompt = " ".format(os.environ["USER"], socket.gethostname()) 
+prompt = "$".format(os.environ["USER"], socket.gethostname()) 
 
 # Wallpapers / Theming
 wallpaper_dir= home + '/Pictures/Wallpapers/' # Wallpapers folders
@@ -93,7 +93,7 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum', 'Slash', 'Slash2', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
+theme=['Spectrum','lines','Slash', 'Slash2', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
 
 # Pywal backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
@@ -272,7 +272,7 @@ def i3lock_colors(qtile):
     '--verif-text=Validating',
     '--insidewrong-color={}'.format(color[0]),
     '--ringwrong-color={}'.format(color[0]),
-    '--wrong-color={}'.format(color[1]),
+    '--wrong-color={}'.format(color[0]),
     '--wrong-text=Wrong!',
     '--keyhl-color={}'.format(color[1]),         
     '--bshl-color={}'.format(color[6]),            
@@ -778,10 +778,6 @@ def control_panel(qtile):
       else:
         subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
         
-widget_defaults = dict(
-    font=main_font,
-    fontsize=font_size,
-    padding=3,
-)
+
 
  

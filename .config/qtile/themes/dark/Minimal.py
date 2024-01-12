@@ -10,6 +10,13 @@
 from functions import *
 
 # Theme 
+
+widget_defaults = dict(
+    font=main_font,
+    fontsize=font_size,
+    padding=4,
+)
+
 ## Screens
 
 def init_widgets_list():

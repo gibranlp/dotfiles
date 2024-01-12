@@ -9,6 +9,11 @@
 #
 from functions import *
 
+widget_defaults = dict(
+    font=main_font,
+    fontsize=font_size,
+    padding=4,
+)
 # Theme
 
 ## Screens
