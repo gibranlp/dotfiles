@@ -10,6 +10,7 @@
 # 
 #
 xsettingsd &
+killall conky &
 unclutter -idle 1 &
 rm -rf ~/.config/wpg/schemes/* &
 pkill dunst &  
@@ -26,5 +27,4 @@ conky -q -c ~/.conkyrc &
 conky -q -c ~/.conkyrc1 &
 wal-telegram &
 pywal-discord &
-
-wal -R
+#wal -R

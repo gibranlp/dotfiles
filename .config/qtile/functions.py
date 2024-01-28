@@ -141,11 +141,11 @@ elif xres == "1920" and yres == "1080": #FullHD
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
-  font_size=font_size-3
   bar_size=25
   widget_width=150
   max_ratio=0.85
   ratio=0.65
+  font_size=font_size-4
   terminal_font_size=9
   if bar_position == "bottom":
     bar_margin=[0,10,5,10]
@@ -187,7 +187,7 @@ rofi_session= Rofi(rofi_args=['-theme', '~/.config/rofi/session.rasi'])
 
 ### Weather
 w_appkey = str(variables[3].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
-w_cityid ="3995402" # "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
+w_cityid ="3514783" # "3514783" Veracruz, "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
 
 ## Sticky Windows
 
@@ -260,19 +260,19 @@ def i3lock_colors(qtile):
   subprocess.run(['i3lock', 
     '--image=%s' % wallpaper,
     '--fill',          
-    '--ring-color={}'.format(color[0]),
-    '--inside-color={}'.format(color[0]),
+    '--ring-color={}'.format(secondary_color[0]+"aa"),
+    '--inside-color={}'.format(secondary_color[0]+"aa"),
     '--line-color={}'.format(color[2]),
     '--separator-color={}'.format(color[4]),
     '--time-color={}'.format(color[2]),           
     '--date-color={}'.format(color[4]),
-    '--insidever-color={}'.format(color[0]),
+    '--insidever-color={}'.format(secondary_color[0]+"aa"),
     '--ringver-color={}'.format(color[0]),
     '--verif-color={}'.format(color[5]),          
     '--verif-text=Validating',
-    '--insidewrong-color={}'.format(color[0]),
-    '--ringwrong-color={}'.format(color[0]),
-    '--wrong-color={}'.format(color[0]),
+    '--insidewrong-color={}'.format(secondary_color[0]+"aa"),
+    '--ringwrong-color={}'.format(secondary_color[0]+"aa"),
+    '--wrong-color={}'.format(secondary_color[0]+"aa"),
     '--wrong-text=Wrong!',
     '--keyhl-color={}'.format(color[1]),         
     '--bshl-color={}'.format(color[6]),            
@@ -307,7 +307,7 @@ def change_wallpaper(qtile):
       selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
   qtile.reload_config()
-  #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
+  subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
 def get_net_dev():
@@ -332,16 +332,22 @@ def get_private_ip():
 private_ip = get_private_ip()
 
 ## Get Public IP Address
-def get_public_ip():
-  try:
-    raw = requests.get('https://api.duckduckgo.com/?q=ip&format=json')
-    answer = raw.json()["Answer"].split()[4]
-  except Exception as e:
-    return "0.0.0.0"
-  else:
-    return answer
+def get_public_ip(timeout=2):
+    try:
+        raw = requests.get('https://api.duckduckgo.com/?q=ip&format=json', timeout=timeout)
+        raw.raise_for_status() 
+        answer = raw.json()["Answer"].split()[4]
+    except requests.exceptions.RequestException as e:
+        print(f"Error during request: {e}")
+        return "0.0.0.0"
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return "0.0.0.0"
+    else:
+        return answer
         
 public_ip = get_public_ip()
+
 
 # Call Calendar Notification
 

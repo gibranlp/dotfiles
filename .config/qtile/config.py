@@ -98,6 +98,10 @@ def init_layouts():
      max_ratio=max_ratio,
      ratio=ratio,
      **layout_theme),
+   layout.MonadWide(
+     max_ratio=0.90,
+     ratio=0.90,
+     **layout_theme),
    layout.Spiral(
      ratio=0.5,
      ratio_increment=0.02,
@@ -109,10 +113,6 @@ def init_layouts():
      ratio_increment=0.02,
      main_pane="top",
      clockwise=False,
-     **layout_theme),
-   layout.MonadWide(
-     max_ratio=0.90,
-     ratio=0.90,
      **layout_theme),
    layout.MonadWide(
      max_ratio=0.85,

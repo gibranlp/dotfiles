@@ -31,23 +31,23 @@ done
 }
 
 function update(){
-  sudo mkdir -p /usr/local/spectrumos
-  sudo chown -R $USER:$USER /usr/local/spectrumos
-  sudo chmod 775 /usr/local/spectrumos
+  #sudo mkdir -p /usr/local/spectrumos
+  #sudo chown -R $USER:$USER /usr/local/spectrumos
+  #sudo chmod 775 /usr/local/spectrumos
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
-  cp -r ~/SpectrumOS/dotfiles/.config/gromit-mpx.cfg ~/.config/
-  cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
-  mkdir -p ~/.icons
-  cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/weather ~/.local/bin
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/rofigithub ~/.local/bin
-  chmod +x ~/.local/bin/*
-  cp ~/SpectrumOS/dotfiles/.zshrc ~/
-  mkdir -p  ~/.config/flameshot
-  cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
+  #cp -r ~/SpectrumOS/dotfiles/.config/gromit-mpx.cfg ~/.config/
+  #cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
+  #mkdir -p ~/.icons
+  #cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
+  #cp -r ~/SpectrumOS/dotfiles/.local/bin/notesfi ~/.local/bin
+  #cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin
+  #cp -r ~/SpectrumOS/dotfiles/.local/bin/weather ~/.local/bin
+  #cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/wifi2 ~/.local/bin
+  #chmod +x ~/.local/bin/*
+  #cp ~/SpectrumOS/dotfiles/.zshrc ~/
+  #mkdir -p  ~/.config/flameshot
+  #cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/conky/* ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/

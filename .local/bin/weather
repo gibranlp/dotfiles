@@ -5,7 +5,7 @@
 ###########################################################################################################################
 
 api_key = "e45a0f07f0c675b273ef8636663941db" # Create an account on OpenWeather (it's free) and get your API token there
-city = "Morelia, MX" # Your city
+city = "Veracruz, MX" # Your city
 units = "metric" # you can choose metric or imperial (anything else is kelvin)
 timeplus = "0" # Timezone used by default is UTC/GMT so you can define how many hours should be added to the time
 timeminus = "6" # Timezone used by default is UTC/GMT so you can define how many hours should be subtracted from the time
