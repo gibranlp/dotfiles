@@ -14,6 +14,7 @@ function remove_todo() {
     	echo "${*}" >> "${DONE_FILE}"
     fi
     sed -i "/^${*}$/d" "${TODO_FILE}"
+    
 }
 
 function get_todos() {

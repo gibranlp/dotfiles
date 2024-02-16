@@ -174,7 +174,7 @@ with open(home + '/.config/alacritty/alacritty.toml', 'w') as file:
     file.writelines(term_size)
 
 # Make font smaller for cetain groups icons
-if int(variables[10]) in [7, 8, 9,10,11,12,13]:
+if int(variables[10]) in [7,8,9,10,11,12,13]:
    groups_font = font_size - 8
 else:
    groups_font = font_size 
@@ -187,7 +187,7 @@ rofi_session= Rofi(rofi_args=['-theme', '~/.config/rofi/session.rasi'])
 
 ### Weather
 w_appkey = str(variables[3].strip()) # Get a key here https://home.openweathermap.org/users/sign_up 
-w_cityid ="3514783" # "3514783" Veracruz, "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
+w_cityid ="3995402" # "3514783" Veracruz, "3995402" Morelia, "3521342" Playa del Carmen https://openweathermap.org/city/
 
 ## Sticky Windows
 
@@ -205,7 +205,6 @@ def toggle_sticky_windows(qtile, window=None):
     return window
 
 #Hooks
-
 @hook.subscribe.setgroup
 def move_sticky_windows():
     for window in sticky_windows:
@@ -220,8 +219,9 @@ def remove_sticky_windows(window):
 @hook.subscribe.startup # This file gets executed everytime qtile restarts
 def start():
   subprocess.call(home + '/.local/bin/alwaystart')
+  subprocess.run(["openrgb", "-d", "0", "-c", "%s" %color[1].lstrip('#'), "-b", "50"])
       
-@hook.subscribe.startup_once # Ths file gets executed once
+@hook.subscribe.startup_once # Ths file gets executed once at the start1
 def start_once():
   subprocess.call(home + '/.local/bin/autostart')
 
