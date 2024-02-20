@@ -302,9 +302,9 @@ function neovim(){
 # sudo pacman -Syyu --noconfirm
 # sudo pacman -Rcns qtile --noconfirm
 #paru_install
-base
+#base
 # pip install -r pip.txt --break-system-packages
-# aur_packages
+aur_packages
 # zsh
 # copy_dotfiles
 #post
