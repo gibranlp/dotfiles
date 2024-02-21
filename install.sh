@@ -183,8 +183,7 @@ function zsh(){
 }
 
 function copy_dotfiles(){
-  wpg-install.sh -gio
-  wal -i ~/Pictures/Wallpapers/wall.jpg
+  cp -r ~/SpectrumOS/dotfiles/.cache/* ~/.cache/
   mkdir -p ~/.config/alacritty
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
@@ -194,18 +193,25 @@ function copy_dotfiles(){
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   mkdir -p ~/.config/cava
   cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
+  mkdir -p ~/.config/conky
+  cp ~/SpectrumOS/dotfiles/.config/conky/* ~/.config/conky/
+  mkdir -p ~/.config/caffeine
+  cp ~/SpectrumOS/dotfiles/.config/caffeine/* ~/.config/caffeine/
   mkdir -p ~/.config/ncspot
   cp ~/SpectrumOS/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
   mkdir -p  ~/.fonts
   cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
-  fc-cache -f -v
   cp ~/SpectrumOS/dotfiles/.config/gromit-mpx.ini ~/.config
   mkdir -p ~/.config/picom
   cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   mkdir -p ~/.config/qtile
   cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
+  mkdir -p ~/.config/nvim
+  cp -r ~/SpectrumOS/dotfiles/.config/nvim/init.vim ~/.config/nvim/
   mkdir -p ~/.config/ranger
   cp ~/SpectrumOS/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  mkdir -p ~/.config/xsettingsd
+  cp ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
   mkdir -p ~/.config/rofi
   cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
   sudo mkdir -p /root/.config/rofi
@@ -218,6 +224,8 @@ function copy_dotfiles(){
   mkdir -p ~/.local/bin
   cp -r ~/SpectrumOS/dotfiles/.local/bin/* ~/.local/bin
   chmod +x ~/.local/bin/*
+  mkdir -p ~/.config/neofetch
+  cp ~/SpectrumOS/dotfiles/.config/neofetch/config.toml ~/.config/neofetch/config.toml 
   cp ~/SpectrumOS/dotfiles/.zshrc ~/
   mkdir -p ~/.oh-my-zsh
   cp ~/SpectrumOS/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
@@ -234,9 +242,11 @@ function copy_dotfiles(){
   sudo chown -R $USER:$USER /usr/local/backgrounds
   sudo cp ~/SpectrumOS/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
   sudo cp ~/SpectrumOS/dotfiles/pulse/system.pa /etc/pulse/system.pa
+  sudo cp ~/SpectrumOS/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
+
 
 }
 
@@ -276,6 +286,9 @@ function web_apps(){
 }
 
 function post(){
+  wal -i ~/Pictures/Wallpapers/wall.jpg
+  wpg-install.sh -gio
+  fc-cache -f -v
   timedatectl set-local-rtc 1
   timedatectl set-timezone America/Mexico_City
   sudo systemctl enable bluetooth.service
