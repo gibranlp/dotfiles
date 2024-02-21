@@ -183,6 +183,7 @@ function zsh(){
 }
 
 function copy_dotfiles(){
+  wpg-install.sh -gio
   cp -r ~/SpectrumOS/dotfiles/.cache/* ~/.cache/
   mkdir -p ~/.config/alacritty
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
@@ -233,7 +234,7 @@ function copy_dotfiles(){
   sudo mkdir -p /usr/share/backgrounds
   mkdir -p ~/Pictures/Wallpapers
   cp -r ~/SpectrumOS/Wallpapers/* ~/Pictures/Wallpapers
-  sudo cp ~/SpectrumOS/Wallpapers/wall.png /usr/local/backgrounds/background.png
+  sudo cp ~/SpectrumOS/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/themes
   sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
   sudo chown -R $USER:$USER /usr/local/themes/FlatColor
