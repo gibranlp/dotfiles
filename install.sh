@@ -186,7 +186,7 @@ function copy_dotfiles(){
   wpg-install.sh -gio
   cp -r ~/SpectrumOS/dotfiles/.cache/* ~/.cache/
   mkdir -p ~/.config/alacritty
-  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
   mkdir -p ~/.config/dunst
@@ -247,12 +247,9 @@ function copy_dotfiles(){
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
-
-
 }
 
 function web_apps(){
-
   mkdir -p ~/Apps
   cd ~/Apps
   nativefier https://github.com/ --name github --single-instance 
@@ -269,9 +266,6 @@ function web_apps(){
   nativefier https://helgentrial.atlassian.net/jira/software/projects/IR/boards/1 --name jira --single-instance
 
   nativefier https://search.brave.com/ --name search --single-instance --clear-cache --user-agent 'firefox' --show-menu-bar --bookmarks-menu
-  --
-
-
   sudo ln -s ~/Apps/PrimeVideo/WelcometoPrimeVideo /usr/bin/prime
   sudo ln -s ~/Apps/drive/drive /usr/bin/drive
   sudo ln -s ~/Apps/admin/admin /usr/bin/admin
@@ -287,7 +281,7 @@ function web_apps(){
 }
 
 function post(){
-  wal -i ~/Pictures/Wallpapers/wall.jpg
+  wal -i ~/Pictures/Wallpapers/wall.png
   wpg-install.sh -gio
   fc-cache -f -v
   timedatectl set-local-rtc 1
