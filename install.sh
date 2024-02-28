@@ -137,15 +137,12 @@ function aur_packages() {
     'qtile-extras-git'
     'caffeine-ng-git'
     'visual-studio-code-bin'
-    #'slack-desktop'
-    #'brave' 
-    #'teams-for-linux'
     'pulseaudio-bluethooth'
     'telegram-desktop'
     'google-chrome'
     'wpgtk-git'
     'insect'
-    'cava'
+    'cava-git'
     'thunar-extended'
     'thunar-volman'
     'hugo'
@@ -243,7 +240,6 @@ function copy_dotfiles(){
   sudo chown -R $USER:$USER /usr/local/backgrounds
   sudo cp ~/SpectrumOS/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
   sudo cp ~/SpectrumOS/dotfiles/pulse/system.pa /etc/pulse/system.pa
-  sudo cp ~/SpectrumOS/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
@@ -284,7 +280,6 @@ function post(){
   wal -i ~/Pictures/Wallpapers/wall.png
   wpg-install.sh -gio
   fc-cache -f -v
-  timedatectl set-local-rtc 1
   timedatectl set-timezone America/Mexico_City
   sudo systemctl enable bluetooth.service
   sudo systemctl start bluetooth.service
@@ -293,6 +288,7 @@ function post(){
   sudo systemctl enable tlp.service
   journalctl --vacuum-size=100M
   journalctl --vacuum-time=2weeks
+  timedatectl set-local-rtc 1
   
 }
 
