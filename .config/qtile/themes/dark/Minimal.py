@@ -1,14 +1,22 @@
-# _______  _______  ______  _______  __        
-#|       ||   _   ||   __ \|     __||  |.-----.
-#|   -  _||       ||      <|__     ||  ||  _  |
-#|_______||___|___||___|__||_______||__||   __|
-#                                       |__|   
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
 # SpectrumOS - Embrace the Chromatic Symphony!
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
-# MIT licence
+# MIT licence 
+#
 from functions import *
 
 # Theme 
+
+widget_defaults = dict(
+    font=main_font,
+    fontsize=font_size,
+    padding=4,
+)
+
 ## Screens
 
 def init_widgets_list():
@@ -93,7 +101,8 @@ def init_widgets_list():
             format='{icon}',
             foreground=color[5],
             metric=True,
-            update_interval=600, 
+            update_interval=600,
+            mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ),
         ## Network
         widget.TextBox(

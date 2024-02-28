@@ -1,0 +1,42 @@
+* {
+    color1: #CA2B2A;
+    color2: #9E671B;
+    color3: #E55E23;
+    color4: #FF6E40;
+    color5: #F4920C;
+    color6: #FFA102;
+    color7: #f3cc8a;
+    color8: #aa8e60;
+    active: #9E671B;
+    urgent: #ffcc00;
+    active-background: #9E671B;
+    active-foreground: #FFA102;
+    normal-background: @background;
+    normal-foreground: @foreground;
+    urgent-background: #CA2B2A;
+    urgent-foreground: @foreground;
+
+    alternate-active-background: #FF6E40;
+    alternate-active-foreground: #F4920C;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    alternate-urgent-background: @background;
+    alternate-urgent-foreground: @foreground;
+
+    selected-active-background: #CA2B2A;
+    selected-active-foreground: @foreground;
+    selected-normal-background: #9E671B;
+    selected-normal-foreground: @foreground;
+    selected-urgent-background: #E55E23;
+    selected-urgent-foreground: @foreground;
+
+    background-color: @background;
+    background: #131313;
+    background-alt: #131313;
+    foreground: #f3cc8a;
+    border-color: @background;
+
+    font:
+"Fira Code Medium 14"
+;
+}

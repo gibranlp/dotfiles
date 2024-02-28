@@ -1,19 +1,16 @@
+/*****----- Global Properties -----*****/
+@import "~/.cache/wal/SpectrumOS.rasi" 
+
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser";
+	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
-}
-
-/*****----- Global Properties -----*****/
-@import "~/.cache/wal/QARSlp.rasi" 
-* {
-    font:              "Fira Code Medium 13";
 }
 
 /*****----- Main Window -----*****/
@@ -23,8 +20,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       650px;
-    height:                      570px;
+    width:                       600px;
+    height:                      590px;
     x-offset:                    0px;
     y-offset:                    0px;
     border-radius:               10px;

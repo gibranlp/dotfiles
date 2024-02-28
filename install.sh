@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# _______  _______  ______  _______  __        
-#|       ||   _   ||   __ \|     __||  |.-----.
-#|   -  _||       ||      <|__     ||  ||  _  |
-#|_______||___|___||___|__||_______||__||   __|
-#                                       |__|   
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
 # SpectrumOS - Embrace the Chromatic Symphony!
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
 # MIT licence 
+# 
 #
 function base() {
   packets=(
@@ -62,6 +63,7 @@ function base() {
     'ripgrep'
     'blueman'
     'htop'
+    'jp2a'
     'locate'
     'os-prober'
     'gnome-disk-utility'
@@ -72,11 +74,11 @@ function base() {
     'gvfs'
     'barrier'
     'noto-fonts'
-    'noto-fonts-cjk'
-    'noto-fonts-emoji'
-    'ttf-dejavu'
-    'ttf-liberation'
-    'ttf-opensans'
+    #'noto-fonts-cjk'
+    #'noto-fonts-emoji'
+    #'ttf-dejavu'
+    #'ttf-liberation'
+    #'ttf-opensans'
     'libayatana-appindicator'
     'tlp'
     'powertop'
@@ -84,16 +86,18 @@ function base() {
     'redshift'
     'libmicrodns' # Libraries for vlc and Chromecast
     'protobuf' # Libraries for vlc and Chromecast
-    'linux'
-    'linux-headers'
-    'linux-docs'
-    'linux-lts'
-    'linux-lts-headers'
-    'linux-lts-docs'
-    'linux-zen-headers'
-    'linux-zen-docs'
+    #'linux'
+    #'linux-headers'
+    #'linux-docs'
+    #'linux-lts'
+    #'linux-lts-headers'
+    #'linux-lts-docs'
+    #'linux-zen-headers'
+    #'linux-zen-docs'
+    'neovim'
     'xorg-xdpyinfo'
-    'taskwarrior-tui'
+    #'taskwarrior-tui'
+    'fd'
     'fzf'
     'cups'
     'thefuck'
@@ -127,21 +131,18 @@ function paru_install(){
 
 function aur_packages() {
   packets=(
-    'qtile-git'
+    #'qtile-git'
     'farge'
     #'python-pywalfox' # If you install firefox you will need  this
     'qtile-extras-git'
     'caffeine-ng-git'
     'visual-studio-code-bin'
-    'slack-desktop'
-    'brave' 
-    'teams-for-linux'
     'pulseaudio-bluethooth'
     'telegram-desktop'
     'google-chrome'
     'wpgtk-git'
     'insect'
-    'cava'
+    'cava-git'
     'thunar-extended'
     'thunar-volman'
     'hugo'
@@ -159,6 +160,11 @@ function aur_packages() {
     'zathura-ps'
     'libby-git'
     'python-rofi-git' 
+    'lyrics-in-terminal'
+    'picom-ftlabs-git'
+    'ncspot'
+    'rofi-file-browser-extended-git'
+    'ttf-courier-prime'
 
 )
 for packet in "${packets[@]}"; do
@@ -175,64 +181,71 @@ function zsh(){
 
 function copy_dotfiles(){
   wpg-install.sh -gio
-  wal -i ~/Pictures/Wallpapers/wall.jpg
+  cp -r ~/SpectrumOS/dotfiles/.cache/* ~/.cache/
   mkdir -p ~/.config/alacritty
-  cp ~/QARSlp/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  cp ~/QARSlp/dotfiles/.shortcuts ~/
+  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
   mkdir -p ~/.config/dunst
-  cp ~/QARSlp/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
-  cp ~/QARSlp/dotfiles/.config/rofi/QARSlp.rasi ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   mkdir -p ~/.config/cava
-  cp ~/QARSlp/dotfiles/.config/cava/config ~/.config/wal/templates
+  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
+  mkdir -p ~/.config/conky
+  cp ~/SpectrumOS/dotfiles/.config/conky/* ~/.config/conky/
+  mkdir -p ~/.config/caffeine
+  cp ~/SpectrumOS/dotfiles/.config/caffeine/* ~/.config/caffeine/
   mkdir -p ~/.config/ncspot
-  cp ~/QARSlp/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
+  cp ~/SpectrumOS/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
   mkdir -p  ~/.fonts
-  cp ~/QARSlp/dotfiles/.fonts/* ~/.fonts
-  fc-cache -f -v
-  cp ~/QARSlp/dotfiles/.config/gromit-mpx.ini ~/.config
+  cp ~/SpectrumOS/dotfiles/.fonts/* ~/.fonts
+  cp ~/SpectrumOS/dotfiles/.config/gromit-mpx.ini ~/.config
   mkdir -p ~/.config/picom
-  cp ~/QARSlp/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   mkdir -p ~/.config/qtile
-  cp -r ~/QARSlp/dotfiles/.config/qtile/* ~/.config/qtile/
+  cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
+  mkdir -p ~/.config/nvim
+  cp -r ~/SpectrumOS/dotfiles/.config/nvim/init.vim ~/.config/nvim/
   mkdir -p ~/.config/ranger
-  cp ~/QARSlp/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  cp ~/SpectrumOS/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  mkdir -p ~/.config/xsettingsd
+  cp ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
   mkdir -p ~/.config/rofi
-  cp -r ~/QARSlp/dotfiles/.config/rofi/* ~/.config/rofi/
+  cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
   sudo mkdir -p /root/.config/rofi
-  sudo cp -r ~/QARSlp/dotfiles/.config/rofi/* /root/.config/rofi/
+  sudo cp -r ~/SpectrumOS/dotfiles/.config/rofi/* /root/.config/rofi/
   sudo mkdir -p /root/.cache/wal
   sudo mkdir -p /root/.fonts
   sudo cp -r ~/.cache/wal/colors-rofi-dark.rasi /root/.cache/wal/
   sudo timedatectl set-ntp true
   xdg-settings set default-web-browser firefox.desktop 
   mkdir -p ~/.local/bin
-  cp -r ~/QARSlp/dotfiles/.local/bin/* ~/.local/bin
+  cp -r ~/SpectrumOS/dotfiles/.local/bin/* ~/.local/bin
   chmod +x ~/.local/bin/*
-  cp ~/QARSlp/dotfiles/.zshrc ~/
+  mkdir -p ~/.config/neofetch
+  cp ~/SpectrumOS/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/config.conf 
+  cp ~/SpectrumOS/dotfiles/.zshrc ~/
   mkdir -p ~/.oh-my-zsh
-  cp ~/QARSlp/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
+  cp ~/SpectrumOS/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
   mkdir ~/Pictures
   sudo mkdir -p /usr/share/backgrounds
   mkdir -p ~/Pictures/Wallpapers
-  cp -r ~/QARSlp/Wallpapers/* ~/Pictures/Wallpapers
-  sudo cp ~/QARSlp/Wallpapers/wall.jpg /usr/local/backgrounds/background.png
+  cp -r ~/SpectrumOS/Wallpapers/* ~/Pictures/Wallpapers
+  sudo cp ~/SpectrumOS/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/themes
   sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
   sudo chown -R $USER:$USER /usr/local/themes/FlatColor
   sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
   sudo mkdir /usr/local/backgrounds
   sudo chown -R $USER:$USER /usr/local/backgrounds
-  sudo cp ~/QARSlp/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-  sudo cp ~/QARSlp/pulse/system.pa /etc/pulse/system.pa
+  sudo cp ~/SpectrumOS/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo cp ~/SpectrumOS/dotfiles/pulse/system.pa /etc/pulse/system.pa
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
-
 }
 
 function web_apps(){
-
   mkdir -p ~/Apps
   cd ~/Apps
   nativefier https://github.com/ --name github --single-instance 
@@ -248,6 +261,7 @@ function web_apps(){
   nativefier https://admin.microsoft.com/Adminportal/Home#/homepage --name madmin --single-instance
   nativefier https://helgentrial.atlassian.net/jira/software/projects/IR/boards/1 --name jira --single-instance
 
+  nativefier https://search.brave.com/ --name search --single-instance --clear-cache --user-agent 'firefox' --show-menu-bar --bookmarks-menu
   sudo ln -s ~/Apps/PrimeVideo/WelcometoPrimeVideo /usr/bin/prime
   sudo ln -s ~/Apps/drive/drive /usr/bin/drive
   sudo ln -s ~/Apps/admin/admin /usr/bin/admin
@@ -263,7 +277,9 @@ function web_apps(){
 }
 
 function post(){
-  timedatectl set-local-rtc 1
+  wal -i ~/Pictures/Wallpapers/wall.png
+  wpg-install.sh -gio
+  fc-cache -f -v
   timedatectl set-timezone America/Mexico_City
   sudo systemctl enable bluetooth.service
   sudo systemctl start bluetooth.service
@@ -272,6 +288,7 @@ function post(){
   sudo systemctl enable tlp.service
   journalctl --vacuum-size=100M
   journalctl --vacuum-time=2weeks
+  timedatectl set-local-rtc 1
   
 }
 
@@ -288,13 +305,14 @@ function neovim(){
 
 # sudo pacman -Syyu --noconfirm
 # sudo pacman -Rcns qtile --noconfirm
-# paru_install
-# base
-#pip install -r pip.txt --break-system-packages
-# aur_packages
+#paru_install
+#base
+# pip install -r pip.txt --break-system-packages
+aur_packages
 # zsh
-#copy_dotfiles
+# copy_dotfiles
 #post
 #web_apps
 #update
 #install_docker
+

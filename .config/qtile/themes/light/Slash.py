@@ -1,12 +1,18 @@
-# _______  _______  ______  _______  __        
-#|       ||   _   ||   __ \|     __||  |.-----.
-#|   -  _||       ||      <|__     ||  ||  _  |
-#|_______||___|___||___|__||_______||__||   __|
-#                                       |__|   
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
 # SpectrumOS - Embrace the Chromatic Symphony!
 # By: gibranlp <thisdoesnotwork@gibranlp.dev>
-# MIT licence
+# MIT licence 
+#
 from functions import *
+widget_defaults = dict(
+    font=main_font,
+    fontsize=font_size,
+    padding=4,
+)
 # Theme 
 ## Decorations
 
@@ -19,22 +25,194 @@ powerline = {
 def init_widgets_list():
     widgets_list = [
         widget.GroupBox(
-          background=color[0],
+          background=color[1],
           fontsize=groups_font,
-              font=awesome_font,
+          font=awesome_font,
           disable_drag=True,
           hide_unused=hide_unused_groups,
           padding_x=3,
           borderwidth=0,
-          active=color[3], #Program opened in that group
-          inactive=color[6], # Empty Group
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[1], # Empty Group
           rounded=False,
           highlight_method="text",
-          this_current_screen_border=color[2],
+          this_current_screen_border=color[0],
           center_aligned = True,
-          other_curren_screen_border=color[2],
-          block_highlight_text_color=color[2],    
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
           urgent_border="fc0000",
+          visible_groups=['Escape'],
+        ),
+        widget.GroupBox(
+          background=color[2],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[2], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['1'],
+        ),
+        widget.GroupBox(
+          background=color[3],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[3], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['2'],
+        ),
+        widget.GroupBox(
+          background=color[4],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[4], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['3'],
+        ),
+        widget.GroupBox(
+          background=color[5],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[5], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['4'],
+        ),
+        widget.GroupBox(
+          background=color[1],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[1], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['5'],
+        ),
+        widget.GroupBox(
+          background=color[2],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[2], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['6'],
+        ),
+        widget.GroupBox(
+          background=color[3],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[3], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['7'],
+        ),
+        widget.GroupBox(
+          background=color[4],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[4], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['8'],
+        ),
+        widget.GroupBox(
+          background=color[5],
+          fontsize=groups_font,
+          font=awesome_font,
+          disable_drag=True,
+          hide_unused=hide_unused_groups,
+          padding_x=3,
+          borderwidth=0,
+          active=secondary_color[0], #Program opened in that group
+          inactive=third_color[5], # Empty Group
+          rounded=False,
+          highlight_method="text",
+          this_current_screen_border=color[0],
+          center_aligned = True,
+          other_curren_screen_border=color[0],
+          block_highlight_text_color=color[0],    
+          urgent_border="fc0000",
+          visible_groups=['9'],
           **powerline
         ),
         widget.CurrentLayoutIcon(
@@ -86,6 +264,19 @@ def init_widgets_list():
           scroll_step=1,  
           **powerline,  
         ),
+        widget.WidgetBox(
+              background=color[1],
+              text_closed='',
+              text_open='',
+              foreground=color[0],
+              **powerline,
+              widgets=[
+                  widget.Spacer(
+                  length=5,
+                  background=transparent,
+            ),
+                  widget.Systray(),]
+            ),
         widget.Prompt(
           background=color[3],
           prompt=prompt,
@@ -97,7 +288,7 @@ def init_widgets_list():
         ),
         widget.Spacer(
           length=bar.STRETCH,
-          background=color[0],
+          background=transparent,
           **powerline,
         ),
         widget.TextBox(
@@ -125,6 +316,11 @@ def init_widgets_list():
           foreground=color[0],
           mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
           **powerline,            
+        ),
+        widget.Spacer(
+          length=bar.STRETCH,
+          background=transparent,
+          **powerline,
         ),
         widget.Pomodoro(
           background=color[1],
@@ -174,6 +370,7 @@ def init_widgets_list():
             metric=True,
             update_interval=600,
             **powerline,
+            mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ),
         widget.OpenWeather(
           background=color[4],
@@ -184,6 +381,7 @@ def init_widgets_list():
           metric=True,
           update_interval=600,
           **powerline,
+          mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
         ), 
         ## Network
         widget.WidgetBox(
@@ -235,7 +433,7 @@ def init_widgets_list():
               format='{essid}',
               disconnected_message='',
               foreground=color[3],
-              width=widget_width,
+              width=widget_width-100,
               scroll=True,
               scroll_repeat=True,
               scroll_interval=0.1,
@@ -253,18 +451,16 @@ def init_widgets_list():
                 mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
                 **powerline,
         ),
-        # widget.TextBox(
-        #   background=color[2],
-        #   text="",
-        #   foreground=color[0],
-        #   **powerline,
-        # ),
-        # widget.KeyboardLayout(
-        #   background=color[2],
-        #   configured_keyboards=['us intl', 'latam'],
-        #   foreground=color[0],
-        #   **powerline,
-        # ),
+        widget.Net(
+              background=color[0],
+              prefix='M',
+              interface=wifi,
+              format='{down:1.1f}M',
+              foreground=color[3],
+              use_bits=True,
+              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
+              **powerline,
+            ),
         widget.TextBox(
           background=color[5],
           text="",

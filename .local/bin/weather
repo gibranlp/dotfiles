@@ -1,0 +1,131 @@
+#!/usr/bin/env python
+
+# Config
+
+###########################################################################################################################
+
+api_key = "e45a0f07f0c675b273ef8636663941db" # Create an account on OpenWeather (it's free) and get your API token there
+city = "Morelia, MX" # Your city
+units = "metric" # you can choose metric or imperial (anything else is kelvin)
+timeplus = "0" # Timezone used by default is UTC/GMT so you can define how many hours should be added to the time
+timeminus = "6" # Timezone used by default is UTC/GMT so you can define how many hours should be subtracted from the time
+
+###########################################################################################################################
+
+import requests
+import datetime
+import sys
+
+timeplus = int(timeplus)
+timeminus = int(timeminus)
+
+if units == "metric":
+    windspeedunits = "m/s"
+elif units == "imperial":
+    windspeedunits = "mph"
+else:
+    windspeedunits = "m/s"
+
+weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&units={units}&APPID={api_key}")
+
+if weather_data.json() ['cod'] == 200:
+    pass
+elif weather_data.json() ['cod'] == '404':
+    print("No city found")
+    sys.exit()
+elif weather_data.json() ['cod'] == 401:
+    print("Invalid API key")
+    sys.exit()
+else:
+    print("Unknown error occured.")
+    sys.exit()
+
+sourcesunrise = weather_data.json()['sys']['sunrise']
+sourcesunset = weather_data.json()['sys']['sunset']
+
+sunrise_datetime = datetime.datetime.utcfromtimestamp(sourcesunrise)
+sunset_datetime = datetime.datetime.utcfromtimestamp(sourcesunset)
+
+adjusted_sunrise = sunrise_datetime + datetime.timedelta(hours=timeplus) - datetime.timedelta(hours=timeminus)
+adjusted_sunset = sunset_datetime + datetime.timedelta(hours=timeplus) - datetime.timedelta(hours=timeminus)
+
+sunrisestring = adjusted_sunrise.strftime("%H:%M:%S")
+sunsetstring = adjusted_sunset.strftime("%H:%M:%S")
+
+weather = weather_data.json()['weather'][0]['main']
+weather_desc = weather_data.json()['weather'][0]['description']
+
+temp = str(round(weather_data.json()['main']['temp'])) + '°'
+feels = str(round(weather_data.json()['main']['feels_like'])) + '°'
+hum = str(round(weather_data.json()['main']['humidity'])) + '%'
+sea = str(round(weather_data.json()['main']['sea_level'])) + ' M'
+
+
+if units == "metric":
+    temp += "C"
+elif units == "imperial":
+    temp += "F"
+else:
+    temp += "K"
+
+wind_speed = str(round(weather_data.json()['wind']['speed'])) + " " + windspeedunits
+
+if weather == "Clear":
+    print(city + "  " + " Clear",
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+elif weather == "Clouds":
+    print(city + "  " + " Cloudy",
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+elif weather == "Rain":
+    print(city + "  " + " Rainy",
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+elif weather == "Snow":
+    print(city + "  " + " Snowy",
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+elif weather == "Thunderstorm":
+    print(city + " " + " Thunderstorm",
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+else:
+    print(city + "  " + weather,
+          "Temperature: " + temp,
+          "Feels Like: " + feels,
+          "Humidity: " + hum,
+          "Wind speed: " + wind_speed,
+          "Sunrise: " + sunrisestring,
+          "Sunset: " + sunsetstring,
+          "Sea Level: " + sea, sep = '\n')
+
+input()
+
+
+#https://api.openweathermap.org/data/2.5/weather?q=Morelia, MX&units=metric&APPID=e45a0f07f0c675b273ef8636663941db

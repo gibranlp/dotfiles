@@ -45,6 +45,7 @@ prtnsc ::  Screenshot
 ❖ +  + Up ::  Grow
 ❖ +  + Down ::  Shrink
 ❖ +  + Space ::  Flip
+❖ + Y :: Toggle Sticky Window
 <<----------<< Layouts >>---------->>
 ❖ + Space ::  Cycle Layout
 ❖ + H ::  Layout Left
@@ -59,3 +60,7 @@ prtnsc ::  Screenshot
 ❖ + M ::  Shrink
 ❖ + N ::  Normalize
 ❖ + O ::  Maximize
+<<----------<< Scratchpads >>---------->>
+F12 ::  Ncspot (Spotify CLI Client)
+ + F12 ::  Lyrics
+⎇ + F12 ::   Htop

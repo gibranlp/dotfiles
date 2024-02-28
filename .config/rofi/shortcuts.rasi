@@ -1,8 +1,5 @@
 /*****----- Global Properties -----*****/
-@import "~/.cache/wal/QARSlp.rasi" 
-* {
-    font:                        "Fira Code Medium 13";
-}
+@import "~/.cache/wal/SpectrumOS.rasi" 
 
 /*****----- Main Window -----*****/
 window {
@@ -12,7 +9,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       600px;
-    height:                      99.5%;
+    height:                      99.9%;
     x-offset:                    300px;
     y-offset:                    0px;
     border-radius:               0px 10px 10px 0px;
