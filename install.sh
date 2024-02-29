@@ -246,6 +246,73 @@ function copy_dotfiles(){
   mkdir -p ~/Articles
 }
 
+function copy_dots(){
+  wpg-install.sh -gio
+  cp -r ~/dotfiles/.cache/* ~/.cache/
+  mkdir -p ~/.config/alacritty
+  cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+  cp ~/dotfiles/.shortcuts ~/
+  mkdir -p ~/.config/wal/templates
+  mkdir -p ~/.config/dunst
+  cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp ~/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
+  mkdir -p ~/.config/cava
+  cp ~/dotfiles/.config/cava/config ~/.config/wal/templates
+  mkdir -p ~/.config/conky
+  cp ~/dotfiles/.config/conky/* ~/.config/conky/
+  mkdir -p ~/.config/caffeine
+  cp ~/dotfiles/.config/caffeine/* ~/.config/caffeine/
+  mkdir -p ~/.config/ncspot
+  cp ~/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
+  mkdir -p  ~/.fonts
+  cp ~/dotfiles/.fonts/* ~/.fonts
+  cp ~/dotfiles/.config/gromit-mpx.ini ~/.config
+  mkdir -p ~/.config/picom
+  cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  mkdir -p ~/.config/qtile
+  cp -r ~/dotfiles/.config/qtile/* ~/.config/qtile/
+  mkdir -p ~/.config/nvim
+  cp -r ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/
+  mkdir -p ~/.config/ranger
+  cp ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  mkdir -p ~/.config/xsettingsd
+  cp ~/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
+  mkdir -p ~/.config/rofi
+  cp -r ~/dotfiles/.config/rofi/* ~/.config/rofi/
+  sudo mkdir -p /root/.config/rofi
+  sudo cp -r ~/dotfiles/.config/rofi/* /root/.config/rofi/
+  sudo mkdir -p /root/.cache/wal
+  sudo mkdir -p /root/.fonts
+  sudo cp -r ~/.cache/wal/colors-rofi-dark.rasi /root/.cache/wal/
+  sudo timedatectl set-ntp true
+  xdg-settings set default-web-browser firefox.desktop 
+  mkdir -p ~/.local/bin
+  cp -r ~/dotfiles/.local/bin/* ~/.local/bin
+  chmod +x ~/.local/bin/*
+  mkdir -p ~/.config/neofetch
+  cp ~/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/config.conf 
+  cp ~/dotfiles/.zshrc ~/
+  mkdir -p ~/.oh-my-zsh
+  cp ~/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
+  mkdir ~/Pictures
+  sudo mkdir -p /usr/share/backgrounds
+  mkdir -p ~/Pictures/Wallpapers
+  cp -r ~/Wallpapers/* ~/Pictures/Wallpapers
+  sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
+  sudo mkdir -p /usr/local/themes
+  sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
+  sudo chown -R $USER:$USER /usr/local/themes/FlatColor
+  sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
+  sudo mkdir /usr/local/backgrounds
+  sudo chown -R $USER:$USER /usr/local/backgrounds
+  sudo cp ~/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+  sudo cp ~/dotfiles/pulse/system.pa /etc/pulse/system.pa
+  sudo cp ~/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
+  mkdir -p ~/notable
+  mkdir -p ~/book
+  mkdir -p ~/Articles
+}
+
 function web_apps(){
   mkdir -p ~/Apps
   cd ~/Apps
@@ -312,6 +379,7 @@ function neovim(){
 #pip install -r pip.txt --break-system-packages
 #zsh
 #copy_dotfiles
+#copy_dots
 #post
 #web_apps
 #update
