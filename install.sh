@@ -74,11 +74,11 @@ function base() {
     'gvfs'
     'barrier'
     'noto-fonts'
-    #'noto-fonts-cjk'
-    #'noto-fonts-emoji'
-    #'ttf-dejavu'
-    #'ttf-liberation'
-    #'ttf-opensans'
+    'noto-fonts-cjk'
+    'noto-fonts-emoji'
+    'ttf-dejavu'
+    'ttf-liberation'
+    'ttf-opensans'
     'libayatana-appindicator'
     'tlp'
     'powertop'
@@ -89,9 +89,9 @@ function base() {
     #'linux'
     #'linux-headers'
     #'linux-docs'
-    #'linux-lts'
-    #'linux-lts-headers'
-    #'linux-lts-docs'
+    'linux-lts'
+    'linux-lts-headers'
+    'linux-lts-docs'
     #'linux-zen-headers'
     #'linux-zen-docs'
     'neovim'
@@ -112,7 +112,7 @@ function base() {
     'cups'
     'cups-pdf'
     'man'
-    'zxel' # Needed for Calculator
+    #'zxel' # Needed for Calculator
 )
 
 for packet in "${packets[@]}"; do
@@ -137,9 +137,6 @@ function aur_packages() {
     'qtile-extras-git'
     'caffeine-ng-git'
     'visual-studio-code-bin'
-    #'slack-desktop'
-    #'brave' 
-    #'teams-for-linux'
     'pulseaudio-bluethooth'
     'telegram-desktop'
     'google-chrome'
@@ -281,8 +278,8 @@ function web_apps(){
 }
 
 function post(){
+  sudo usermod -aG network $USER
   wal -i ~/Pictures/Wallpapers/wall.png
-  wpg-install.sh -gio
   fc-cache -f -v
   timedatectl set-local-rtc 1
   timedatectl set-timezone America/Mexico_City
@@ -309,12 +306,12 @@ function neovim(){
 
 # sudo pacman -Syyu --noconfirm
 # sudo pacman -Rcns qtile --noconfirm
-#paru_install
 #base
-# pip install -r pip.txt --break-system-packages
-aur_packages
-# zsh
-# copy_dotfiles
+#paru_install
+#aur_packages
+#pip install -r pip.txt --break-system-packages
+#zsh
+#copy_dotfiles
 #post
 #web_apps
 #update

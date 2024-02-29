@@ -9,6 +9,7 @@
 # MIT licence 
 # 
 #
+NetworkManager &
 conky &
 xsettingsd &
 caffeine start  &
