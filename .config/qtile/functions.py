@@ -307,7 +307,7 @@ def change_wallpaper(qtile):
       selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
   qtile.reload_config()
-  subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
+  #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
 def get_net_dev():
@@ -332,7 +332,7 @@ def get_private_ip():
 private_ip = get_private_ip()
 
 ## Get Public IP Address
-def get_public_ip(timeout=2):
+def get_public_ip(timeout=1):
     try:
         raw = requests.get('https://api.duckduckgo.com/?q=ip&format=json', timeout=timeout)
         raw.raise_for_status() 

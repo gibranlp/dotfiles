@@ -265,7 +265,7 @@ function copy_dots(){
   cp ~/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
   mkdir -p  ~/.fonts
   cp ~/dotfiles/.fonts/* ~/.fonts
-  cp ~/dotfiles/.config/gromit-mpx.ini ~/.config
+  cp ~/dotfiles/.config/gromit-mpx.cfg ~/.config/
   mkdir -p ~/.config/picom
   cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   mkdir -p ~/.config/qtile
@@ -293,10 +293,9 @@ function copy_dots(){
   cp ~/dotfiles/.zshrc ~/
   mkdir -p ~/.oh-my-zsh
   cp ~/dotfiles/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/
-  mkdir ~/Pictures
   sudo mkdir -p /usr/share/backgrounds
   mkdir -p ~/Pictures/Wallpapers
-  cp -r ~/Wallpapers/* ~/Pictures/Wallpapers
+  cp -r ~/dotfiles/Wallpapers/* ~/Pictures/Wallpapers
   sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/themes
   sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
