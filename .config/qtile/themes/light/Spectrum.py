@@ -8,6 +8,7 @@
 # MIT licence 
 #
 from functions import *
+
 widget_defaults = dict(
     font=main_font,
     fontsize=font_size,
@@ -162,7 +163,6 @@ def init_widgets_list():
               cursor_color=color[4],
               visual_bell_color=[4],
               visual_bell_time=0.2,
-              padding=5,
             ),
             widget.Spacer(
               length=5,
@@ -173,184 +173,21 @@ def init_widgets_list():
               background=transparent,
             ),
             widget.GroupBox(
-              decorations=[RectDecoration(colour=color[1], radius=[8,0,0,8], filled=True)],
+              decorations=[RectDecoration(colour=color[0], radius=8, filled=True)],
               fontsize=groups_font,
               font=awesome_font,
               disable_drag=True,
               hide_unused=hide_unused_groups,
               borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[1], # Empty Group
+              active=secondary_color[1], #Program opened in that group
+              inactive=secondary_color[5], # Empty Group
               rounded=False,
               highlight_method="text",
-              this_current_screen_border=color[0],
+              this_current_screen_border=color[2],
               center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['Escape'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[2], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[2], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['1'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[3], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['2'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[4], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[4], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['3'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[5], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[5], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['4'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[1], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[1], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['5'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[2], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[2], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['6'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[3], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['7'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[4], radius=0, filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[4], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['8'],
-            ),
-            widget.GroupBox(
-              decorations=[RectDecoration(colour=color[5], radius=[0,8,8,0], filled=True)],
-              fontsize=groups_font,
-              font=awesome_font,
-              disable_drag=True,
-              hide_unused=hide_unused_groups,
-              borderwidth=0,
-              active=secondary_color[0], #Program opened in that group
-              inactive=third_color[5], # Empty Group
-              rounded=False,
-              highlight_method="text",
-              this_current_screen_border=color[0],
-              center_aligned = True,
-              other_curren_screen_border=color[0],
-              block_highlight_text_color=color[0],    
-              urgent_border="fc0000",
-              visible_groups=['9'],
+              other_curren_screen_border=color[2],
+              block_highlight_text_color=color[2],    
+              urgent_border="fc0000"
             ),
             widget.Spacer(
               length=bar.STRETCH,
@@ -554,7 +391,6 @@ def init_widgets_list():
               foreground=color[0],
               text="",
               mouse_callbacks={'Button1': lambda: qtile.function(session_widget)},
-              padding_x=5,
             )]
     return widgets_list
 
