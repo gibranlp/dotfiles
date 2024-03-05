@@ -34,30 +34,30 @@ function update(){
   #sudo mkdir -p /usr/local/spectrumos
   #sudo chown -R $USER:$USER /usr/local/spectrumos
   #sudo chmod 775 /usr/local/spectrumos
-  cp -r ~/SpectrumOS/dotfiles/.config/qtile/* ~/.config/qtile/
-  cp -r ~/SpectrumOS/dotfiles/.config/gromit-mpx.cfg ~/.config/
-  cp -r ~/SpectrumOS/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
-  mkdir -p ~/.icons
-  cp -r ~/SpectrumOS/dotfiles/.icons/* ~/.icons/
-  cp -r ~/SpectrumOS/dotfiles/.local/bin/* ~/.local/bin
-  #cp -r ~/SpectrumOS/dotfiles/.local/bin/selectwal ~/.local/bin
-  #cp -r ~/SpectrumOS/dotfiles/.local/bin/weather ~/.local/bin
-  #cp -r ~/SpectrumOS/dotfiles/.local/bin/alwaystart ~/.local/bin
-  #cp -r ~/SpectrumOS/dotfiles/.local/bin/wifi2 ~/.local/bin
-  chmod +x ~/.local/bin/*
-  cp ~/SpectrumOS/dotfiles/.zshrc ~/
-  mkdir -p  ~/.config/flameshot
-  cp ~/SpectrumOS/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/conky/* ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-  cp -r ~/SpectrumOS/dotfiles/.config/rofi/* ~/.config/rofi/
-  cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/cava/config ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
-  cp ~/SpectrumOS/dotfiles/.shortcuts ~/
-  sudo cp ~/SpectrumOS/dotfiles/logid.cfg /etc/
-  cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
-  cp ~/SpectrumOS/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
+  cp -v -r ~/dotfiles/.config/qtile/* ~/.config/qtile/
+  # cp -r ~/dotfiles/.config/gromit-mpx.cfg ~/.config/
+  # cp -r ~/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
+  # mkdir -p ~/.icons
+  # cp -r ~/dotfiles/.icons/* ~/.icons/
+  # cp -r ~/dotfiles/.local/bin/* ~/.local/bin
+  #cp -r ~/dotfiles/.local/bin/selectwal ~/.local/bin
+  #cp -r ~/dotfiles/.local/bin/weather ~/.local/bin
+  #cp -r ~/dotfiles/.local/bin/alwaystart ~/.local/bin
+  #cp -r ~/dotfiles/.local/bin/wifi2 ~/.local/bin
+  # chmod +x ~/.local/bin/*
+  # cp ~/dotfiles/.zshrc ~/
+  # mkdir -p  ~/.config/flameshot
+  # cp ~/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
+  # cp ~/dotfiles/.config/conky/* ~/.config/wal/templates
+  # cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+  # cp -r ~/dotfiles/.config/rofi/* ~/.config/rofi/
+  # cp ~/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
+  # cp ~/dotfiles/.config/cava/config ~/.config/wal/templates
+  # cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  # cp ~/dotfiles/.shortcuts ~/
+  # sudo cp ~/dotfiles/logid.cfg /etc/
+  # cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  # cp ~/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
 }
 
 #install_new_packages
