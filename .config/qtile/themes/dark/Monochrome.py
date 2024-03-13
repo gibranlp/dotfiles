@@ -20,7 +20,7 @@ widget_defaults = dict(
 # Theme
 ## Screens
 
-color_in_use=color[1]
+color_in_use=color[2]
 secondary_in_use=secondary_color[7]
 
 def init_widgets_list():
@@ -28,7 +28,7 @@ def init_widgets_list():
       widget.TextBox(
         decorations=[RectDecoration(colour=color[0], radius=7, filled=True)],
         foreground=color_in_use,
-        text="",
+        text="",
         padding_x=5,
         mouse_callbacks={'Button1':lambda: qtile.spawn('rofi -show drun -show-icons -theme "~/.config/rofi/launcher.rasi"')},
       ),
