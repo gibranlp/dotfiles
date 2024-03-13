@@ -93,7 +93,9 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome',  'Monochrome2kends Options: Wal, Colorz, Colorthief, Haishoku
+theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome',  'Monochrome2',]
+
+# Pywal Backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
 backend=['wal', 'colorz', 'colorthief','haishoku']  
 
