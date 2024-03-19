@@ -58,6 +58,14 @@ def init_widgets_list():
         length=5,
         background=transparent,
       ),
+      widget.WidgetBox(
+        decorations=[RectDecoration(colour=background_in_use, radius=5, filled=True)],
+        text_closed='',
+        text_open='',
+        foreground=color_in_use,
+        widgets=[
+            widget.Systray(),]
+      ),
       widget.Mpris2(
         decorations=[RectDecoration(colour=background_in_use, radius=7, filled=True)],
         mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
@@ -70,18 +78,6 @@ def init_widgets_list():
         scroll=True,
         scroll_repeat=True,
         scroll_delay=0.1,
-      ),
-      widget.Spacer(
-        length=5,
-        background=transparent,
-      ),
-      widget.WidgetBox(
-        decorations=[RectDecoration(colour=background_in_use, radius=5, filled=True)],
-        text_closed='',
-        text_open='',
-        foreground=color_in_use,
-        widgets=[
-            widget.Systray(),]
       ),
       widget.Spacer(
         length=5,

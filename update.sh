@@ -50,7 +50,7 @@ function update(){
   # cp ~/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
   # cp ~/dotfiles/.config/conky/* ~/.config/wal/templates
   # cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-  # cp -r ~/dotfiles/.config/rofi/* ~/.config/rofi/
+  cp -v -r ~/dotfiles/.config/rofi/* ~/.config/rofi/
   # cp ~/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   # cp ~/dotfiles/.config/cava/config ~/.config/wal/templates
   # cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf

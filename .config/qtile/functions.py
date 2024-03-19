@@ -93,11 +93,11 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome',  'Monochrome2',]
+theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome', 'Monochrome2', 'no_bar']
 
 # Pywal Backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
-backend=['wal', 'colorz', 'colorthief','haishoku']  
+backend=['wal', 'colorz', 'colorthief','haishoku', 'schemer2']  
 
 ## Margins
 layout_margin=10 # Layout margins
@@ -261,12 +261,12 @@ def i3lock_colors(qtile):
     '--image=%s' % wallpaper,
     '--fill',          
     '--ring-color={}'.format(secondary_color[0]+"aa"),
-    '--inside-color={}'.format(secondary_color[0]+"aa"),
+    '--inside-color={}'.format(secondary_color[0]),
     '--line-color={}'.format(color[2]),
     '--separator-color={}'.format(color[4]),
     '--time-color={}'.format(color[2]),           
     '--date-color={}'.format(color[4]),
-    '--insidever-color={}'.format(secondary_color[0]+"aa"),
+    '--insidever-color={}'.format(secondary_color[0]),
     '--ringver-color={}'.format(color[0]),
     '--verif-color={}'.format(color[5]),          
     '--verif-text=Validating',
