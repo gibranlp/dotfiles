@@ -1,0 +1,59 @@
+
+/*Background Colors*/
+.bgcolor0{
+    background:{{color0}};
+}
+.bgcolor1{
+    background:{color1};
+}
+.bgcolor2{
+    background:{color2};
+}
+.bgcolor3{
+    background:{color3};
+}
+.bgcolor4{
+    background:{color4};
+}
+.bgcolor5{
+    background:{color5};
+}
+.bgcolor6{
+    background:{color6};
+}
+.bgcolor7{
+    background:{color7};
+}
+.bgcolor8{
+    background:{color8};
+}
+
+
+/*Colors*/
+.color0{
+    color:{color0};
+}
+.color1{
+    color:{color1};
+}
+.color2{
+    color:{color2};
+}
+.color3{
+    color:{color3};
+}
+.color4{
+    color:{color4};
+}
+.color5{
+    color:{color5};
+}
+.color6{
+    color:{color6};
+}
+.color7{
+    color:{color7};
+}
+.color8{
+    color:{color8};
+}

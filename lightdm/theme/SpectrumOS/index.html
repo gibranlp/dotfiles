@@ -4,17 +4,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Pedro Penna - @pedropenna">
+        <meta name="author" content="Gibranlp">
 
-        <title>Musfealle - Lightdm Webkit Greeter Theme</title>
+        <title>SpectrumOS Lightdm Greeter</title>
 
         <script src="js/jquery-1.10.2.js"></script>
         <script src="js/mock.js"></script>
         <script src="js/main.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-
+        <link rel="stylesheet" type="text/css" href="css/bootstrap/colors.css" />
+        
         <style type="text/css">
+          @import url('file:///usr/share/lightdm-webkit/themes/SpectrumOS/css/colors.css');
           html,
           body {
             height: 100%;
@@ -49,7 +51,7 @@ margin-top: 16px;
               position: absolute;
               top: calc(50% - 1em);
               left: calc(50% - 9em);
-              background-color: rgba(34, 34, 34, 0.3);
+              background-color: var(--color4);
               border-radius: 8px;
             }
 

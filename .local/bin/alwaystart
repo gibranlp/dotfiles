@@ -9,6 +9,9 @@
 # MIT licence 
 # 
 #
+wal -R &
+sudo cp ~/.cache/wal/colors.css /usr/share/lightdm-webkit/themes/SpectrumOS/css/
+sudo cp 
 xsettingsd &
 killall conky &
 unclutter -idle 1 &
@@ -25,4 +28,3 @@ pkill -USR1 cava &
 dunst &
 wal-telegram &
 pywal-discord &
-#wal -R
