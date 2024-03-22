@@ -58,6 +58,12 @@ function update(){
   # sudo cp ~/dotfiles/logid.cfg /etc/
   # cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   # cp ~/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
+
+  ### Add new Lightdm Theme
+
+  #sudo cp -v ~/dotfiles/lightdm/lightdm.conf /etc/lightdm/
+  #sudo cp -v ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf  /etc/lightdm
+  #sudo cp -v -r ~/dotfiles/lightdm/theme/SpectrumOS /usr/share/lightdm-webkit/themes/
 }
 
 #install_new_packages
