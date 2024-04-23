@@ -25,6 +25,16 @@
             font-family: "Lato", "Open Sans", sans-serif;
             overflow: hidden;
           }
+          #topbar{
+            position:absolute;
+            bottom:0;
+            font-weight: bold;
+            text-shadow:1px 1px var(--color0);
+            margin:0;
+            width:100%;
+            text-align:center;
+            font-size:1.1em;
+          }
 
             #motherOfAllContainers {
             width:100%;
@@ -37,16 +47,17 @@
             }
 
             #sessionDisplay {
-                background-color: rgba(230, 230, 150, 0.6);
+                background-color: var(--color0);
                 border-radius: 4px;
-                color: #000000;
+                color: var(--color3);
                 display:none;
                 font-weight: bold;
                 padding: 3px 16px 3px 16px;
 margin-top: 16px;
-                margin: 17px 3px 0px 3px;
+                margin: 3px 3px 0px 3px;
+                text-align:center
             }
-
+            
             #inputBoxesContainer {
               position: absolute;
               top: calc(50% - 1em);
@@ -61,11 +72,10 @@ margin-top: 16px;
         </style>
     </head>
     <body>
+      <div id="topbar">
+        <p style="margin:0"><span style="color:var(--color1)">Alt + D :: Shutdown&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span><span style="color:var(--color2)">Alt + R :: Restart&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span><span style="color:var(--color3)">Alt + P :: Suspend&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span><span style="color:var(--color4)">Alt + H :: Hibernate&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span><span style="color:var(--color5)">Alt + S :: Cycle Sessions&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span><span style="color:var(--color6)">Alt + L :: Cycle Users&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;</span></p>
+      </div>
       <div id="motherOfAllContainers">
-        <!--video id="backgroundVideo" poster="video.webm" autoplay="" loop=""
-               src="videos/rays.webm" style="position:absolute; top: 0px;
-        left: 0px; min-width: 100%; min-height: 100%; z-index:0; display:none"></video-->
-
         <div id="inputBoxesContainer" style="display:none">
             <div>
                 <input type="text" name="username" id="username" class="form-control">

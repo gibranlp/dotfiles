@@ -136,7 +136,7 @@ if xres >= "3840" and yres >= "2160": #4k
   weather_y=0.90
   weather_width=0.075
   weather_height=0.09
-elif xres == "1920" and yres == "1080": #FullHD
+elif xres == "3834" and yres == "1080" or xres == "1920" and yres == "2160" or xres == "1920" and yres == "1080": #FullHD
   layout_margin=10
   single_layout_margin=5  
   layout_border_width=4 

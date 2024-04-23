@@ -381,5 +381,5 @@ function neovim(){
 #post
 #web_apps
 #update
-#install_docker
+install_docker
 
