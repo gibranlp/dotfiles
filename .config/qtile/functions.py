@@ -219,7 +219,8 @@ def remove_sticky_windows(window):
 @hook.subscribe.startup # This file gets executed everytime qtile restarts
 def start():
   subprocess.call(home + '/.local/bin/alwaystart')
-  subprocess.run(["openrgb", "-d", "0", "-c", "%s" %color[1].lstrip('#'), "-b", "50"])
+  subprocess.call(home + '/.local/bin/chrome')
+  # subprocess.run(["openrgb", "-d", "0", "-c", "%s" %color[1].lstrip('#'), "-b", "50"])
       
 @hook.subscribe.startup_once # Ths file gets executed once at the start1
 def start_once():

@@ -186,6 +186,7 @@ function copy_dotfiles(){
   cp ~/SpectrumOS/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
   cp ~/SpectrumOS/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
+  
   mkdir -p ~/.config/dunst
   cp ~/SpectrumOS/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   cp ~/SpectrumOS/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
@@ -252,6 +253,7 @@ function copy_dots(){
   cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
   cp ~/dotfiles/.shortcuts ~/
   mkdir -p ~/.config/wal/templates
+  cp ~/dotfiles/.config/flameshot/flameshot.ini ~/.config/wal/templates
   mkdir -p ~/.config/dunst
   cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   cp ~/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
@@ -274,6 +276,7 @@ function copy_dots(){
   cp -r ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/
   mkdir -p ~/.config/ranger
   cp ~/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
+  mkdir -p ~/.config/flameshot
   mkdir -p ~/.config/xsettingsd
   cp ~/dotfiles/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
   mkdir -p ~/.config/rofi
