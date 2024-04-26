@@ -503,4 +503,9 @@
     appname = whatsdesk
     format = "<b> Whatsdesk</b>\n%s %b"
     timeout = 10
+
+[evolution-mail-notification]
+    appname = evolution-mail-notification
+    format = "<b>  Evolution</b>\n%s %b"
+    timeout = 10
     
