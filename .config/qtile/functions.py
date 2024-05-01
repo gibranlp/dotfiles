@@ -434,10 +434,10 @@ def draw_widget(qtile):
 
 # Logout widget
 def session_widget(qtile):
-  options = ['','', '','']
+  options = [' Lock',' Logout', ' Reboot',' Power Off']
   index, key = rofi_session.select('  Session', options)
   if key == -1:
-    rofi_left.close()
+    rofi_session.close()
   else:
     if index == 0:
       qtile.function(i3lock_colors)
@@ -648,7 +648,7 @@ def pacman_packages(qtile):
 ## Update SpectrumOS
 
 
-# Logout widget
+# Turntable widget
 def turntable(qtile):
   options = [' On', ' Off']
   index, key = rofi_session.select(' Listen Turntable', options)

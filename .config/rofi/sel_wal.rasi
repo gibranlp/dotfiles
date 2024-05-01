@@ -10,12 +10,12 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    center;
+    location:                    west;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       90%;
-    height:                      90%;
-    x-offset:                    0px;
+    width:                       400px;
+    height:                      99.9%;
+    x-offset:                    200px;
     y-offset:                    0px;
     border-radius:               0px 10px 10px 0px;
 
@@ -51,7 +51,7 @@ inputbar {
     background-color:            transparent;
     background-image:            url("/usr/local/backgrounds/background.png", width);
     text-color:                  @foreground;
-    orientation:                 horizontal;
+    orientation:                 vertical;
     children:                    ["textbox-prompt-colon", "entry"];
     border-radius:               0px 10px 0px 0px;
     horizontal-align:            0.5;
@@ -80,7 +80,7 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     6;
+    columns:                     1;
     lines:                       4;
     cycle:                       true;
     dynamic:                     true;
