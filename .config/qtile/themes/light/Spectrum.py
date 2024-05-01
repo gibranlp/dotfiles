@@ -241,52 +241,25 @@ def init_widgets_list():
               background=transparent,
             ), 
             ## Network
-            widget.WidgetBox(
+            widget.TextBox(
               decorations=[RectDecoration(colour=color[0], radius=[7,0,0,7], filled=True)],
-              text_closed=' ' + wifi_icon + ' ',
-              text_open='  ',
+              text=wifi_icon,
               foreground=color[3],
-              widgets=[
-                  widget.TextBox(
-                  decorations=[RectDecoration(colour=color[0], radius=0,filled=True)],
-                  text='  ',
-                  foreground=color[3],
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
-                widget.TextBox(
-                  decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
-                  text=private_ip,
-                  foreground=color[0],
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
-                widget.TextBox(
-                  decorations=[RectDecoration(colour=color[0], radius=0, filled=True)],
-                  text='  ',
-                  foreground=color[3],
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
-                widget.TextBox(
-                  decorations=[RectDecoration(colour=color[2], radius=0, filled=True)],
-                  text=public_ip,
-                  foreground=color[0],
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
-                widget.TextBox(
-                  decorations=[RectDecoration(colour=color[0], radius=0, filled=True)],
-                  text=wifi_icon,
-                  foreground=color[3],
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
-              ]
             ),
             widget.Wlan(
-                  decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
-                  interface=wifi,
-                  format='{essid} {percent:2.0%}',
-                  disconnected_message='',
-                  foreground=color[0],
-                  width=widget_width -20,
-                  scroll=True,
-                  scroll_repeat=True,
-                  scroll_interval=0.1,
-                  scroll_step=1,
-                  update_interval=1,
-                  mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}),
+              decorations=[RectDecoration(colour=color[3], radius=0, filled=True)],
+              interface=wifi,
+              format='{essid} {percent:2.0%}',
+              disconnected_message='',
+              foreground=color[0],
+              width=widget_width -20,
+              scroll=True,
+              scroll_repeat=True,
+              scroll_interval=0.1,
+              scroll_step=1,
+              update_interval=1,
+              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
+            ),
             widget.Net(
               prefix='M',
               interface=wifi,

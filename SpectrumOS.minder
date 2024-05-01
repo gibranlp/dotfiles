@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<minder version="1.15.2" parent-etag="945746760" etag="1207368334">
+<minder version="1.15.6" parent-etag="3603461462" etag="3186132416">
   <theme name="default" label="Light" index="-1"/>
   <styles>
     <style level="0" isset="true" branchmargin="100" branchradius="25" linktype="curved" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="rounded" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="10" nodepadding="10" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionlwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10" connectiontwidth="100"/>
