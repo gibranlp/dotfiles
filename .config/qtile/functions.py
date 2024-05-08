@@ -434,7 +434,7 @@ def draw_widget(qtile):
 
 # Logout widget
 def session_widget(qtile):
-  options = [' Lock',' Logout', ' Reboot',' Power Off']
+  options = [' Lock',' Sleep',' Logout', ' Reboot',' Power Off']
   index, key = rofi_session.select('  Session', options)
   if key == -1:
     rofi_session.close()
@@ -442,8 +442,10 @@ def session_widget(qtile):
     if index == 0:
       qtile.function(i3lock_colors)
     elif index == 1:
-      qtile.shutdown()
+      os.system('systemctl suspend')
     elif index == 2:
+      qtile.shutdown()
+    elif index == 3:
       os.system('systemctl reboot')
     else:
       os.system('systemctl poweroff')
