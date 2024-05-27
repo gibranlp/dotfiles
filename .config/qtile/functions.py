@@ -15,6 +15,7 @@ from os.path import expanduser
 from pathlib import Path
 import requests
 from libqtile import bar, hook, layout, qtile, widget
+from qtile_bonsai import Bonsai
 from libqtile.config import ScratchPad, DropDown, Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
@@ -39,15 +40,15 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[275].strip()
+current_blur = bar_blur[279].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[275] = new_blur
+  bar_blur[279] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[275] = new_blur
+  bar_blur[279] = new_blur
   blur_icon=''
 
 ## Get Terminal Fontsize
@@ -97,7 +98,7 @@ theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome', 'Monochrome2', 'no_bar']
 
 # Pywal Backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
-backend=['wal', 'colorz', 'colorthief','haishoku']  
+backend=['wal','colorz','colorthief','haishoku']  
 
 ## Margins
 layout_margin=10 # Layout margins
@@ -136,13 +137,13 @@ if xres >= "3840" and yres >= "2160": #4k
   weather_y=0.90
   weather_width=0.075
   weather_height=0.09
-elif xres == "3834" and yres == "1080" or xres == "3834" and yres == "1080" or xres == "1920" and yres == "2160" or xres == "1920" and yres == "1080": #FullHD
-  layout_margin=10
+elif xres == "3840" and yres == "1080" or xres == "3834" and yres == "1080" or xres == "1920" and yres == "2160" or xres == "1920" and yres == "1080": #FullHD
+  layout_margin=5
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
   bar_size=25
-  widget_width=250
+  widget_width=150
   max_ratio=0.85
   ratio=0.65
   font_size=font_size-4
@@ -434,7 +435,7 @@ def draw_widget(qtile):
 
 # Logout widget
 def session_widget(qtile):
-  options = [' Lock',' Sleep',' Logout', ' Reboot',' Power Off']
+  options = ['','','', '','']
   index, key = rofi_session.select('  Session', options)
   if key == -1:
     rofi_session.close()
@@ -571,13 +572,6 @@ def change_theme(qtile):
       file.writelines(variables)
     qtile.reload_config()
     subprocess.run(["notify-send","-a", " SpectrumOS", " Theme: ", "%s" %theme[index]])
-    
-# Set random colors to theme
-def random_colors(qtile):
-  subprocess.run(["wpg", light, "-z", "%s" % wallpaper])
-  subprocess.run(["wpg", "-s", "%s" % wallpaper])
-  subprocess.run(["rm", "-rf", "%s" %wallpaper + "_wal_sample.png"])
-  qtile.reload_config()
 
 # Screenshot widget
 def screenshot(qtile):

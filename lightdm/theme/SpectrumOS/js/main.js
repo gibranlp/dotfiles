@@ -94,8 +94,7 @@ jQuery(document).ready(function() {
 
     updateSessionNameContainer();
 
-
-    $('#motherOfAllContainers').fadeTo('slow', 0.3, function() {
+    $('#motherOfAllContainers').fadeTo('fast', 1, function() {
         $('#motherOfAllContainers').css("background", "url(/usr/local/backgrounds/background.png) no-repeat center center");
         $('#motherOfAllContainers').css("-webkit-background-size", "cover");
         $('#motherOfAllContainers').css("-moz-background-size", "cover");
@@ -105,9 +104,7 @@ jQuery(document).ready(function() {
         $("#inputBoxesContainer").show();
         $("#backgroundVideo").show();
 
-        /* Moves the focus to the password field so in the best case scenario
-           all the user has to do is type in the password and press ENTER */
         jQuery("#password").focus();
-    }).fadeTo(2500, 1);
+    });
 
 });

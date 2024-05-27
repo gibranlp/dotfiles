@@ -42,7 +42,7 @@ elif int(variables[10]) == 12:
 elif int(variables[10]) == 13:
    group_labels=["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"]
 
-group_layouts=["monadtall", "monadtall", "monadtall", "spiral","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
+group_layouts=["bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai"]
 for i in range(len(group_names)):
   groups.append(
     Group(
@@ -74,7 +74,8 @@ groups.append(ScratchPad("scratchpad", [
 
 ## Layouts
 def init_layout_theme():
-  return {"font":main_font,
+  return {
+    "font":main_font,
     "fontsize":font_size,
     "margin":layout_margin,
     "border_on_single":False,
@@ -85,36 +86,31 @@ def init_layout_theme():
     "single_border_width":single_border_width,
     "change_ratio":0.01,
     "new_client_position":'bottom',
-    }
+   }
 
 layout_theme = init_layout_theme()
 
 def init_layouts():
   return [
-   layout.MonadTall(
-     max_ratio=max_ratio,
-     ratio=ratio,
-     **layout_theme),
-   layout.MonadWide(
-     max_ratio=0.90,
-     ratio=0.90,
-     **layout_theme),
-   layout.Spiral(
-     ratio=0.5,
-     ratio_increment=0.02,
-     main_pane="left",
-     clockwise=True,
-     **layout_theme),
-   layout.Spiral(
-     ratio=0.5,
-     ratio_increment=0.02,
-     main_pane="top",
-     clockwise=False,
-     **layout_theme),
-   layout.MonadWide(
-     max_ratio=0.85,
-     ratio=0.50,
-     **layout_theme),
+   Bonsai(
+      **{
+         "window.border_size": layout_border_width,
+         "window.margin":layout_margin,
+         "window.border_color": color[0],
+         "window.active.border_color": color[1],
+         "window.default_add_mode": "match_previous",
+         "auto_cwd_for_terminals": False,
+         "tab_bar.height": 10,
+         "tab_bar.bg_color": color[0],
+         "tab_bar.tab.padding": 0,
+         "tab_bar.tab.bg_color": color[3],
+         "tab_bar.tab.fg_color": color[3],
+         "tab_bar.tab.font_family": main_font,
+         "tab_bar.tab.font_size": font_size,
+         "tab_bar.tab.active.bg_color": color[1],
+         "tab_bar.tab.active.fg_color": color[1],
+         "tab_bar.margin": [2,5,0,5],
+      }),
  ]
 layouts = init_layouts()
 

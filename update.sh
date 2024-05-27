@@ -53,10 +53,10 @@ function update(){
   cp -v -r ~/dotfiles/.config/rofi/* ~/.config/rofi/
   # cp ~/dotfiles/.config/rofi/SpectrumOS.rasi ~/.config/wal/templates
   # cp ~/dotfiles/.config/cava/config ~/.config/wal/templates
-  # cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
+  #cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
   # cp ~/dotfiles/.shortcuts ~/
   # sudo cp ~/dotfiles/logid.cfg /etc/
-  # cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
+  cp ~/dotfiles/.config/dunst/dunstrc ~/.config/wal/templates
   # cp ~/dotfiles/.config/neofetch/config.conf ~/.config/neofetch/
 
   ### Add new Lightdm Theme

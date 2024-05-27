@@ -21,16 +21,6 @@ widget_defaults = dict(
 
 def init_widgets_list():
     widgets_list = [
-            widget.CurrentLayoutIcon(
-              use_mask=True,
-              decorations=[RectDecoration(colour=secondary_color[3], radius=7, filled=True)],
-              foreground=secondary_color[0],
-              scale=0.8,
-            ),
-            widget.Spacer(
-              length=5,
-              background=transparent,
-            ),
             widget.TextBox(
               decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
               foreground=secondary_color[5],
@@ -88,8 +78,8 @@ def init_widgets_list():
                   widget.Visualiser(
                     background=secondary_color[6],
                     bar_colour=secondary_color[0],
-                    width=200,
-                    bars=32,
+                    width=widget_width - 50,
+                    bars=16,
                     channels='stereo',
                     framerate=60,
                     hide=True,
@@ -249,7 +239,7 @@ def init_widgets_list():
             widget.Wlan(
               decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
               interface=wifi,
-              format='{essid} {percent:2.0%}',
+              format='{essid}',
               disconnected_message='',
               foreground=secondary_color[0],
               width=widget_width -20,
@@ -258,6 +248,14 @@ def init_widgets_list():
               scroll_interval=0.1,
               scroll_step=1,
               update_interval=1,
+              mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
+            ),
+            widget.Wlan(
+              decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
+              interface=wifi,
+              format='{percent:2.0%}',
+              disconnected_message='',
+              foreground=secondary_color[0],
               mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
             ),
             widget.Net(
