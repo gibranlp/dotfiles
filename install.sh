@@ -112,6 +112,7 @@ function base() {
     'cups'
     'cups-pdf'
     'man'
+    'avahi'
     #'zxel' # Needed for Calculator
 )
 
@@ -244,6 +245,10 @@ function copy_dotfiles(){
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
+}
+
+function lqx(){
+  curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash
 }
 
 function copy_dots(){
@@ -379,6 +384,7 @@ function neovim(){
 #aur_packages
 #pip install -r pip.txt --break-system-packages
 #zsh
+#lqx
 #copy_dotfiles
 #copy_dots
 #post
