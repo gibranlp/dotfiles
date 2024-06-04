@@ -13,34 +13,26 @@ from keys import *
 ## Groups
 
 #### Groups Labels
-if int(variables[10]) == 0:
-   group_labels=["","","","","","","","","",""] # SpectrumOS
-elif int(variables[10]) == 1:
-   group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
-elif int(variables[10]) == 2:
-   group_labels=["","","","","","","","","",""] # Custom
-elif int(variables[10]) == 3:
-   group_labels=["","","","","","","","","",""] # Star Wars
-elif int(variables[10]) == 4:
-   group_labels=["","","","","","","","","",""] # Chess
-elif int(variables[10]) == 5:
-   group_labels=["0","1","2","3","4","5","6","7","8","9"] # Numbers:
-elif int(variables[10]) == 6:
-   group_labels=[":","(",")","{",":","|",":","&","}",";"] # Fork Bomb
-elif int(variables[10]) == 7:
-   group_labels=["","","","","","","","","",""] # Circles
-elif int(variables[10]) == 8:
-   group_labels=["","","","","","","","","",""] # Squares
-elif int(variables[10]) == 9:
-   group_labels=["","","","","","","","","",""] # Triangles
-elif int(variables[10]) == 10:
-   group_labels=["","","","","","","","","",""] # Hexagons
-elif int(variables[10]) == 11:
-   group_labels=["","","","","","","","","",""] # Rectangles 
-elif int(variables[10]) == 12:
-   group_labels=["","","","","","","","","",""] # Square Ring
-elif int(variables[10]) == 13:
-   group_labels=["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"]
+labels = {
+    0: ["","","","","","","","","",""], # SpectrumOS
+    1: ["零","一","二","三","四","五","六","七","八","九"], # Kanji Numbers
+    2: ["","","","","","","","","",""], # Custom
+    3: ["","","","","","","","","",""], # Star Wars
+    4: ["","","","","","","","","",""], # Chess
+    5: ["0","1","2","3","4","5","6","7","8","9"], # Numbers
+    6: [":","(",")","{",":","|",":","&","}",";"], # Fork Bomb
+    7: ["","","","","","","","","",""], # Circles
+    8: ["","","","","","","","","",""], # Squares
+    9: ["","","","","","","","","",""], # Triangles
+    10: ["","","","","","","","","",""], # Hexagons
+    11: ["","","","","","","","","",""], # Rectangles
+    12: ["","","","","","","","","",""], # Square Ring
+    13: ["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"] # Custom Labels
+}
+
+selected_label = int(variables[10])
+group_labels = labels.get(selected_label, [])
+
 
 group_layouts=["bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai"]
 for i in range(len(group_names)):

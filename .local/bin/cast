@@ -1,0 +1,106 @@
+#!/usr/bin/env zsh
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
+# SpectrumOS - Embrace the Chromatic Symphony!
+# By: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+# 
+#
+
+typeset -A OUTPUT_CONFIGURED 
+
+function main() {
+  local output
+  local device
+  local xrandr_cmd
+
+  environment_check
+
+  select_output ' Select Screen to Cast' 'all' | read output
+  scan_devices | read device
+
+  if [[ -n "${output}" && -n "${device}" ]]; then
+    cast_screen "${output}" "${device}"
+  else
+    echo "No output or device selected. Exiting..."
+    exit 1
+  fi
+}
+
+function select_output() {
+  local -a menu
+  local output
+  local -ir err_bad_args=257
+  local -ir err_bad_selection=258
+  local -ir err_no_options=259
+
+  for output in ${(k)OUTPUT_CONFIGURED}; do
+    menu+=("$output")
+  done
+
+  case ${#menu} in
+    0) return "${err_no_options}" ;;
+    1) echo "${menu}" ;;
+    *) echo ${(F)menu} | rofi -theme ~/.config/rofi/left.rasi -dmenu -l 10 -p "$1" ;;
+  esac
+}
+
+function scan_devices() {
+  local devices
+  local device
+  local -ir err_no_devices=259
+
+  # Scan for mDNS/Bonjour services (e.g., Chromecasts)
+  devices=$(avahi-browse -t -r _googlecast._tcp | grep "=;.*IPv4" | awk -F';' '{print $7 " - " $4}')
+
+  if [[ -z "${devices}" ]]; then
+    echo "No devices found. Exiting..."
+    return "${err_no_devices}"
+  else
+    echo "${devices}" | rofi -theme ~/.config/rofi/left.rasi -dmenu -l 10 -p "Select Device" | read device
+    echo "${device}"
+  fi
+}
+
+function cast_screen() {
+  local output="$1"
+  local device="$2"
+  local device_ip=$(echo "${device}" | awk -F' - ' '{print $2}')
+
+  # Replace the following line with the actual command to cast to your device
+  # Here is an example using ffmpeg to cast the screen to an RTMP server (replace with actual device URL)
+  ffmpeg -f x11grab -s $(xrandr | grep '*' | uniq | awk '{print $1}') -i :0.0 -f alsa -i default -c:v libx264 -preset ultrafast -maxrate 2000k -bufsize 4000k -g 50 -c:a aac -ar 44100 -b:a 128k -strict -2 -f flv rtmp://${device_ip}/live
+}
+
+function environment_check() {
+  if ! command -v xrandr &>/dev/null; then
+    echo "xrandr is required but not installed. Exiting..." >&2
+    exit 255
+  elif ! command -v rofi &>/dev/null; then
+    echo "rofi is required but not installed. Exiting..." >&2
+    exit 255
+  elif ! command -v ffmpeg &>/dev/null; then
+    echo "ffmpeg is required but not installed. Exiting..." >&2
+    exit 255
+  elif ! command -v avahi-browse &>/dev/null; then
+    echo "avahi-browse is required but not installed. Exiting..." >&2
+    exit 255
+  elif ! xset q &>/dev/null; then
+    echo 'This script needs to be run from within X. Exiting...' >&2
+    exit 1
+  fi
+}
+
+function initialize_globals() {
+  local output
+
+  for output in $(xrandr | grep ' connected' | cut -d ' ' -f 1); do
+    OUTPUT_CONFIGURED[${output}]='true'
+  done
+}
+
+initialize_globals
+main

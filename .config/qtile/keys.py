@@ -139,27 +139,6 @@ keys = [
     
     Key([mod], 'period', lazy.next_screen()), # Send Cursor to next screen
 
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "l", lazy.layout.right()),
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "k", lazy.layout.up()),
-
-    Key([mod], "i", 
-        lazy.layout.grow(),
-        lazy.layout.increase_ratio(),
-        ),
-    
-    Key([mod, "shift"], "i", lazy.layout.grow_main()),
-    Key([mod], "m", 
-        lazy.layout.shrink(),
-        lazy.layout.decrease_ratio(),
-        ),
-    
-    Key([mod, "shift"], "m", lazy.layout.shrink_main()),
-    Key([mod], "o", lazy.layout.maximize()),
-    Key([mod, "shift"], "n", lazy.layout.normalize()),
-    Key([mod, "shift"], "space", lazy.layout.flip()),
-
     Key(["control", alt], "Return", lazy.layout.toggle_split()), # Toggle Split
 
     # Brightness

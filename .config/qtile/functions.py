@@ -118,6 +118,7 @@ resolution = os.popen('xdpyinfo | awk "/dimensions/{print $2}"').read()
 xres = resolution[17:21]
 yres = resolution[22:26]
 
+
 # Set Bar and font sizes for different resolutions
 if xres >= "3840" and yres >= "2160": #4k
   layout_margin=20

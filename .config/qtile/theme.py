@@ -22,55 +22,39 @@ widget_defaults = dict(
 def init_widgets_list():
     widgets_list = [
       widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
         foreground=secondary_color[6],
         text="",
       ),
       widget.ThermalSensor(
-        decorations=[RectDecoration(colour=secondary_color[6], radius=[0,7,7,0], filled=True)],
+        background=color[6],
         foreground=secondary_color[0],
         format='{temp:.1f}{unit}',
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
-      widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
+      widget.TextBox( 
         foreground=secondary_color[5],
         text="",
       ),
       widget.CPU(
-        decorations=[RectDecoration(colour=secondary_color[5], radius=[0,7,7,0], filled=True)],
+        background=color[5],
         foreground=secondary_color[0],
         format='{load_percent}%'
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
       widget.TextBox(
-      decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
       foreground=secondary_color[1],
       text="",
       ),
       widget.Memory(
-        decorations=[RectDecoration(colour=secondary_color[1], radius=[0,7,7,0], filled=True)],
+        background=color[1],
         foreground=secondary_color[0],
         format='{MemUsed:.0f}{mm}',
         measure_mem='M',
       ),
-      widget.Spacer(
-          length=3,
-          background=transparent,
-      ),
       widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
         foreground=secondary_color[2],
         text="",
       ),
       widget.WindowName(
-        decorations=[RectDecoration(colour=secondary_color[2], radius=[0,7,7,0], filled=True)],
+        background=color[2],
         foreground=secondary_color[0],
         width=widget_width,
         format='{name}',
@@ -79,14 +63,9 @@ def init_widgets_list():
         scroll_repeat=True,
         scroll_step=1,
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
       widget.WidgetBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
-        text_closed='  ',
-        text_open='  ',
+        text_closed='',
+        text_open='',
         foreground=secondary_color[6],
         widgets=[
             widget.Visualiser(
@@ -95,73 +74,38 @@ def init_widgets_list():
               width=widget_width - 50,
               bars=16,
               channels='stereo',
-              framerate=60,
+              framerate=30,
               hide=True,
               mouse_callbacks={'Button1': lambda: qtile.spawn(terminal  + " -e cava")},
             ),
             ]
       ),
       widget.Mpris2(
-        decorations=[RectDecoration(colour=secondary_color[6], radius=[0,0,0,0], filled=True)],
+        background=color[6],
         mouse_callbacks={'Button1': lazy.group['scratchpad'].dropdown_toggle("music")},
         objname=None,
         foreground=secondary_color[0],
         width=widget_width,
         format='{xesam:artist} - {xesam:title}',
         stopped_text="Stop",
-        paused_text='  ',
+        paused_text='',
         scroll=True,
         scroll_repeat=True,
         scroll_delay=0.1,
       ),
       widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[0,7,7,0], filled=True)],
-        text=" ",
+        text="",
         foreground=secondary_color[6],
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
-      widget.Pomodoro(
-        decorations=[RectDecoration(colour=secondary_color[1], radius=7, filled=True)],
-        foreground=secondary_color[0],
-        color_active=secondary_color[0],
-        color_break=secondary_color[0],
-        color_inactive=secondary_color[0],
-        length_long_break=30,
-        length_pomodori=45,
-        length_short_break=15,
-        notification_on=True,
-        num_pomodori=3,
-        prefix_active=' ',
-        prefix_inactive='',
-        prefix_break=' ',
-        prefix_long_break=' ',
-        prefix_paused=' ',
-      ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
       widget.WidgetBox(
-        decorations=[RectDecoration(colour=secondary_color[5], radius=4, filled=True)],
+        background=color[5],
         text_closed='',
         text_open='',
         foreground=secondary_color[0],
         widgets=[
-            widget.Spacer(
-            length=3,
-            background=transparent,
-      ),
             widget.Systray(),]
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
       widget.Prompt(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=7, filled=True)],
         prompt=prompt,
         foreground=secondary_color[4],
         cursor_color=secondary_color[4],
@@ -169,15 +113,9 @@ def init_widgets_list():
         visual_bell_time=0.2,
       ),
       widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
-      widget.Spacer(
         length=bar.STRETCH,
-        background=transparent,
       ),
       widget.GroupBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=8, filled=True)],
         fontsize=groups_font,
         font=awesome_font,
         disable_drag=True,
@@ -195,10 +133,8 @@ def init_widgets_list():
       ),
       widget.Spacer(
         length=bar.STRETCH,
-        background=transparent,
       ),
       widget.OpenWeather(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
         app_key=w_appkey,
         cityid=w_cityid,
         weather_symbols={
@@ -229,7 +165,7 @@ def init_widgets_list():
           mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
       ),
       widget.OpenWeather(
-        decorations=[RectDecoration(colour=secondary_color[5], radius=[0,7,7,0], filled=True)],
+        background=color[6],
         app_key=w_appkey,
         scroll=True,
         width=widget_width -60,
@@ -239,19 +175,14 @@ def init_widgets_list():
         metric=True,
         update_interval=600,
         mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
-      ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
       ), 
       ## Network
       widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
         text=wifi_icon,
         foreground=secondary_color[3],
       ),
       widget.Wlan(
-        decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
+        background=secondary_color[3],
         interface=wifi,
         format='{essid}',
         disconnected_message='',
@@ -265,7 +196,7 @@ def init_widgets_list():
         mouse_callbacks={'Button1':lambda: qtile.function(network_widget)}
       ),
       widget.Wlan(
-        decorations=[RectDecoration(colour=secondary_color[3], radius=0, filled=True)],
+        background=secondary_color[3],
         interface=wifi,
         format='{percent:2.0%}',
         disconnected_message='',
@@ -275,24 +206,19 @@ def init_widgets_list():
       widget.Net(
         prefix='M',
         interface=wifi,
-        format='{down:1.1f}M',
+        format='{down:1.1f}M',
         foreground=secondary_color[0],
         use_bits=True,
         mouse_callbacks={'Button1':lambda: qtile.function(network_widget)},
-        decorations=[RectDecoration(colour=secondary_color[3], radius=[0,7,7,0], filled=True)],
+        background=secondary_color[3],
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
+      
       widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
         text="",
         foreground=secondary_color[4],
         mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
       ),
       widget.ALSAWidget(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=0, filled=True)],
         device='Master',
         bar_colour_high=secondary_color[4],
         bar_colour_normal=secondary_color[4],
@@ -303,54 +229,34 @@ def init_widgets_list():
         mode='bar',
         text_format=' ',
       ),
-      widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[0,7,7,0], filled=True)],
-        text=" ",
-        foreground=secondary_color[2],
-        mouse_callbacks={'Button1': lambda: qtile.spawn('pavucontrol'),'Button4': lambda: qtile.spawn("amixer -q set Master 5%+ && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True),'Button5': lambda: qtile.spawn("amixer -q set Master 5%- && dunstify -a Volume ' '$(pamixer --get-volume-human) -h int:value:$(pamixer --get-volume)", shell=True)},
-      ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
       widget.Clock(
         foreground=secondary_color[0],
         format="%a",
         update_interval=1,
-        decorations=[RectDecoration(colour=secondary_color[1], radius=[7,0,0,7], filled=True)],
+        background=secondary_color[1],
         mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},
       ),
       widget.Clock(
         foreground=secondary_color[1],
         format="%d",
         update_interval=1,
-        decorations=[RectDecoration(colour=secondary_color[0], radius=0,filled=True)],
         mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},
       ),
       widget.Clock(
         foreground=secondary_color[0],
         format="%H:%M",
         update_interval=1,
-        decorations=[RectDecoration(colour=secondary_color[1], radius=[0,7,7,0], filled=True)],
+        background=secondary_color[1],
         mouse_callbacks={'Button1': lambda: qtile.function(calendar_notification),'Button4': lambda: qtile.function(calendar_notification_prev),'Button5': lambda: qtile.function(calendar_notification_next)},              
       ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      ),
-      widget.TextBox(
-        decorations=[RectDecoration(colour=secondary_color[0], radius=[7,0,0,7], filled=True)],
+      widget.TextBox( 
         text="",
         foreground=secondary_color[4],
       ),
       widget.KeyboardLayout(
-        decorations=[RectDecoration(colour=secondary_color[4], radius=[0,7,7,0], filled=True)],
+        background=secondary_color[4],
         configured_keyboards=['us intl', 'latam'],
         foreground=secondary_color[0],
-      ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
       ),
       widget.UPowerWidget(
           border_charge_colour=secondary_color[3],
@@ -360,16 +266,12 @@ def init_widgets_list():
           fill_low='#FF5511',
           fill_normal=secondary_color[3],
           foreground=secondary_color[3],
-          decorations=[RectDecoration(colour=secondary_color[0],radius=7,filled=True)],
           percentage_critical=0.2,
           percentage_low=0.4,
           text_charging=' ({percentage:.0f}%) {ttf} to ',
           text_discharging=' ({percentage:.0f}%) {tte} Left',
-      ),
-      widget.Spacer(
-        length=3,
-        background=transparent,
-      )]
+      )
+      ]
     return widgets_list
 
 def screen1_widgets():
@@ -378,10 +280,10 @@ def screen1_widgets():
 
 
 def init_screens_bottom():
-    return[Screen(bottom=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=transparent,margin=bar_margin))]
+    return[Screen(bottom=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=secondary_color[0],margin=bar_margin))]
 
 def init_screens_top():
-    return[Screen(top=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=transparent,margin=bar_margin))]
+    return[Screen(top=bar.Bar(widgets=screen1_widgets(),size=bar_size,background=secondary_color[0],margin=bar_margin))]
 
 if bar_position == "top":
     screens=init_screens_top()

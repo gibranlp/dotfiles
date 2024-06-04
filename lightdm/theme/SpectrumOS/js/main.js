@@ -1,5 +1,6 @@
 var selectedSession = lightdm.sessions[0];
 var selectedSessionIndex = 0;
+var messageTimeout;
 
 /* Listeners required by Lightdm */
 function authentication_complete() {
@@ -7,11 +8,14 @@ function authentication_complete() {
     if (lightdm.is_authenticated) {
         writeDebugMessage("User is authenticated. Session: " + selectedSession.name);
         lightdm.login(lightdm.authentication_user, selectedSession.key);
+    } else {
+        showMessage("Incorrect username or password");
     }
 }
 
 function show_error(message) {
     writeDebugMessage("error: " + message);
+    showMessage(message);
 }
 
 function show_prompt(message) {
@@ -27,9 +31,9 @@ function writeDebugMessage(message) {
 /* Starts the sign in process */
 function submitPassword() {
     writeDebugMessage("submitPassword");
-//    lightdm.cancel_authentication();
     lightdm.cancel_timed_login();
     lightdm.start_authentication(jQuery("#username").val());
+    hideMessage();
 }
 
 /* Cycle among different sessions */
@@ -52,18 +56,37 @@ function updateSessionNameContainer() {
     jQuery("#sessionNameContainer").html(selectedSession.name);
 }
 
-jQuery(document).ready(function() {
+function showMessage(message) {
+    var messageBox = document.getElementById('messageBox');
+    if (messageBox) {
+        messageBox.innerText = message;
+        messageBox.style.display = 'block';
 
+        clearTimeout(messageTimeout);
+        messageTimeout = setTimeout(hideMessage, 4000); // Hide after 10 seconds
+    } else {
+        console.error('Message box element not found');
+    }
+}
+
+function hideMessage() {
+    var messageBox = document.getElementById('messageBox');
+    if (messageBox) {
+        messageBox.style.display = 'none';
+    }
+}
+
+jQuery(document).ready(function() {
     /* Creates the keypress listener to submit when the user
        presses ENTER or SHIFT+ENTER */
-    jQuery("input").keypress(function() {
+    jQuery("input").keypress(function(event) {
         if (event.which == 13 || event.which == 10) {
             event.preventDefault();
             submitPassword();
         }
     });
 
-    jQuery(document).keydown(function() {
+    jQuery(document).keydown(function(event) {
         if (!event.shiftKey && !event.ctrlKey && event.altKey && !event.metaKey) {
             switch (event.which) {
                 case 83: /* Alt + S */
@@ -82,15 +105,17 @@ jQuery(document).ready(function() {
                 case 76: /* Alt + L */
                     cycleUsers();
                     break;
-            case 68: /* Alt + D */
-                lightdm.shutdown();
-                break;
+                case 68: /* Alt + D */
+                    lightdm.shutdown();
+                    break;
             }
         }
     });
 
     /* Initiates the username field with the first username of the users' list */
-    jQuery("#username").val(lightdm.users[0].name);
+    if (lightdm.users.length > 0) {
+        jQuery("#username").val(lightdm.users[0].name);
+    }
 
     updateSessionNameContainer();
 
@@ -99,12 +124,11 @@ jQuery(document).ready(function() {
         $('#motherOfAllContainers').css("-webkit-background-size", "cover");
         $('#motherOfAllContainers').css("-moz-background-size", "cover");
         $('#motherOfAllContainers').css("-o-background-size", "cover");
-        $('#motherOfAllContainers').css("background-size: 100%");
+        $('#motherOfAllContainers').css("background-size", "cover");
 
         $("#inputBoxesContainer").show();
         $("#backgroundVideo").show();
 
         jQuery("#password").focus();
     });
-
 });
