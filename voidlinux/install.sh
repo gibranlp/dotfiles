@@ -47,4 +47,4 @@ echo "exec /usr/bin/qtile start" > ~/.xinitrc
 
 ## Install Pip Dependencies
 
-pip3 install -r pip.txt
+pip3 install -r pip.txt --break-system-packages
