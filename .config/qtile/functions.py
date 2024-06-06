@@ -329,8 +329,25 @@ else:
 
 ## Get local IP Address
 def get_private_ip():
-  ip = socket.gethostbyname(socket.gethostname())
-  return ip
+    try:
+        ip = socket.gethostbyname(socket.gethostname())
+    except socket.gaierror:
+        # Alternative method if gethostbyname fails
+        ip = get_private_ip_alternative()
+    return ip
+
+def get_private_ip_alternative():
+    # Using an alternative method to get the private IP address
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # This IP address does not need to be reachable
+        s.connect(('10.255.255.255', 1))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
 
 private_ip = get_private_ip()
 

@@ -28,7 +28,15 @@ function base_install(){
         vim
         xf86-video-vmware # Use Correct for Video Card
         git
-
+        curl
+        zsh
+        thefuck
+        pywal
+        setxkbmap
+        bc
+        picom
+        iproute2
+        inetutils
 
     )
 for packet in "${packets[@]}"; do
@@ -40,9 +48,13 @@ done
 ## Install Qtile
 
 function qtile_install(){
-
-
 echo "exec /usr/bin/qtile start" > ~/.xinitrc
+mkdir -p ~/Pictures/Wallpapers
+cp ~/dotfiles/Wallpapers/wall.png ~/Pictures/Wallpapers
+mkdir -p ~/.config/picom
+cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/
+mkdir -p ~/.config/alacritty
+cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 }
 
 ## Install Pip Dependencies
