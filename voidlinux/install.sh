@@ -39,6 +39,64 @@ function base_install(){
         inetutils
         xdpyinfo
         python3-iwlib
+        python3-dateutil
+        'python3-xdg'
+        'cava'
+        'pulseaudio'
+        'pavucontrol'
+        'arandr'
+        'rofi'
+        'vscode'
+        'htop'
+        'feh'
+        'unclutter'
+        'fuse-exfat'
+        'openssh'
+        'xcolor'
+        'playerctl'
+        'scrot'
+        'flameshot'
+        'rofi'
+        'python3-pip'
+        'ranger'
+        'lxappearance'
+        'acpilight'
+        'alsa-utils'
+        'openssh'
+        'surfraw'
+        'ranger'
+        'bmon'
+        'lm_sensors'
+        'acpilight'
+        'ueberzug'
+        'tk'
+        'dunst'
+        'xsettingsd'
+        'transmission'
+        'vlc'
+        'kdeconnect'
+        'lightdm-webkit2-greeter'
+        'rsync'
+        'cmus'
+        'xdg-user-dirs'
+        'neofetch'
+        'firefox'
+        'cmus'
+        'xkill'
+        'bluez'
+        'bluez-alsa'
+        'ripgrep'
+        'blueman'
+        'jp2a'
+        'os-prober'
+        'gnome-disk-utility'
+        'NetworkManager'
+        'tlp'
+        'gvfs'
+        'barrier'
+
+
+
 
     )
 for packet in "${packets[@]}"; do
@@ -81,6 +139,7 @@ function copy_dots(){
   cp ~/dotfiles/.config/ncspot/config.toml ~/.config/ncspot/config.toml
   mkdir -p  ~/.fonts
   cp ~/dotfiles/.fonts/* ~/.fonts
+  fc-cache -fv
   cp ~/dotfiles/.config/gromit-mpx.cfg ~/.config/
   mkdir -p ~/.config/picom
   cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/picom.conf
