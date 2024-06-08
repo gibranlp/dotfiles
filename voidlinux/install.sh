@@ -16,30 +16,30 @@
 
 function base_install(){
     packets=(
-        xorg-minimal
-        xorg-fonts
-        xinit
-        elogind
-        dbus-elogind
-        polkit
-        qtile
-        python3-qtile-extras
-        alacritty
-        vim
-        xf86-video-vmware # Use Correct for Video Card
-        git
-        curl
-        zsh
-        thefuck
-        pywal
-        setxkbmap
-        bc
-        picom
-        iproute2
-        inetutils
-        xdpyinfo
-        python3-iwlib
-        python3-dateutil
+        'xorg-minimal'
+        'xorg-fonts'
+        'xinit'
+        'elogind'
+        'dbus-elogind'
+        'polkit'
+        'qtile'
+        'python3-qtile-extras'
+        'alacritty'
+        'vim'
+        'xf86-video-vmware' # Use Correct for Video Card
+        'git'
+        'curl'
+        'zsh'
+        'thefuck'
+        'pywal'
+        'setxkbmap'
+        'bc'
+        'picom'
+        'iproute2'
+        'inetutils'
+        'xdpyinfo'
+        'python3-iwlib'
+        'python3-dateutil'
         'python3-xdg'
         'cava'
         'pulseaudio'
@@ -56,18 +56,14 @@ function base_install(){
         'playerctl'
         'scrot'
         'flameshot'
-        'rofi'
         'python3-pip'
         'ranger'
         'lxappearance'
         'acpilight'
         'alsa-utils'
-        'openssh'
         'surfraw'
-        'ranger'
         'bmon'
         'lm_sensors'
-        'acpilight'
         'ueberzug'
         'tk'
         'dunst'
@@ -81,7 +77,6 @@ function base_install(){
         'xdg-user-dirs'
         'neofetch'
         'firefox'
-        'cmus'
         'xkill'
         'bluez'
         'bluez-alsa'
@@ -94,10 +89,40 @@ function base_install(){
         'tlp'
         'gvfs'
         'barrier'
-
-
-
-
+        'noto-fonts-ttf'
+        'noto-fonts-cjk'
+        'noto-fonts-emoji'
+        'tumbler'
+        'redshift'
+        'neovim'
+        'libmicrodns'
+        'protobuf'
+        'pamixer'
+        'gvfs-mtp'
+        'gvfs-smb'
+        'exa'
+        'xclip'
+        'xdotool'
+        'nvidia-dkms'
+        'cups'
+        'cups-pdf'
+        'avahi'
+        'caffeine-ng'
+        'telegram-desktop'
+        'chromium'
+        'wpgtk'
+        'thunar'
+        'thunar-volman'
+        'thunar-archive-plugin'
+        'thunar-media-tags-plugin'
+        'hugo'
+        'gromit-mpx'
+        'ntfs-3g'
+        'i3lock-color'
+        'i3lock-fancy'
+        'lazydocker'
+        'rofi-emoji'
+        'psmisc'
     )
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
@@ -191,4 +216,5 @@ function copy_dots(){
 
 #pip3 install -r pip.txt --break-system-packages
 
-copy_dots
+base_install
+#copy_dots
