@@ -34,6 +34,7 @@
             text-align: center;
             font-size: 1.2em;
             color: #fff;
+            backdrop-filter: blur(0.5em);
         }
         #bottombar span {
             margin: 0 10px;
@@ -50,7 +51,7 @@
             width: 60%;
         }
         .title {
-            text-shadow: 1px 1px 5px var(--color0);
+            text-shadow: 1px 1px 5px var(--color7);
             font-size: 5em;
         }
         .subtitle {
@@ -61,6 +62,12 @@
         .form-control {
             width: 60%;
             margin: 10px 120px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: var(--color3);
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 5px;
         }
         #sessionDisplay {
             background-color: var(--color0);
@@ -70,6 +77,17 @@
             padding: 5px 20px;
             margin-top: 20px;
             display: none;
+        }
+        .multicolor-input {
+            background-image: linear-gradient(to right, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .input-blur {
+            backdrop-filter: blur(0.5em);
+            background-color: rgba(255, 255, 255, 0.9);
         }
     </style>
 </head>
@@ -87,7 +105,7 @@
     <div id="motherOfAllContainers">
         <div id="inputBoxesContainer">
             <h1 class="title">
-                <span style="color:var(--color1);font-size:1.5em">S</span><span style="color:var(--color7)">P</span><span style="color:var(--color6)">E</span><span style="color:var(--color5)">C</span><span style="color:var(--color4)">T</span><span style="color:var(--color3)">R</span><span style="color:var(--color2)">U</span><span style="color:var(--color1)">M</span><span style="color:var(--color3);font-size:1.5em">O</span><span style="color:var(--color4);font-size:1.5em">S</span>
+                <span style="color:var(--color1);font-size:1.5em">S</span><span style="color:var(--color2)">P</span><span style="color:var(--color3)">E</span><span style="color:var(--color4)">C</span><span style="color:var(--color5)">T</span><span style="color:var(--color4)">R</span><span style="color:var(--color3)">U</span><span style="color:var(--color2)">M</span><span style="color:var(--color0);font-size:1.5em">O</span><span style="color:var(--color7);font-size:1.5em">S</span>
             </h1>
             <h1 class="subtitle">
                 <span style="color:var(--color7)">-</span>
@@ -101,15 +119,13 @@
                 <span style="color:var(--color0)">-</span>
             </h1>
             <div>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Username">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                <div><input type="text" name="username" id="username" class="form-control multicolor-input input-blur" placeholder="Username"></div>
+                <input type="password" name="password" id="password" class="form-control multicolor-input input-blur" placeholder="Password">
                 <div id="messageBox" style="display: none; color: var(--color1); margin-top: 10px;text-shadow: 1px 1px 3px #222;background-color: var(--color0);border-radius:3px;padding:5px;box-shadow:1px 1px 5px #222;border:2px solid var(--color7);width:60%;margin:10px 120px">Incorrect username or password</div>
             </div>
             <div id="sessionDisplay">
                 Session: <span id="sessionNameContainer"></span>
             </div>
-            
-
         </div>
     </div>
 </body>
