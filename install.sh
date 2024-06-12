@@ -11,59 +11,10 @@
 #
 function base() {
   packets=(
-    'feh'
-    'unclutter'
-    'fuse-exfat'
-    'base-devel'
-    'alsa-utils'
-    'pulseaudio-alsa'
-    'pavucontrol'
-    'openssh'
-    'alacritty'
-    'xcolor'
-    'playerctl'
-    'scrot'
-    'flameshot'
-    'rofi'
-    'surfraw'
-    'python-pip'
-    'ranger'
-    'lxappearance'
-    'bmon'
-    'acpilight'
-    'lm_sensors'
-    'nm-connection-editor'
-    'arandr'
-    'python-psutil'
-    'python-xdg'
-    'python-iwlib'
-    'python-dateutil'
-    'ueberzug'
-    'xsettingsd'
-    'zsh'
-    'dunst'
-    'tk'
-    'transmission-cli'
-    'vlc'
-    'kdeconnect'
-    'lightdm-gtk-greeter-settings'
-    'reflector'
-    'rsync'
-    'curl'
-    'cmus'
-    'bc'
-    'neofetch'
-    'firefox'
-    'cmus'
-    'xorg-xkill'
-    'xdg-user-dirs'
-    'bluez'
-    'bluez-tools'
-    'bluez-utils'
-    'ripgrep'
-    'blueman'
-    'htop'
-    'jp2a'
+  
+    
+    
+    
     'locate'
     'os-prober'
     'gnome-disk-utility'
@@ -161,11 +112,11 @@ function aur_packages() {
     'zathura-ps'
     'libby-git'
     'python-rofi-git' 
-    'lyrics-in-terminal'
-    'picom-ftlabs-git'
+    'lyrics-in-terminal'#
+    'picom-ftlabs-git'#
     'ncspot'
-    'rofi-file-browser-extended-git'
-    'ttf-courier-prime'
+    'rofi-file-browser-extended-git' #
+    'ttf-courier-prime' #
 
 )
 for packet in "${packets[@]}"; do
