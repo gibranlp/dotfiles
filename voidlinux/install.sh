@@ -123,6 +123,9 @@ function base_install(){
         'lazydocker'
         'rofi-emoji'
         'psmisc'
+        'lightdm'
+        'lightdm-gtk-greeter'
+        'lightdm-webkit2-greeter'
     )
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
@@ -140,6 +143,19 @@ mkdir -p ~/.config/picom
 cp ~/dotfiles/.config/picom/picom.conf ~/.config/picom/
 mkdir -p ~/.config/alacritty
 cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+}
+
+## Install Lightdm
+
+function lightdm_install(){
+
+sudo cp ~/dotfiles/lightdm/lightdm.conf
+sudo cp ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf
+sudo cp -r ~/dotfiles/lightdm/theme/SpectrumOS /usr/share/lightdm-webkit/themes/
+
+sudo ln -s /etc/sv/lightdm /var/service/
+sudo ln -s /etc/sv/dbus /var/service/
+sudo ln -s /etc/sv/elogind /var/service/
 }
 
 ## Copy all Dots
