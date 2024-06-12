@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Ruta al archivo colors.css generado por Pywal
+CSS_FILE="$HOME/.cache/wal/colors.css"
+
+# Archivo de configuración de colores de GRUB
+GRUB_CUSTOM_CONFIG="/boot/grub/custom.cfg"
+
+# Extraer colores del archivo colors.css
+bg_color=$(grep --color=never -m 1 'background:' $CSS_FILE | awk '{print $2}' | tr -d ';')
+fg_color=$(grep --color=never -m 1 'foreground:' $CSS_FILE | awk '{print $2}' | tr -d ';')
+highlight_bg=$(grep --color=never -m 1 'color1:' $CSS_FILE | awk '{print $2}' | tr -d ';')
+highlight_fg=$(grep --color=never -m 1 'color2:' $CSS_FILE | awk '{print $2}' | tr -d ';')
+
+# Crear el archivo de configuración de colores de GRUB
+echo "set color_normal=$fg_color/$bg_color" | sudo tee $GRUB_CUSTOM_CONFIG
+echo "set color_highlight=$highlight_fg/$highlight_bg" | sudo tee -a $GRUB_CUSTOM_CONFIG
+
+echo "Colores de GRUB actualizados correctamente."

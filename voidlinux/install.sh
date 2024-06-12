@@ -158,6 +158,30 @@ sudo ln -s /etc/sv/dbus /var/service/
 sudo ln -s /etc/sv/elogind /var/service/
 }
 
+## Install Plymouth
+
+function plymouth_install(){
+sudo xbps-install -S plymouth
+
+sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
+sudo plymouth-set-default-theme -R your-theme
+sudo dracut --force
+
+GRUB_CONFIG="/etc/default/grub"
+GRUB_CMDLINE="quiet splash"
+
+if [ -f "$GRUB_CONFIG" ]; then
+    if grep -q "^GRUB_CMDLINE_LINUX_DEFAULT" "$GRUB_CONFIG"; then
+        sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 quiet splash"/' "$GRUB_CONFIG"
+    else
+        # La línea no está presente, agregarla al final del archivo
+        echo "GRUB_CMDLINE_LINUX_DEFAULT=\"$GRUB_CMDLINE\"" | sudo tee -a "$GRUB_CONFIG"
+    fi
+
+sudo update-grub
+sudo ln -s /etc/sv/plymouth /var/service/
+}
+
 ## Copy all Dots
 
 function copy_dots(){
