@@ -125,7 +125,39 @@ function base_install(){
         'psmisc'
         'lightdm'
         'lightdm-gtk-greeter'
-        'lightdm-webkit2-greeter'
+        'meson'
+        'ninja'
+        'gcc'
+        'make'
+        'pkg-config'
+        'xorgproto'
+        'pcre'
+        'xcb-util-image'
+        'xcb-util-renderutil'
+        'xcb-util-wm'
+        'libev'
+        'libxdg-basedir'
+        'libconfig'
+        'libev-devel'
+        'pixman'
+        'pixman-devel'
+        'libX11'
+        'libX11-devel'
+        'xcb-util-image-devel'
+        'xcb-util-renderutil-devel'
+        'libXext'
+        'libXext-devel'
+        'pcre2'
+        'pcre2-devel'
+        'libepoxy'
+        'libepoxy-devel'
+        'dbus-devel'
+        'libconfig-devel'
+        'glib'
+        'glib-devel'
+        'cairo'
+        'cairo-devel'
+        'rofi-devel'
     )
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
@@ -158,6 +190,92 @@ sudo ln -s /etc/sv/dbus /var/service/
 sudo ln -s /etc/sv/elogind /var/service/
 }
 
+## install picom
+
+function install_picom(){
+    git clone https://github.com/ibhagwan/picom.git
+    cd picom
+    meson --buildtype=release . build
+    ninja -C build
+    sudo ninja -C build install
+}
+
+## install picom
+
+function install_rofi_extended(){
+    git clone git@github.com:marvinkreis/rofi-file-browser-extended.git
+    cd rofi-file-browser-extended
+    cmake .
+    make
+    sudo make installE
+}
+
+## install farge
+
+function install_farge(){
+    git clone git@github.com:sdushantha/farge.git
+    cd farge
+    sudo make install
+}
+
+
+
+## Actualizar Grub
+
+function grubup(){
+# Archivo de configuración de GRUB
+GRUB_CONFIG="/etc/default/grub"
+
+# Imagen de fondo para GRUB
+BACKGROUND_IMAGE="/usr/local/backgrounds/background.png"
+
+# Verificar si el archivo de configuración de GRUB existe
+if [ -f "$GRUB_CONFIG" ]; then
+    # Asegurarse de que la imagen de fondo tenga permisos correctos
+    sudo chmod +r $BACKGROUND_IMAGE
+
+    # Agregar o modificar las líneas necesarias en el archivo de configuración de GRUB
+
+    # Agregar o modificar la línea GRUB_CMDLINE_LINUX_DEFAULT
+    if grep -q "^GRUB_CMDLINE_LINUX_DEFAULT" "$GRUB_CONFIG"; then
+        sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 quiet splash"/' "$GRUB_CONFIG"
+    else
+        echo 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"' | sudo tee -a "$GRUB_CONFIG"
+    fi
+
+    # Agregar o modificar la línea GRUB_GFXMODE
+    if grep -q "^GRUB_GFXMODE" "$GRUB_CONFIG"; then
+        sudo sed -i 's/^GRUB_GFXMODE=.*/GRUB_GFXMODE=auto/' "$GRUB_CONFIG"
+    else
+        echo 'GRUB_GFXMODE=auto' | sudo tee -a "$GRUB_CONFIG"
+    fi
+
+    # Agregar o modificar la línea GRUB_BACKGROUND
+    if grep -q "^GRUB_BACKGROUND" "$GRUB_CONFIG"; then
+        sudo sed -i "s|^GRUB_BACKGROUND=.*|GRUB_BACKGROUND=\"$BACKGROUND_IMAGE\"|" "$GRUB_CONFIG"
+    else
+        echo "GRUB_BACKGROUND=\"$BACKGROUND_IMAGE\"" | sudo tee -a "$GRUB_CONFIG"
+    fi
+
+    # Agregar o modificar la línea GRUB_TERMINAL_OUTPUT
+    if grep -q "^GRUB_TERMINAL_OUTPUT" "$GRUB_CONFIG"; then
+        sudo sed -i 's/^GRUB_TERMINAL_OUTPUT=.*/GRUB_TERMINAL_OUTPUT=gfxterm/' "$GRUB_CONFIG"
+    else
+        echo 'GRUB_TERMINAL_OUTPUT=gfxterm' | sudo tee -a "$GRUB_CONFIG"
+    fi
+
+    # Actualizar la configuración de GRUB
+    sudo update-grub
+
+    echo "Configuración de GRUB actualizada correctamente."
+else
+    echo "El archivo de configuración de GRUB no existe: $GRUB_CONFIG"
+    exit 1
+fi
+
+}
+
+
 ## Install Plymouth
 
 function plymouth_install(){
@@ -170,17 +288,11 @@ sudo dracut --force
 GRUB_CONFIG="/etc/default/grub"
 GRUB_CMDLINE="quiet splash"
 
-if [ -f "$GRUB_CONFIG" ]; then
-    if grep -q "^GRUB_CMDLINE_LINUX_DEFAULT" "$GRUB_CONFIG"; then
-        sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 quiet splash"/' "$GRUB_CONFIG"
-    else
-        # La línea no está presente, agregarla al final del archivo
-        echo "GRUB_CMDLINE_LINUX_DEFAULT=\"$GRUB_CMDLINE\"" | sudo tee -a "$GRUB_CONFIG"
-    fi
-
 sudo update-grub
 sudo ln -s /etc/sv/plymouth /var/service/
 }
+
+
 
 ## Copy all Dots
 
