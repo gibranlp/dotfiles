@@ -6,27 +6,54 @@ CSS_FILE="$HOME/.cache/wal/colors.css"
 # Archivo de configuración de colores de GRUB
 GRUB_CUSTOM_CONFIG="/boot/grub/custom.cfg"
 
-# Función para convertir colores hexadecimales a nombres de colores de GRUB
+# Función para convertir colores hexadecimales a nombres de colores de GRUB usando la distancia euclidiana
 hex_to_grub_color() {
-    case "$1" in
-        "#000000") echo "black" ;;
-        "#0000FF") echo "blue" ;;
-        "#008000") echo "green" ;;
-        "#00FFFF") echo "cyan" ;;
-        "#FF0000") echo "red" ;;
-        "#FF00FF") echo "magenta" ;;
-        "#A52A2A") echo "brown" ;;
-        "#D3D3D3") echo "light-gray" ;;
-        "#696969") echo "dark-gray" ;;
-        "#ADD8E6") echo "light-blue" ;;
-        "#90EE90") echo "light-green" ;;
-        "#E0FFFF") echo "light-cyan" ;;
-        "#FFA07A") echo "light-red" ;;
-        "#EE82EE") echo "light-magenta" ;;
-        "#FFFF00") echo "yellow" ;;
-        "#FFFFFF") echo "white" ;;
-        *) echo "black" ;; # Valor predeterminado
-    esac
+    local hex_color="$1"
+    local -A grub_colors=(
+        [black]="#000000"
+        [blue]="#0000FF"
+        [green]="#008000"
+        [cyan]="#00FFFF"
+        [red]="#FF0000"
+        [magenta]="#FF00FF"
+        [brown]="#A52A2A"
+        [light-gray]="#D3D3D3"
+        [dark-gray]="#696969"
+        [light-blue]="#ADD8E6"
+        [light-green]="#90EE90"
+        [light-cyan]="#E0FFFF"
+        [light-red]="#FFA07A"
+        [light-magenta]="#EE82EE"
+        [yellow]="#FFFF00"
+        [white]="#FFFFFF"
+    )
+    
+    # Convert hex to RGB
+    hex_to_rgb() {
+        echo $((16#${1:1:2})) $((16#${1:3:2})) $((16#${1:5:2}))
+    }
+
+    local r1 g1 b1
+    read r1 g1 b1 < <(hex_to_rgb "$hex_color")
+
+    local closest_color=""
+    local min_distance=999999
+
+    for color in "${!grub_colors[@]}"; do
+        local hex="${grub_colors[$color]}"
+        local r2 g2 b2
+        read r2 g2 b2 < <(hex_to_rgb "$hex")
+
+        # Calculate Euclidean distance
+        local distance=$(( (r1-r2)*(r1-r2) + (g1-g2)*(g1-g2) + (b1-b2)*(b1-b2) ))
+
+        if [ $distance -lt $min_distance ]; then
+            min_distance=$distance
+            closest_color=$color
+        fi
+    done
+
+    echo $closest_color
 }
 
 # Extraer colores del archivo colors.css
