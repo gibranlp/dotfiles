@@ -193,17 +193,17 @@ sudo ln -s /etc/sv/elogind /var/service/
 ## install picom
 
 function install_picom(){
-    git clone https://github.com/ibhagwan/picom.git
+    git clone https://github.com/FT-Labs/picom.git
     cd picom
     meson --buildtype=release . build
     ninja -C build
     sudo ninja -C build install
 }
 
-## install picom
+## install rofi extended
 
 function install_rofi_extended(){
-    git clone git@github.com:marvinkreis/rofi-file-browser-extended.git
+    git clone https://github.com:marvinkreis/rofi-file-browser-extended.git
     cd rofi-file-browser-extended
     cmake .
     make
@@ -213,7 +213,7 @@ function install_rofi_extended(){
 ## install farge
 
 function install_farge(){
-    git clone git@github.com:sdushantha/farge.git
+    git clone https://github.com:sdushantha/farge.git
     cd farge
     sudo make install
 }
@@ -282,7 +282,7 @@ function plymouth_install(){
 sudo xbps-install -S plymouth
 
 sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R your-theme
+sudo plymouth-set-default-theme -R spectrumos
 sudo dracut --force
 
 GRUB_CONFIG="/etc/default/grub"
@@ -364,12 +364,21 @@ function copy_dots(){
   mkdir -p ~/Articles
 }
 
+function qtilebonsai(){
+    git clone https://github.com/aravinda0/qtile-bonsai.git
+    cd qtile-bonsai
+    pip3 install . --break-system-packages
+}
+
 ## Install Pip Dependencies
-base_install
+#base_install
 #pip3 install -r pip.txt --break-system-packages
+#qtile_install
+#qtilebonsai
 #lightdm_install
-#install_picom
-#install_farge
+install_picom
 #install_rofi_extended
+#install_farge
 #grubup
+#plymouth_install
 #copy_dots
