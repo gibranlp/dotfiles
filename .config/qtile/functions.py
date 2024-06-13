@@ -309,7 +309,7 @@ def change_wallpaper(qtile):
       selection = random.choice(os.listdir(wallpaper_dir))
       selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
-  qtile.reload_config()
+  qtile.restart()
   #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use

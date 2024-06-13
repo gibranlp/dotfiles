@@ -379,6 +379,14 @@ function qtilebonsai(){
     pip3 install . --break-system-packages
 }
 
+function post(){
+    sudo ln -s /etc/sv/bluetoothd /var/service/
+    sudo sv start bluetoothd
+    sudo ln -s /etc/sv/tlp /var/service/
+    sudo sv start tlp
+    wpg-install -gio
+}
+
 ## Install Pip Dependencies
 #base_install
 #pip3 install -r pip.txt --break-system-packages
