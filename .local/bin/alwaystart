@@ -30,6 +30,7 @@ function kill(){
 }
 
 function run(){
+    ~/.local/bin/grubupdate
     unclutter -idle 1 & 
     dunst &
     wal-telegram &

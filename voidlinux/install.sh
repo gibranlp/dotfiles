@@ -165,7 +165,7 @@ for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
 done
 
-function zsh(){
+function zsh_install(){
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
@@ -384,7 +384,7 @@ function qtilebonsai(){
 #pip3 install -r pip.txt --break-system-packages
 #qtile_install
 #qtilebonsai
-zsh
+zsh_install
 #lightdm_install
 install_picom
 #install_rofi_extended
