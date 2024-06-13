@@ -365,8 +365,11 @@ function copy_dots(){
 }
 
 ## Install Pip Dependencies
-
-#pip3 install -r pip.txt --break-system-packages
-
 base_install
+#pip3 install -r pip.txt --break-system-packages
+#lightdm_install
+#install_picom
+#install_farge
+#install_rofi_extended
+#grubup
 #copy_dots
