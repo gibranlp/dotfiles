@@ -132,6 +132,7 @@ function base_install(){
         'pkg-config'
         'xorgproto'
         'pcre'
+        'pcre-devel'
         'xcb-util-image'
         'xcb-util-renderutil'
         'xcb-util-wm'
@@ -158,10 +159,18 @@ function base_install(){
         'cairo'
         'cairo-devel'
         'rofi-devel'
+        'uthash-devel'
     )
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
 done
+
+function zsh(){
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+    chsh -s $(which zsh)
+}
 
 }
 
@@ -375,6 +384,7 @@ function qtilebonsai(){
 #pip3 install -r pip.txt --break-system-packages
 #qtile_install
 #qtilebonsai
+zsh
 #lightdm_install
 install_picom
 #install_rofi_extended
