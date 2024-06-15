@@ -164,7 +164,9 @@ function base_install(){
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
 done
+}
 
+## Install ZSH
 function zsh_install(){
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
@@ -172,7 +174,6 @@ function zsh_install(){
     chsh -s $(which zsh)
 }
 
-}
 
 ## Install Qtile
 
@@ -190,8 +191,8 @@ cp ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.tom
 
 function lightdm_install(){
 
-sudo cp ~/dotfiles/lightdm/lightdm.conf
-sudo cp ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf
+sudo cp ~/dotfiles/lightdm/lightdm.conf /etc/lightdm/
+sudo cp ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
 sudo cp -r ~/dotfiles/lightdm/theme/SpectrumOS /usr/share/lightdm-webkit/themes/
 
 sudo ln -s /etc/sv/lightdm /var/service/
