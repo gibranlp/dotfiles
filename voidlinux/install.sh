@@ -26,10 +26,11 @@ function base_install(){
         'python3-qtile-extras'
         'alacritty'
         'vim'
-        'xf86-video-vmware' # Use Correct for Video Card
         'git'
         'curl'
         'zsh'
+        'pipewire'
+        'alsa-pipewire'
         'thefuck'
         'pywal'
         'setxkbmap'
@@ -59,7 +60,6 @@ function base_install(){
         'ranger'
         'lxappearance'
         'acpilight'
-        'alsa-utils'
         'surfraw'
         'bmon'
         'lm_sensors'
@@ -84,6 +84,7 @@ function base_install(){
         'jp2a'
         'os-prober'
         'gnome-disk-utility'
+        'gnome-keyring'
         'NetworkManager'
         'tlp'
         'gvfs'
@@ -161,9 +162,10 @@ function base_install(){
         'uthash-devel'
         'uthast'
         'cmake'
-        'alsa-ucm-conf'
-        'sof-firmware'
-        
+        'barrier-gui'
+        'ncspot'
+        'void-repo-nonfree'
+        'nvidia'
         
     )
 for packet in "${packets[@]}"; do
@@ -365,9 +367,8 @@ function copy_dots(){
   mkdir -p ~/Pictures/Wallpapers
   cp -r ~/dotfiles/Wallpapers/* ~/Pictures/Wallpapers
   sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
-  sudo mkdir /usr/local/backgrounds
+  sudo mkdir -p /usr/local/backgrounds
   sudo chown -R $USER:$USER /usr/local/backgrounds
-  sudo cp ~/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
   sudo mkdir -p /etx/X11/xorg.conf.d
   sudo cp ~/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
   mkdir -p ~/notable
@@ -379,6 +380,14 @@ function copy_dots(){
   
 }
 
+function install_pipewire(){
+    sudo mkdir -p /etc/pipewire/pipewire.conf.d
+    sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf
+    sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf 
+
+
+}
+
 function qtilebonsai(){
     git clone https://github.com/aravinda0/qtile-bonsai.git
     cd qtile-bonsai
@@ -386,11 +395,13 @@ function qtilebonsai(){
 }
 
 function post(){
+    wpg-install -gio
     sudo ln -s /etc/sv/bluetoothd /var/service/
     sudo sv start bluetoothd
     sudo ln -s /etc/sv/tlp /var/service/
+    sudo ln -s /etc/sv/NetworkManager/ /var/service
+    sudo sv start NetworkManager
     sudo sv start tlp
-    #wpg-install -gio
 }
 
 ## Install Pip Dependencies

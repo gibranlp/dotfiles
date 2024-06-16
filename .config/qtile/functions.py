@@ -461,13 +461,13 @@ def session_widget(qtile):
     if index == 0:
       qtile.function(i3lock_colors)
     elif index == 1:
-      os.system('systemctl suspend')
+      os.system('loginctl suspend')
     elif index == 2:
       qtile.shutdown()
     elif index == 3:
-      os.system('systemctl reboot')
+      os.system('loginctl reboot')
     else:
-      os.system('systemctl poweroff')
+      os.system('lognctl poweroff')
 
 # Network Widget
 def network_widget(qtile):
