@@ -16,6 +16,7 @@
 
 function base_install(){
     packets=(
+        'void-repo-nonfree'
         'xorg-minimal'
         'xorg-fonts'
         'xinit'
@@ -160,12 +161,12 @@ function base_install(){
         'cairo-devel'
         'rofi-devel'
         'uthash-devel'
-        'uthast'
+        'uthash'
         'cmake'
         'barrier-gui'
         'ncspot'
-        'void-repo-nonfree'
         'nvidia'
+        'plymouth'
         
     )
 for packet in "${packets[@]}"; do
@@ -178,7 +179,7 @@ function zsh_install(){
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-    chsh -s $(which zsh)
+    sudo chsh -s $(which zsh) gibranlp
 }
 
 
@@ -296,8 +297,6 @@ fi
 ## Install Plymouth
 
 function plymouth_install(){
-sudo xbps-install -S plymouth
-
 sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R spectrumos
 sudo dracut --force
