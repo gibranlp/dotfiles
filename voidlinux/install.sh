@@ -202,10 +202,6 @@ function lightdm_install(){
 sudo cp ~/dotfiles/lightdm/lightdm.conf /etc/lightdm/
 sudo cp ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
 sudo cp -r ~/dotfiles/lightdm/theme/SpectrumOS /usr/share/lightdm-webkit/themes/
-
-sudo ln -s /etc/sv/lightdm /var/service/
-sudo ln -s /etc/sv/dbus /var/service/
-sudo ln -s /etc/sv/elogind /var/service/
 }
 
 ## install picom
@@ -216,24 +212,30 @@ function install_picom(){
     meson --buildtype=release . build
     ninja -C build
     sudo ninja -C build install
+    cd..
+    sudo rm -rf picom
 }
 
 ## install rofi extended
 
 function install_rofi_extended(){
-    git clone https://github.com:marvinkreis/rofi-file-browser-extended.git
+    git clone https://github.com/marvinkreis/rofi-file-browser-extended.git
     cd rofi-file-browser-extended
     cmake .
     make
-    sudo make installE
+    sudo make install
+    cd..
+    sudo rm -rf rofi-file-browser-extended
 }
 
 ## install farge
 
 function install_farge(){
-    git clone https://github.com:sdushantha/farge.git
+    git clone https://github.com/sdushantha/farge.git
     cd farge
     sudo make install
+    cd..
+    sudo rm -rf farge
 }
 
 
@@ -282,6 +284,13 @@ if [ -f "$GRUB_CONFIG" ]; then
         echo 'GRUB_TERMINAL_OUTPUT=gfxterm' | sudo tee -a "$GRUB_CONFIG"
     fi
 
+    # Agregar o modificar la línea GRUB_DISABLE_OS_PROBER
+    if grep -q "^GRUB_DISABLE_OS_PROBER" "$GRUB_CONFIG"; then
+        sudo sed -i 's/^GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=true/' "$GRUB_CONFIG"
+    else
+        echo 'GRUB_DISABLE_OS_PROBER=true' | sudo tee -a "$GRUB_CONFIG"
+    fi
+
     # Actualizar la configuración de GRUB
     sudo update-grub
 
@@ -290,22 +299,15 @@ else
     echo "El archivo de configuración de GRUB no existe: $GRUB_CONFIG"
     exit 1
 fi
-
 }
 
 
 ## Install Plymouth
 
 function plymouth_install(){
-sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R spectrumos
+sudo cp -r ~/dotfiles/plymouth/themes/SpectrumOS /usr/share/plymouth/themes/
+sudo plymouth-set-default-theme -R SpectrumOS
 sudo dracut --force
-
-GRUB_CONFIG="/etc/default/grub"
-GRUB_CMDLINE="quiet splash"
-
-sudo update-grub
-sudo ln -s /etc/sv/plymouth /var/service/
 }
 
 
@@ -391,16 +393,25 @@ function qtilebonsai(){
     git clone https://github.com/aravinda0/qtile-bonsai.git
     cd qtile-bonsai
     pip3 install . --break-system-packages
+    cd..
+    sudo rm -rf qtile-bonsai
 }
 
 function post(){
     wpg-install -gio
+    sudo ln -s /etc/sv/plymouth /var/service/
     sudo ln -s /etc/sv/bluetoothd /var/service/
     sudo sv start bluetoothd
     sudo ln -s /etc/sv/tlp /var/service/
     sudo ln -s /etc/sv/NetworkManager/ /var/service
+    sudo ln -s /etc/sv/lightdm /var/service/
+    sudo ln -s /etc/sv/dbus /var/service/
+    sudo ln -s /etc/sv/elogind /var/service/
     sudo sv start NetworkManager
     sudo sv start tlp
+    sudo os-prober
+    
+    sudo update-grub
 }
 
 ## Install Pip Dependencies
