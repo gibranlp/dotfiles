@@ -42,7 +42,6 @@ function base_install(){
         'python3-dateutil'
         'python3-xdg'
         'cava'
-        'pulseaudio'
         'pavucontrol'
         'arandr'
         'rofi'
@@ -160,6 +159,12 @@ function base_install(){
         'cairo-devel'
         'rofi-devel'
         'uthash-devel'
+        'uthast'
+        'cmake'
+        'alsa-ucm-conf'
+        'sof-firmware'
+        
+        
     )
 for packet in "${packets[@]}"; do
     sudo xbps-install -Sy "${packet}"
@@ -360,18 +365,18 @@ function copy_dots(){
   mkdir -p ~/Pictures/Wallpapers
   cp -r ~/dotfiles/Wallpapers/* ~/Pictures/Wallpapers
   sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
-  sudo mkdir -p /usr/local/themes
-  sudo cp -r ~/.local/share/themes/FlatColor /usr/local/themes
-  sudo chown -R $USER:$USER /usr/local/themes/FlatColor
-  sudo ln -s /usr/local/themes/FlatColor /usr/share/themes/FlatColor
   sudo mkdir /usr/local/backgrounds
   sudo chown -R $USER:$USER /usr/local/backgrounds
   sudo cp ~/dotfiles/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-  sudo cp ~/dotfiles/pulse/system.pa /etc/pulse/system.pa
+  sudo mkdir -p /etx/X11/xorg.conf.d
   sudo cp ~/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
   mkdir -p ~/notable
   mkdir -p ~/book
   mkdir -p ~/Articles
+  mkdir -p ~/Documents
+  mkdir -p ~/Downloads
+  mkdir -p ~/Public
+  
 }
 
 function qtilebonsai(){
@@ -385,7 +390,7 @@ function post(){
     sudo sv start bluetoothd
     sudo ln -s /etc/sv/tlp /var/service/
     sudo sv start tlp
-    wpg-install -gio
+    #wpg-install -gio
 }
 
 ## Install Pip Dependencies
@@ -393,11 +398,12 @@ function post(){
 #pip3 install -r pip.txt --break-system-packages
 #qtile_install
 #qtilebonsai
-zsh_install
+#zsh_install
 #lightdm_install
-install_picom
+#install_picom
 #install_rofi_extended
 #install_farge
 #grubup
 #plymouth_install
 #copy_dots
+post
