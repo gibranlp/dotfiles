@@ -1,42 +1,40 @@
 * {
-    color1: #CA2B2A;
-    color2: #9E671B;
-    color3: #E55E23;
-    color4: #FF6E40;
-    color5: #F4920C;
-    color6: #FFA102;
-    color7: #f3cc8a;
-    color8: #aa8e60;
-    active: #9E671B;
+    color1: #4E7A8A;
+    color2: #4391A7;
+    color3: #A0A897;
+    color4: #C3BBA3;
+    color5: #DACBA9;
+    color6: #E4D3AE;
+    color7: #f3f0e2;
+    color8: #aaa89e;
+    active: #4391A7;
     urgent: #ffcc00;
-    active-background: #9E671B;
-    active-foreground: #FFA102;
+    active-background: #4391A7;
+    active-foreground: #E4D3AE;
     normal-background: @background;
     normal-foreground: @foreground;
-    urgent-background: #CA2B2A;
+    urgent-background: #4E7A8A;
     urgent-foreground: @foreground;
 
-    alternate-active-background: #FF6E40;
-    alternate-active-foreground: #F4920C;
+    alternate-active-background: #C3BBA3;
+    alternate-active-foreground: #DACBA9;
     alternate-normal-background: @background;
     alternate-normal-foreground: @foreground;
     alternate-urgent-background: @background;
     alternate-urgent-foreground: @foreground;
 
-    selected-active-background: #CA2B2A;
+    selected-active-background: #4E7A8A;
     selected-active-foreground: @foreground;
-    selected-normal-background: #9E671B;
+    selected-normal-background: #4391A7;
     selected-normal-foreground: @foreground;
-    selected-urgent-background: #E55E23;
+    selected-urgent-background: #A0A897;
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #131313;
-    background-alt: #131313;
-    foreground: #f3cc8a;
+    background: #131311;
+    background-alt: #131311;
+    foreground: #f3f0e2;
     border-color: @background;
-
-    font:
-"Fira Code Medium 14"
-;
+    
+    font:"Courier Prime Medium 13";
 }
