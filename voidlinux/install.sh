@@ -164,7 +164,7 @@ function base_install(){
         'cmake'
         'barrier-gui'
         'ncspot'
-        'nvidia'
+        #'nvidia'
         'plymouth'
         
     )
@@ -304,8 +304,8 @@ fi
 ## Install Plymouth
 
 function plymouth_install(){
-sudo cp -r ~/dotfiles/plymouth/themes/SpectrumOS /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R SpectrumOS
+sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
+sudo plymouth-set-default-theme -R spectrumos
 sudo dracut --force
 }
 
@@ -366,7 +366,7 @@ function copy_dots(){
   sudo mkdir -p /usr/share/backgrounds
   mkdir -p ~/Pictures/Wallpapers
   cp -r ~/dotfiles/Wallpapers/* ~/Pictures/Wallpapers
-  sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
+  sudo cp ~/dotfiles/Wallpapers/wall1.png /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/backgrounds
   sudo chown -R $USER:$USER /usr/local/backgrounds
   sudo mkdir -p /etc/X11/xorg.conf.d
@@ -397,7 +397,7 @@ function qtilebonsai(){
 }
 
 function post(){
-    wpg-install -gio
+    wpg-install.sh -gio
     sudo ln -s /etc/sv/plymouth /var/service/
     sudo ln -s /etc/sv/bluetoothd /var/service/
     sudo sv start bluetoothd
@@ -409,7 +409,6 @@ function post(){
     sudo sv start NetworkManager
     sudo sv start tlp
     sudo os-prober
-    
     sudo update-grub
 }
 
