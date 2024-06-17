@@ -104,7 +104,6 @@ function base_install(){
         'exa'
         'xclip'
         'xdotool'
-        'nvidia-dkms'
         'cups'
         'cups-pdf'
         'avahi'
@@ -212,7 +211,7 @@ function install_picom(){
     meson --buildtype=release . build
     ninja -C build
     sudo ninja -C build install
-    cd..
+    cd ..
     sudo rm -rf picom
 }
 
@@ -224,7 +223,7 @@ function install_rofi_extended(){
     cmake .
     make
     sudo make install
-    cd..
+    cd ..
     sudo rm -rf rofi-file-browser-extended
 }
 
@@ -234,7 +233,7 @@ function install_farge(){
     git clone https://github.com/sdushantha/farge.git
     cd farge
     sudo make install
-    cd..
+    cd ..
     sudo rm -rf farge
 }
 
@@ -370,7 +369,7 @@ function copy_dots(){
   sudo cp ~/dotfiles/Wallpapers/wall.png /usr/local/backgrounds/background.png
   sudo mkdir -p /usr/local/backgrounds
   sudo chown -R $USER:$USER /usr/local/backgrounds
-  sudo mkdir -p /etx/X11/xorg.conf.d
+  sudo mkdir -p /etc/X11/xorg.conf.d
   sudo cp ~/dotfiles/touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
   mkdir -p ~/notable
   mkdir -p ~/book
@@ -393,7 +392,7 @@ function qtilebonsai(){
     git clone https://github.com/aravinda0/qtile-bonsai.git
     cd qtile-bonsai
     pip3 install . --break-system-packages
-    cd..
+    cd ..
     sudo rm -rf qtile-bonsai
 }
 
