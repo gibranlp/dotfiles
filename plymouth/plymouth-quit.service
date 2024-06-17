@@ -1,0 +1,12 @@
+[Unit]
+Description=Terminate Plymouth Boot Screen
+ConditionPathExists=/run/plymouth/pid
+After=rc-local.service
+
+[Service]
+ExecStart=/usr/bin/plymouth quit --retain-splash
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
