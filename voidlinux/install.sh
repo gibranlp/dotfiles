@@ -17,6 +17,13 @@
 function base_install(){
     packets=(
         'void-repo-nonfree'
+        'pulseaudio'
+        'alsa-plugins-pulseaudio'
+        'alsa-plugins'
+        'alsa-tools'
+        'xf86-video-vmware'
+        'alsa-utils'
+        'alsa-ucm-conf'
         'xorg-minimal'
         'xorg-fonts'
         'xinit'
@@ -30,8 +37,6 @@ function base_install(){
         'git'
         'curl'
         'zsh'
-        'pipewire'
-        'alsa-pipewire'
         'thefuck'
         'pywal'
         'setxkbmap'
@@ -109,7 +114,6 @@ function base_install(){
         'avahi'
         'caffeine-ng'
         'telegram-desktop'
-        'chromium'
         'wpgtk'
         'thunar'
         'thunar-volman'
@@ -166,6 +170,7 @@ function base_install(){
         'ncspot'
         #'nvidia'
         'plymouth'
+        
         
     )
 for packet in "${packets[@]}"; do
@@ -380,10 +385,12 @@ function copy_dots(){
   
 }
 
-function install_pipewire(){
-    sudo mkdir -p /etc/pipewire/pipewire.conf.d
-    sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf
-    sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf 
+function install_walogram(){
+   git clone https://codeberg.org/thirtysixpw/walogram.git
+   cd walogram
+   sudo make install
+   cd ..
+   rm -rf walogram
 
 
 }
@@ -424,5 +431,5 @@ install_rofi_extended
 install_farge
 plymouth_install
 grubup
-install_pipewire
+install_walogram
 post

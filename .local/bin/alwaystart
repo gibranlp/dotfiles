@@ -33,7 +33,7 @@ function run(){
     ~/.local/bin/grubupdate
     unclutter -idle 1 & 
     dunst &
-    wal-telegram &
+    walogram &
     pywal-discord &
     pywalfox update &
     picom -b &
