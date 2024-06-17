@@ -49,7 +49,6 @@ function base() {
     'transmission-cli'
     'vlc'
     'kdeconnect'
-    'lightdm-webkit2-greeter'
     'reflector'
     'rsync'
     'curl'
@@ -199,16 +198,19 @@ function zsh(){
 ## Install Lightdm
 
 function lightdm_install(){
+  sudo pacman -S lightdm lightdm-webkit2-greeter --no-confirm
   sudo cp ~/dotfiles/lightdm/lightdm.conf /etc/lightdm/
   sudo cp ~/dotfiles/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
   sudo cp -r ~/dotfiles/lightdm/theme/SpectrumOS /usr/share/lightdm-webkit/themes/
   sudo cp ~/dotfiles/.cache/wal/colors.css /usr/share/lightdm-webkit/themes/SpectrumOS/css/
+  sudo systemctl enable lightdm.service
 }
 
 function plymouth_install(){
-sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R spectrumos
-sudo mkinitcpio -P
+  paru -S plymouth-git --no-confirm
+  sudo cp -r ~/dotfiles/plymouth/themes/spectrumos /usr/share/plymouth/themes/
+  sudo plymouth-set-default-theme -R spectrumos
+  sudo mkinitcpio -P
 }
 
 ## Actualizar Grub
@@ -403,7 +405,7 @@ function post(){
   xdg-settings set default-web-browser brave.desktop
   fc-cache -f -v
   #timedatectl set-timezone America/Mexico_City
-  sudo systemctl enable lightdm.service
+  
   sudo systemctl enable bluetooth.service
   sudo systemctl start bluetooth.service
   sudo systemctl enable sshd.service
@@ -436,17 +438,17 @@ function install_optimus(){
   sudo pacman -S primus --noconfirm
 }
 
-base
-paru_install
-aur_packages
-pip install -r pip.txt --break-system-packages
-install_qtile
-qtilebonsai
-copy_dots
-zsh
-lightdm_install
-plymouth_install
-grubup
-post
+#base
+#paru_install
+#aur_packages
+#pip install -r pip.txt --break-system-packages
+#install_qtile
+#qtilebonsai
+#copy_dots
+#zsh
+#lightdm_install
+#plymouth_install
+#grubup
+#post
 #install_optimus
 

@@ -170,7 +170,7 @@ function base_install(){
         'ncspot'
         #'nvidia'
         'plymouth'
-        
+        'upower'
         
     )
 for packet in "${packets[@]}"; do
