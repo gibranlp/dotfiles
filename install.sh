@@ -104,10 +104,10 @@ function base() {
     'xdotool'
     #'nvidia-dkms'
     'cups'
-    'plymouth'
     'cups-pdf'
     'man'
     'avahi'
+    'xorg-server-xephyr'
     #'zxel' # Needed for Calculator
 )
 
