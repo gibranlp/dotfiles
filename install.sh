@@ -11,6 +11,9 @@
 #
 function base() {
   packets=(
+    'xorg-server'
+    'xorg-xinit'
+    'xorg-xrandr'
     'feh'
     'unclutter'
     'fuse-exfat'
@@ -46,7 +49,7 @@ function base() {
     'transmission-cli'
     'vlc'
     'kdeconnect'
-    'lightdm-gtk-greeter-settings'
+    'lightdm-webkit2-greeter'
     'reflector'
     'rsync'
     'curl'
@@ -81,7 +84,6 @@ function base() {
     'ttf-opensans'
     'libayatana-appindicator'
     'tlp'
-    'powertop'
     'tumbler'
     'redshift'
     'libmicrodns' # Libraries for vlc and Chromecast
@@ -103,6 +105,7 @@ function base() {
     'xdotool'
     #'nvidia-dkms'
     'cups'
+    'plymouth'
     'cups-pdf'
     'man'
     'avahi'
@@ -132,8 +135,8 @@ function aur_packages() {
     'caffeine-ng-git'
     'visual-studio-code-bin'
     'pulseaudio-bluethooth'
-    'telegram-desktop'
-    'google-chrome'
+    #'telegram-desktop'
+    #'google-chrome'
     'wpgtk-git'
     'insect'
     'cava-git'
@@ -145,18 +148,16 @@ function aur_packages() {
     'ntfs-3g'
     'i3lock-color'
     'i3lock-fancy-git'
-    'wal-telegram-git'
     'picom-tyrone-git'
     'lazy-docker'
     'rofi-emoji'
     'zathura-pdf-mupdf' 
     'zathura-pywal-git'
     'zathura-ps'
-    'libby-git'
     'python-rofi-git' 
     'lyrics-in-terminal'#
     'picom-ftlabs-git'#
-    'ncspot'
+    #'ncspot'
     'rofi-file-browser-extended-git'
     'walogram'
     'ttf-courier-prime' 
@@ -178,6 +179,14 @@ Comment=Qtile Session
 Exec=qtile start
 Type=Application
 EOF
+}
+
+function qtilebonsai(){
+    git clone https://github.com/aravinda0/qtile-bonsai.git
+    cd qtile-bonsai
+    pip3 install . --break-system-packages
+    cd ..
+    sudo rm -rf qtile-bonsai
 }
 
 function zsh(){
@@ -248,13 +257,13 @@ if [ -f "$GRUB_CONFIG" ]; then
 
     # Agregar o modificar la línea GRUB_DISABLE_OS_PROBER
     if grep -q "^GRUB_DISABLE_OS_PROBER" "$GRUB_CONFIG"; then
-        sudo sed -i 's/^GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=true/' "$GRUB_CONFIG"
+        sudo sed -i 's/^GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/' "$GRUB_CONFIG"
     else
-        echo 'GRUB_DISABLE_OS_PROBER=true' | sudo tee -a "$GRUB_CONFIG"
+        echo 'GRUB_DISABLE_OS_PROBER=false' | sudo tee -a "$GRUB_CONFIG"
     fi
 
     # Actualizar la configuración de GRUB
-    sudo update-grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
 
     echo "Configuración de GRUB actualizada correctamente."
 else
@@ -417,15 +426,27 @@ function neovim(){
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
+## Install Optimus
+
+function install_optimus(){
+  sudo pacman -S nvidia nvidia-utils xf86-video-intel bumblebee mesa --noconfirm
+  sudo systemctl enable bumblebeed
+  sudo systemctl start bumblebeed
+  sudo gpasswd -a $USER bumblebee
+  sudo pacman -S primus --noconfirm
+}
+
 base
 paru_install
 aur_packages
 pip install -r pip.txt --break-system-packages
 install_qtile
+qtilebonsai
 copy_dots
 zsh
 lightdm_install
 plymouth_install
 grubup
 post
+#install_optimus
 
