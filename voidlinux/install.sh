@@ -414,17 +414,17 @@ function post(){
     sudo update-grub
 }
 
-## Install Pip Dependencies
 #base_install
 #pip3 install -r pip.txt --break-system-packages
 #qtile_install
 #qtilebonsai
 #zsh_install
 #lightdm_install
+#copy_dots
 #install_picom
 #install_rofi_extended
 #install_farge
-#grubup
 #plymouth_install
-#copy_dots
-post
+#grubup
+#install_pipewire
+#post
