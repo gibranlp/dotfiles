@@ -461,13 +461,13 @@ def session_widget(qtile):
     if index == 0:
       qtile.function(i3lock_colors)
     elif index == 1:
-      os.system('loginctl suspend')
+      os.system('systemctl suspend')
     elif index == 2:
       qtile.shutdown()
     elif index == 3:
-      os.system('loginctl reboot')
+      os.system('systemctl reboot')
     else:
-      os.system('lognctl poweroff')
+      os.system('systemctl poweroff')
 
 # Network Widget
 def network_widget(qtile):
@@ -798,7 +798,3 @@ def control_panel(qtile):
         qtile.function(update_ver)
       else:
         subprocess.run(["notify-send","-a", " SpectrumOS", "You are on the latest version!"])
-        
-
-
- 

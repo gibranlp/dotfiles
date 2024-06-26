@@ -451,4 +451,5 @@ function install_optimus(){
 #grubup
 #post
 #install_optimus
+install_docker
 
