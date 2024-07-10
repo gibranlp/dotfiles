@@ -134,48 +134,6 @@ def init_widgets_list():
       widget.Spacer(
         length=bar.STRETCH,
       ),
-      widget.OpenWeather(
-        app_key=w_appkey,
-        cityid=w_cityid,
-        weather_symbols={
-          "Unknown": "",
-          "01d": "",
-          "01n": "",
-          "02d": "",
-          "02n": "",
-          "03d": "",
-          "03n": "",
-          "04d": "",
-          "04n": "",
-          "09d": "⛆",
-          "09n": "⛆",
-          "10d": "",
-          "10n": "",
-          "11d": "🌩",
-          "11n": "🌩",
-          "13d": "❄",
-          "13n": "❄",
-          "50d": "🌫",
-          "50n": "🌫",
-          },
-          format='{icon}',
-          foreground=secondary_color[5],
-          metric=True,
-          update_interval=600,
-          mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
-      ),
-      widget.OpenWeather(
-        background=color[6],
-        app_key=w_appkey,
-        scroll=True,
-        width=widget_width -60,
-        cityid=w_cityid,
-        foreground=secondary_color[0],
-        format='{temp}°{units_temperature}',
-        metric=True,
-        update_interval=600,
-        mouse_callbacks={'Button1':lazy.group['scratchpad'].dropdown_toggle("weather"),}
-      ), 
       ## Network
       widget.TextBox(
         text=wifi_icon,

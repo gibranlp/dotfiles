@@ -419,17 +419,17 @@ function post(){
     sudo update-grub
 }
 
-base_install
-pip3 install -r pip.txt --break-system-packages
-qtile_install
+# base_install
+# pip3 install -r pip.txt --break-system-packages
+# qtile_install
 qtilebonsai
-zsh_install
-lightdm_install
-copy_dots
-install_picom
-install_rofi_extended
-install_farge
-plymouth_install
-grubup
-install_walogram
-post
+# zsh_install
+# lightdm_install
+# copy_dots
+# install_picom
+# install_rofi_extended
+# install_farge
+# plymouth_install
+# grubup
+# install_walogram
+# post

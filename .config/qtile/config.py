@@ -10,9 +10,9 @@
 ## 
 from keys import *
 
-## Groups
+##### Groups ####
 
-#### Groups Labels
+#Labels
 labels = {
     0: ["","","","","","","","","",""], # SpectrumOS
     1: ["零","一","二","三","四","五","六","七","八","九"], # Kanji Numbers

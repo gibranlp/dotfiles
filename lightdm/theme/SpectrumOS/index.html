@@ -46,18 +46,20 @@
             align-items: center;
             height: 100%;
             text-align: center;
+            flex-direction: column;
         }
         #inputBoxesContainer {
             max-width: 600px;
             width: 60%;
             border-radius: 21px;
+            margin-top: 20px;
         }
         .title {
-            text-shadow: 1px 1px 5px var(--color0);
+            text-shadow: 1px 1px 2px var(--color0), 0 0 1em var(--color3), 0 0 0.2em var(--color7);
             font-size: 5em;
         }
         .subtitle {
-            text-shadow: 1px 1px 5px var(--color0);
+            text-shadow: 1px 1px 2px var(--color0), 0 0 1em var(--color3), 0 0 0.2em var(--color7);
             font-size: 3em;
             margin-top: -20px;
         }
@@ -83,15 +85,28 @@
             display: none;
         }
         .multicolor-input {
-            background-image: linear-gradient(to right, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
+            background-image: linear-gradient(90deg in oklab,var(--color2), var(--color3), var(--color5));
             -webkit-background-clip: text;
             -moz-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         .input-blur {
-            backdrop-filter: blur(1em);
-            -webkit-backdrop-filter: blur(1em);
+            background-color: rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: invert(0.1) blur(100px);
+            backdrop-filter: invert(0.1) blur(100px);
+        }
+        #svgContainer {
+            position: relative;
+            height: 128px; /* Adjust height according to the SVG height */
+            top: -1px;
+            left:-91px;
+        }
+        #svgContainer svg {
+            position: absolute;
+        }
+        svg {
+             filter: drop-shadow(1px 1px 4px var(--color1));
         }
     </style>
 </head>
@@ -107,6 +122,23 @@
         </p>
     </div>
     <div id="motherOfAllContainers">
+        <div id="svgContainer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -40px; top:-40px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color0) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -37px;top:-37px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color1) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -34px;top:-34px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color2) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -31px;top:-31px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color3) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -28px;top:-28px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color4) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -25px;top:-25px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color5) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -22px;top:-22px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color6) fill-rule="evenodd"/></svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 64 64" style="left: -19px;top:-19px"><path d="M31.994-.006c-2.85 6.985-4.568 11.554-7.74 18.332 1.945 2.062 4.332 4.462 8.2 7.174-4.168-1.715-7-3.437-9.136-5.224-4.06 8.47-10.42 20.538-23.327 43.73C10.145 58.15 18 54.54 25.338 53.16c-.315-1.354-.494-2.818-.48-4.345l.012-.325c.16-6.5 3.542-11.498 7.547-11.158s7.118 5.886 6.957 12.386a18.36 18.36 0 0 1-.409 3.491c7.25 1.418 15.03 5.02 25.037 10.797l-5.42-10.026c-2.65-2.053-5.413-4.726-11.05-7.62 3.875 1.007 6.65 2.168 8.8 3.467-17.1-31.84-18.486-36.07-24.35-49.833z" fill=var(--color7) fill-rule="evenodd"/></svg>
+        </div>
         <div id="inputBoxesContainer">
             <h1 class="title">
                 <span style="color:var(--color1);font-size:1.5em">S</span><span style="color:var(--color2)">P</span><span style="color:var(--color3)">E</span><span style="color:var(--color4)">C</span><span style="color:var(--color5)">T</span><span style="color:var(--color4)">R</span><span style="color:var(--color3)">U</span><span style="color:var(--color2)">M</span><span style="color:var(--color0);font-size:1.5em">O</span><span style="color:var(--color7);font-size:1.5em">S</span>
@@ -125,7 +157,7 @@
             <div>
                 <div><input type="text" name="username" id="username" class="form-control multicolor-input input-blur" placeholder=""></div>
                 <input type="password" name="password" id="password" class="form-control multicolor-input input-blur" placeholder="">
-                <div id="messageBox" style="display: none; margin-top: 10px;width:60%;margin:10px 120px;font-size: 1.5em;font-weight: 600;" class="multicolor-input">Access Denied</div>
+                <div id="messageBox" style="display: none; margin-top: 10px;width:60%;margin:10px 120px;font-size: 1.5em;font-weight: 600;" class="form-control multicolor-input input-blur">Access Denied</div>
             </div>
             <div id="sessionDisplay">
                 Session: <span id="sessionNameContainer"></span>
