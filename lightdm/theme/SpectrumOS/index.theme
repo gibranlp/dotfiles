@@ -1,0 +1,6 @@
+[theme]
+name=SpectrumOS
+description=Greeter for SpectrumOS distribution
+engine=lightdm-webkit-greeter
+url=index.html
+session=qtile

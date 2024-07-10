@@ -1,3 +1,13 @@
+#!/usr/bin/env bash
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
+# SpectrumOS - Embrace the Chromatic Symphony!
+# By: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+#
 [global]
     ### Display ###
 
@@ -22,16 +32,16 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width =(0, 350)
+    width =(0, 250)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 150
+    height = 100
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = 20x50
+    offset = 10x10
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -47,16 +57,16 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 6
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 2
+    progress_bar_frame_width = 1
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 100
+    progress_bar_min_width = 60
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 350
+    progress_bar_max_width = 250
 
 
     # Show how many messages are currently hidden (because of
@@ -72,7 +82,7 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 5
+    separator_height = 0
 
     # Padding between text and separator.
     padding = 5
@@ -88,13 +98,13 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = #526261
+    frame_color = #131311
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 2
+    gap_size = 6
 
     # Define a color for the separator.
     # possible values are:
@@ -102,7 +112,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = #526261
+    separator_color = auto
 
     # Sort messages by urgency.
     sort = yes
@@ -112,11 +122,11 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    # idle_threshold = 120
+    idle_threshold = 120
 
     ### Text ###
 
-    font = Fira Code Medium 10
+    font = Courier Prime Medium 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -169,7 +179,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 30
+    show_age_threshold = -1
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
@@ -198,7 +208,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 70
+    max_icon_size = 50
 
     # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -297,29 +307,29 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#171213AA"
-    foreground = "#2A5F66"
-    frame_color = "#17121311"
-    timeout = 4
+    background = "#4E7A8A"
+    foreground = "#131311"
+    frame_color = "#131311"
+    timeout = 6
     format = " <b>%s</b>\n%b\n%p\n%n"
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = 
 
 [urgency_normal]
-    background = "#52626188"
-    foreground = "#171213"
-    frame_color = "#17121311"
-    timeout = 4
+    background = "#A0A897"
+    foreground = "#131311"
+    frame_color = "#131311"
+    timeout = 10
     format = "<b>%a\n%s</b>\n%b\n%p\n%n"
-    highlight = "#171213"
+    highlight = "#131311"
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#23BCB788"
-    foreground = "#171213"
-    frame_color = "#17121311"
-    timeout = 10
+    background = "#ff0000"
+    foreground = "#131311"
+    frame_color = "#131311"
+    timeout = 20
     format = " <b>%s</b>\n%b\n%p\n%n"
     
     # Icon for notifications with critical urgency, uncomment to enable
@@ -445,7 +455,7 @@
 
 [Pamixer]
     appname = Volume
-    format = "<b> Volume</b>\n%s\n%b"
+    format = "<b> Volume</b>\n%s\n%b"
     timeout = 5
     set_stack_tag = "volume"
 
@@ -482,5 +492,20 @@
 [Chrome]
     appname = google-chrome
     format = "<b> Google Chrome</b>\n%s %b"
+    timeout = 10
+    
+[Pomodoro]
+    appname = pomodoro
+    format = "<b> Pomodoro</b>\n%s %b"
+    timeout = 10
+
+[Whatsdesk]
+    appname = whatsdesk
+    format = "<b> Whatsdesk</b>\n%s %b"
+    timeout = 10
+
+[evolution-mail-notification]
+    appname = evolution-mail-notification
+    format = "<b>  Evolution</b>\n%s %b"
     timeout = 10
     

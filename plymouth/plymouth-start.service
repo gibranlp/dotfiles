@@ -1,0 +1,13 @@
+[Unit]
+Description=Start Plymouth Boot Screen
+DefaultDependencies=no
+After=systemd-udev-settle.service
+Before=sysinit.target
+
+[Service]
+ExecStart=/usr/bin/plymouthd --mode=boot --pid-file=/run/plymouth/pid
+ExecStartPost=-/usr/bin/plymouth --show-splash
+Type=forking
+
+[Install]
+WantedBy=sysinit.target

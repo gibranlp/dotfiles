@@ -13,36 +13,28 @@ from keys import *
 ## Groups
 
 #### Groups Labels
-if int(variables[10]) == 0:
-   group_labels=["","","","","","","","","",""] # SpectrumOS
-elif int(variables[10]) == 1:
-   group_labels=["零","一","二","三","四","五","六","七","八","九"] # Kanji Numbers
-elif int(variables[10]) == 2:
-   group_labels=["","","","","","","","","",""] # Custom
-elif int(variables[10]) == 3:
-   group_labels=["","","","","","","","","",""] # Star Wars
-elif int(variables[10]) == 4:
-   group_labels=["","","","","","","","","",""] # Chess
-elif int(variables[10]) == 5:
-   group_labels=["0","1","2","3","4","5","6","7","8","9"] # Numbers:
-elif int(variables[10]) == 6:
-   group_labels=[":","(",")","{",":","|",":","&","}",";"] # Fork Bomb
-elif int(variables[10]) == 7:
-   group_labels=["","","","","","","","","",""] # Circles
-elif int(variables[10]) == 8:
-   group_labels=["","","","","","","","","",""] # Squares
-elif int(variables[10]) == 9:
-   group_labels=["","","","","","","","","",""] # Triangles
-elif int(variables[10]) == 10:
-   group_labels=["","","","","","","","","",""] # Hexagons
-elif int(variables[10]) == 11:
-   group_labels=["","","","","","","","","",""] # Rectangles 
-elif int(variables[10]) == 12:
-   group_labels=["","","","","","","","","",""] # Square Ring
-elif int(variables[10]) == 13:
-   group_labels=["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"]
+labels = {
+    0: ["","","","","","","","","",""], # SpectrumOS
+    1: ["零","一","二","三","四","五","六","七","八","九"], # Kanji Numbers
+    2: ["","","","","","","","","",""], # Custom
+    3: ["","","","","","","","","",""], # Star Wars
+    4: ["","","","","","","","","",""], # Chess
+    5: ["0","1","2","3","4","5","6","7","8","9"], # Numbers
+    6: [":","(",")","{",":","|",":","&","}",";"], # Fork Bomb
+    7: ["","","","","","","","","",""], # Circles
+    8: ["","","","","","","","","",""], # Squares
+    9: ["","","","","","","","","",""], # Triangles
+    10: ["","","","","","","","","",""], # Hexagons
+    11: ["","","","","","","","","",""], # Rectangles
+    12: ["","","","","","","","","",""], # Square Ring
+    13: ["TERM","DEV","WWW","SYS","DOC","VIRT","MSG","MUS","VID","GFX"] # Custom Labels
+}
 
-group_layouts=["monadtall", "monadtall", "monadtall", "spiral","monadtall", "monadtall", "monadtall","monadwide", "monadtall", "monadtall"]
+selected_label = int(variables[10])
+group_labels = labels.get(selected_label, [])
+
+
+group_layouts=["bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai", "bonsai"]
 for i in range(len(group_names)):
   groups.append(
     Group(
@@ -68,16 +60,14 @@ groups.append(ScratchPad("scratchpad", [
    DropDown("htop", "alacritty -e bash -c '. ~/.zshrc; htop'",
       x=0.05, y=0.0, width=0.9, height=0.7, opacity=0.9,
       on_focus_lost_hide=False),            
-   
-   DropDown("weather", "alacritty -e bash -c '. ~/.zshrc; weather'",
-      x=weather_x, y=weather_y, width=weather_width, height=weather_height, opacity=0.9,
-      on_focus_lost_hide=True),            
+               
                       ]),
           )
 
 ## Layouts
 def init_layout_theme():
-  return {"font":main_font,
+  return {
+    "font":main_font,
     "fontsize":font_size,
     "margin":layout_margin,
     "border_on_single":False,
@@ -88,36 +78,31 @@ def init_layout_theme():
     "single_border_width":single_border_width,
     "change_ratio":0.01,
     "new_client_position":'bottom',
-    }
+   }
 
 layout_theme = init_layout_theme()
 
 def init_layouts():
   return [
-   layout.MonadTall(
-     max_ratio=max_ratio,
-     ratio=ratio,
-     **layout_theme),
-   layout.MonadWide(
-     max_ratio=0.90,
-     ratio=0.90,
-     **layout_theme),
-   layout.Spiral(
-     ratio=0.5,
-     ratio_increment=0.02,
-     main_pane="left",
-     clockwise=True,
-     **layout_theme),
-   layout.Spiral(
-     ratio=0.5,
-     ratio_increment=0.02,
-     main_pane="top",
-     clockwise=False,
-     **layout_theme),
-   layout.MonadWide(
-     max_ratio=0.85,
-     ratio=0.50,
-     **layout_theme),
+   Bonsai(
+      **{
+         "window.border_size": layout_border_width,
+         "window.margin":layout_margin,
+         "window.border_color": color[0],
+         "window.active.border_color": color[1],
+         "window.default_add_mode": "match_previous",
+         "auto_cwd_for_terminals": False,
+         "tab_bar.height": 10,
+         "tab_bar.bg_color": color[0],
+         "tab_bar.tab.padding": 0,
+         "tab_bar.tab.bg_color": color[3],
+         "tab_bar.tab.fg_color": color[3],
+         "tab_bar.tab.font_family": main_font,
+         "tab_bar.tab.font_size": font_size,
+         "tab_bar.tab.active.bg_color": color[1],
+         "tab_bar.tab.active.fg_color": color[1],
+         "tab_bar.margin": [2,5,0,5],
+      }),
  ]
 layouts = init_layouts()
 

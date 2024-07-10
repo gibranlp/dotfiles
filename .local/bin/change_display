@@ -19,6 +19,7 @@ function main() {
   local output
   local mode
   local position
+  local rotation
   local xrandr_cmd
 
   environment_check
@@ -31,14 +32,16 @@ function main() {
       select_output ' Next Screen' 'unconfigured' | read output
       select_position "${output}" | read position
       [[ "${position}" != '--off' ]] && select_mode "${output}" | read mode
+      select_rotation "${output}" | read rotation
       OUTPUT_CONFIGURED[${output}]='true'
     else
       select_output '  Main Screen' 'all' | read output
       select_mode "${output}" | read mode
+      select_rotation "${output}" | read rotation
       OUTPUT_CONFIGURED[${output}]='true'
       position='--primary'
     fi
-    xrandr_cmd+=" --output ${output} ${position} ${mode}"
+    xrandr_cmd+=" --output ${output} ${position} ${mode} ${rotation}"
   done
 
   ${=xrandr_cmd}
@@ -126,6 +129,24 @@ function select_mode() {
   esac
 }
 
+function select_rotation() {
+  local selection
+  local -ir err_bad_selection=258
+
+  echo "normal
+left
+right
+inverted" | rofi -theme ~/.config/rofi/left.rasi -dmenu -l 10 -p " Rotation  $1" | read selection
+
+  case "${selection}" in
+    normal) echo "--rotate normal" ;;
+    left) echo "--rotate left" ;;
+    right) echo "--rotate right" ;;
+    inverted) echo "--rotate inverted" ;;
+    *) return "${err_bad_selection}" ;;
+  esac
+}
+
 function all_outputs_configured() {
   local config
 
@@ -168,4 +189,3 @@ initialize_globals
 readonly XRANDR_TXT
 main
 qtile cmd-obj -o cmd -f restart
-

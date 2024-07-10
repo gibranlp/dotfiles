@@ -30,12 +30,12 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Courier Prime Italic"
+family = "Courier Prime"
 style = "Italic"
 
 [font.normal]
-family = "Courier Prime Medium"
-style = "Medium"
+family = "Courier Prime"
+style = "Bold"
 
 [font.offset]
 x = 0

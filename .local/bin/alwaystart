@@ -9,20 +9,39 @@
 # MIT licence 
 # 
 #
-xsettingsd &
-killall conky &
-unclutter -idle 1 &
-rm -rf ~/.config/wpg/schemes/* &
-pkill dunst &  
-picom -b & 
-cp ~/.cache/wal/dunstrc ~/.config/dunst/ &
-cp ~/.cache/wal/nvidia ~/.conkyrc1 &
-cp ~/.cache/wal/date ~/.conkyrc &
-cp ~/.cache/wal/config ~/.config/cava/ &
-cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/ &
-sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/ &
-pkill -USR1 cava &
-dunst &
-wal-telegram &
-pywal-discord &
-#wal -R
+
+function delete_files(){
+    rm -rf ~/.config/google-chrome/Default/Pywal
+    rm -rf ~/.config/wpg/schemes/*
+}
+
+function copy_files(){
+    sudo cp ~/.cache/wal/colors.css /usr/share/lightdm-webkit/themes/SpectrumOS/css/
+    cp ~/.cache/wal/dunstrc ~/.config/dunst/
+    cp ~/.cache/wal/config ~/.config/cava/
+    cp ~/.cache/wal/flameshot.ini ~/.config/flameshot/
+    sudo cp ~/.cache/wal/SpectrumOS.rasi /root/.cache/wal/
+
+}
+
+function kill(){
+    pkill dunst
+    pkill -USR1 cava
+}
+
+function run(){
+    ~/.local/bin/grubupdate
+    unclutter -idle 1 & 
+    dunst &
+    walogram &
+    pywal-discord &
+    pywalfox update &
+    picom -b &
+    xsettingsd &
+}
+
+delete_files 
+copy_files
+kill 
+run 
+wal -R

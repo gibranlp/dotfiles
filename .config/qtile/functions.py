@@ -15,6 +15,7 @@ from os.path import expanduser
 from pathlib import Path
 import requests
 from libqtile import bar, hook, layout, qtile, widget
+from qtile_bonsai import Bonsai
 from libqtile.config import ScratchPad, DropDown, Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
@@ -39,15 +40,15 @@ update_available=file.readlines()
 ## Read picom.conf for blur in the bar
 file = open(home + '/.config/picom/picom.conf', 'r')
 bar_blur=file.readlines()
-current_blur = bar_blur[275].strip()
+current_blur = bar_blur[279].strip()
 
 if current_blur == '"QTILE_INTERNAL:32c = 0"':
   new_blur = '"QTILE_INTERNAL:32c = 1"' + "\n"
-  bar_blur[275] = new_blur
+  bar_blur[279] = new_blur
   blur_icon=''
 else:
   new_blur = '"QTILE_INTERNAL:32c = 0"' + "\n"
-  bar_blur[275] = new_blur
+  bar_blur[279] = new_blur
   blur_icon=''
 
 ## Get Terminal Fontsize
@@ -93,11 +94,11 @@ current_theme=str(variables[1].strip())
 themes_dir = home + str(variables[5].strip())
 theme_dest = (home + "/.config/qtile/theme.py")
 theme_file = themes_dir + "/" + current_theme
-theme=['Spectrum','lines','Slash', 'Slash2', 'Miasma', 'Nice', 'global_menu', 'Minimal', 'Monochrome', 'no_bar']
+theme=['Spectrum', 'Miasma', 'Minimal', 'Monochrome', 'Monochrome2', 'no_bar']
 
-# Pywal backends Options: Wal, Colorz, Colorthief, Haishoku
+# Pywal Backends Options: Wal, Colorz, Colorthief, Haishoku
 def_backend=str(variables[2].strip()) # Default Color Scheme for random wallpaper
-backend=['wal', 'colorz', 'colorthief','haishoku']  
+backend=['wal','colorz','colorthief','haishoku']  
 
 ## Margins
 layout_margin=10 # Layout margins
@@ -116,6 +117,7 @@ widget_width=200 #Width of widgets varies depending the resolution
 resolution = os.popen('xdpyinfo | awk "/dimensions/{print $2}"').read()
 xres = resolution[17:21]
 yres = resolution[22:26]
+
 
 # Set Bar and font sizes for different resolutions
 if xres >= "3840" and yres >= "2160": #4k
@@ -136,8 +138,8 @@ if xres >= "3840" and yres >= "2160": #4k
   weather_y=0.90
   weather_width=0.075
   weather_height=0.09
-elif xres == "1920" and yres == "1080": #FullHD
-  layout_margin=10
+elif xres == "3840" and yres == "1080" or xres == "3834" and yres == "1080" or xres == "1920" and yres == "2160" or xres == "1920" and yres == "1080": #FullHD
+  layout_margin=5
   single_layout_margin=5  
   layout_border_width=4 
   single_border_width=4
@@ -219,7 +221,8 @@ def remove_sticky_windows(window):
 @hook.subscribe.startup # This file gets executed everytime qtile restarts
 def start():
   subprocess.call(home + '/.local/bin/alwaystart')
-  subprocess.run(["openrgb", "-d", "0", "-c", "%s" %color[1].lstrip('#'), "-b", "50"])
+  subprocess.call(home + '/.local/bin/chrome')
+  # subprocess.run(["openrgb", "-d", "0", "-c", "%s" %color[1].lstrip('#'), "-b", "50"])
       
 @hook.subscribe.startup_once # Ths file gets executed once at the start1
 def start_once():
@@ -261,12 +264,12 @@ def i3lock_colors(qtile):
     '--image=%s' % wallpaper,
     '--fill',          
     '--ring-color={}'.format(secondary_color[0]+"aa"),
-    '--inside-color={}'.format(secondary_color[0]+"aa"),
+    '--inside-color={}'.format(secondary_color[0]),
     '--line-color={}'.format(color[2]),
     '--separator-color={}'.format(color[4]),
     '--time-color={}'.format(color[2]),           
     '--date-color={}'.format(color[4]),
-    '--insidever-color={}'.format(secondary_color[0]+"aa"),
+    '--insidever-color={}'.format(secondary_color[0]),
     '--ringver-color={}'.format(color[0]),
     '--verif-color={}'.format(color[5]),          
     '--verif-text=Validating',
@@ -306,7 +309,7 @@ def change_wallpaper(qtile):
       selection = random.choice(os.listdir(wallpaper_dir))
       selected_wallpaper = os.path.join(wallpaper_dir, selection)
   
-  qtile.reload_config()
+  qtile.restart()
   #subprocess.run(["notify-send","-a", " SpectrumOS", "Wallpaper Set to: ", "%s" %selection])
 
 ## Get network device in use
@@ -326,8 +329,25 @@ else:
 
 ## Get local IP Address
 def get_private_ip():
-  ip = socket.gethostbyname(socket.gethostname())
-  return ip
+    try:
+        ip = socket.gethostbyname(socket.gethostname())
+    except socket.gaierror:
+        # Alternative method if gethostbyname fails
+        ip = get_private_ip_alternative()
+    return ip
+
+def get_private_ip_alternative():
+    # Using an alternative method to get the private IP address
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # This IP address does not need to be reachable
+        s.connect(('10.255.255.255', 1))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
 
 private_ip = get_private_ip()
 
@@ -433,19 +453,21 @@ def draw_widget(qtile):
 
 # Logout widget
 def session_widget(qtile):
-  options = ['','', '','']
+  options = ['','','', '','']
   index, key = rofi_session.select('  Session', options)
   if key == -1:
-    rofi_left.close()
+    rofi_session.close()
   else:
     if index == 0:
       qtile.function(i3lock_colors)
     elif index == 1:
-      qtile.shutdown()
+      os.system('loginctl suspend')
     elif index == 2:
-      os.system('systemctl reboot')
+      qtile.shutdown()
+    elif index == 3:
+      os.system('loginctl reboot')
     else:
-      os.system('systemctl poweroff')
+      os.system('lognctl poweroff')
 
 # Network Widget
 def network_widget(qtile):
@@ -568,13 +590,6 @@ def change_theme(qtile):
       file.writelines(variables)
     qtile.reload_config()
     subprocess.run(["notify-send","-a", " SpectrumOS", " Theme: ", "%s" %theme[index]])
-    
-# Set random colors to theme
-def random_colors(qtile):
-  subprocess.run(["wpg", light, "-z", "%s" % wallpaper])
-  subprocess.run(["wpg", "-s", "%s" % wallpaper])
-  subprocess.run(["rm", "-rf", "%s" %wallpaper + "_wal_sample.png"])
-  qtile.reload_config()
 
 # Screenshot widget
 def screenshot(qtile):
@@ -647,7 +662,7 @@ def pacman_packages(qtile):
 ## Update SpectrumOS
 
 
-# Logout widget
+# Turntable widget
 def turntable(qtile):
   options = [' On', ' Off']
   index, key = rofi_session.select(' Listen Turntable', options)

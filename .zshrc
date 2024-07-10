@@ -10,7 +10,7 @@
 # 
 #
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="avit"
+ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,6 +79,8 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 ## Aliases
+alias ..='cd ..'
+alias rr='curl -s -L https://raw.githubusercontent/keroserene/rickrollrc/master/roll.sh | bash'
 alias neofetch="neofetch --jp2a logo_cli.png"
 eval $(thefuck --alias)
 alias lzd="lazydocker"

@@ -1,10 +1,16 @@
-## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
-
-
+# _____             _                 _____ _____ 
+#|   __|___ ___ ___| |_ ___ _ _ _____|     |   __|
+#|__   | . | -_|  _|  _|  _| | |     |  |  |__   |
+#|_____|  _|___|___|_| |_| |___|_|_|_|_____|_____|
+#      |_|   
+# SpectrumOS - Embrace the Chromatic Symphony!
+# By: gibranlp <thisdoesnotwork@gibranlp.dev>
+# MIT licence 
+#
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
- mode = scientific
+; mode = normal
 
 # Accepts only non-negative values.
 ; framerate = 60
@@ -17,7 +23,7 @@
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-; sensitivity = 100
+; sensitivity = 50
 
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
@@ -28,7 +34,7 @@
  bar_height = 32
 
 # For SDL width and space between bars is in pixels, defaults are:
- bar_width = 0.1
+ bar_width = 2
  bar_spacing = 1
 
 
@@ -59,8 +65,8 @@
 # For alsa 'source' will be the capture device.
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
-; method = pulse
-; source = auto
+method = pulse
+source = auto
 
 ; method = alsa
 ; source = hw:Loopback,1
@@ -91,7 +97,7 @@
 #  in graphic mode. It only support the 3000 series graphical VFDs for now.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-; method = ncurses
+method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -133,7 +139,7 @@
 # enable alacritty synchronized updates. 1 = on, 0 = off
 # removes flickering in alacritty terminal emeulator.
 # defaults to off since the behaviour in other terminal emulators is unknown
-; alacritty_sync = 0
+; alacritty_sync = 1
 
 [color]
 
@@ -145,8 +151,8 @@
 ; foreground = default
 
 # SDL only support hex code colors, these are the default:
- background = '#171213'
- foreground = '#a7c3c6'
+ background = '#131311'
+ foreground = '#f3f0e2'
 
 
 # Gradient mode, only hex defined colors are supported,
@@ -154,14 +160,14 @@
 # You can define as many as 8 different colors. They range from bottom to top of screen
  gradient = 1
  gradient_count = 8
- gradient_color_1 = '#2A5F66'
- gradient_color_2 = '#526261'
- gradient_color_3 = '#A17647'
- gradient_color_4 = '#3C926A'
- gradient_color_5 = '#38708E'
- gradient_color_6 = '#23BCB7'
- gradient_color_7 = '#a7c3c6'
- gradient_color_8 = '#74888a'
+ gradient_color_1 = '#4E7A8A'
+ gradient_color_2 = '#4391A7'
+ gradient_color_3 = '#A0A897'
+ gradient_color_4 = '#C3BBA3'
+ gradient_color_5 = '#DACBA9'
+ gradient_color_6 = '#E4D3AE'
+ gradient_color_7 = '#f3f0e2'
+ gradient_color_8 = '#aaa89e'
 
 
 [smoothing]
@@ -178,7 +184,7 @@
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
 # DEPRECATED as of 0.8.0, use noise_reduction instead
-; gravity = 300
+; gravity = 100
 
 
 # In bar height, bars that would have been lower that this will not be drawn.

@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gibranlp">
+
+    <title>SpectrumOS Lightdm Greeter</title>
+
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/mock.js"></script>
+    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/colors.css" />
+    
+    <style type="text/css">
+        @import url('file:///usr/share/lightdm-webkit/themes/SpectrumOS/css/colors.css');
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #000000;
+            font-family: "Source Code Pro", monospace;
+            overflow: hidden;
+            margin: 0;
+        }
+        #bottombar {
+            position: absolute;
+            bottom: 0;
+            font-weight: bold;
+            text-shadow: 1px 1px var(--color0);
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            color: #fff;
+            backdrop-filter: blur(1em);
+            -webkit-backdrop-filter: blur(1em);
+        }
+        #bottombar span {
+            margin: 0 10px;
+        }
+        #motherOfAllContainers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+        #inputBoxesContainer {
+            max-width: 600px;
+            width: 60%;
+            border-radius: 21px;
+        }
+        .title {
+            text-shadow: 1px 1px 5px var(--color0);
+            font-size: 5em;
+        }
+        .subtitle {
+            text-shadow: 1px 1px 5px var(--color0);
+            font-size: 3em;
+            margin-top: -20px;
+        }
+        .form-control {
+            width: 60%;
+            margin: 10px 120px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: var(--color3);
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5em;
+        }
+
+        #sessionDisplay {
+            background-color: var(--color0);
+            border-radius: 4px;
+            color: var(--color3);
+            font-weight: bold;
+            padding: 5px 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        .multicolor-input {
+            background-image: linear-gradient(to right, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7));
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .input-blur {
+            backdrop-filter: blur(1em);
+            -webkit-backdrop-filter: blur(1em);
+        }
+    </style>
+</head>
+<body>
+    <div id="bottombar">
+        <p>
+            <span style="color:var(--color1)">⎇ + D :: Shutdown</span>
+            <span style="color:var(--color2)">⎇ + R :: Restart</span>
+            <span style="color:var(--color3)">⎇ + P :: Suspend</span>
+            <span style="color:var(--color4)">⎇ + H :: Hibernate</span>
+            <span style="color:var(--color5)">⎇ + S :: Cycle Sessions</span>
+            <span style="color:var(--color6)">⎇ + L :: Cycle Users</span>
+        </p>
+    </div>
+    <div id="motherOfAllContainers">
+        <div id="inputBoxesContainer">
+            <h1 class="title">
+                <span style="color:var(--color1);font-size:1.5em">S</span><span style="color:var(--color2)">P</span><span style="color:var(--color3)">E</span><span style="color:var(--color4)">C</span><span style="color:var(--color5)">T</span><span style="color:var(--color4)">R</span><span style="color:var(--color3)">U</span><span style="color:var(--color2)">M</span><span style="color:var(--color0);font-size:1.5em">O</span><span style="color:var(--color7);font-size:1.5em">S</span>
+            </h1>
+            <h1 class="subtitle">
+                <span style="color:var(--color7)">></span>
+                <span style="color:var(--color1)">W</span>
+                <span style="color:var(--color2)">E</span>
+                <span style="color:var(--color3)">L</span>
+                <span style="color:var(--color4)">C</span>
+                <span style="color:var(--color5)">O</span>
+                <span style="color:var(--color6)">M</span>
+                <span style="color:var(--color7)">E</span>
+                <span style="color:var(--color0)"><</span>
+            </h1>
+            <div>
+                <div><input type="text" name="username" id="username" class="form-control multicolor-input input-blur" placeholder=""></div>
+                <input type="password" name="password" id="password" class="form-control multicolor-input input-blur" placeholder="">
+                <div id="messageBox" style="display: none; margin-top: 10px;width:60%;margin:10px 120px;font-size: 1.5em;font-weight: 600;" class="multicolor-input">Access Denied</div>
+            </div>
+            <div id="sessionDisplay">
+                Session: <span id="sessionNameContainer"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
