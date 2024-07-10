@@ -76,7 +76,6 @@ bar_size=30
 
 # Terminal 
 terminal = "alacritty"
-
 # Format of the prompt
 prompt = "$".format(os.environ["USER"], socket.gethostname()) 
 

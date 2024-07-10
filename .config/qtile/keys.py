@@ -26,7 +26,7 @@ keys = [
     Key([mod], "Return", lazy.layout.spawn_split(rofi_launcher, "x")), # Open Rofi launcher on X split
     Key([mod, "shift"], "Return", lazy.layout.spawn_split(rofi_launcher, "y")), # Open Rofi launcher on Y split
 
-    Key([mod], "z",lazy.function(change_wallpaper)), # Set random wallpaper
+    Key([mod], "z",lazy.spawn(home + '/.local/bin/SOS_Wallpaper')), # Set random wallpaper
 
     # Rofi Widgets
     Key([mod],"b",lazy.function(network_widget)), # Network Settings

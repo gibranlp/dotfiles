@@ -10,6 +10,7 @@ function authentication_complete() {
         lightdm.login(lightdm.authentication_user, selectedSession.key);
     } else {
         showMessage("Access Denied");
+        jQuery("#password").val('');
     }
 }
 
